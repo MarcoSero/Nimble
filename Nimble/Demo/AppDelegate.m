@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "Nimble.h"
+#import "Book.h"
+#import "NSManagedObject+Creation.h"
 
 @implementation AppDelegate
 
@@ -16,8 +18,13 @@
     // Override point for customization after application launch.
   
   [NimbleStore setupStore];
-  
-    return YES;
+  [NimbleStore saveMainContextWithChangesAndWait:^(NSManagedObjectContext *context) {
+    Book *book = [Book createInContext:context];
+  }];
+
+  NSLog(@"all books %@", [Book nb_findAll]);
+
+  return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

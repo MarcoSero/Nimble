@@ -55,7 +55,9 @@
 {
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass(self)];
   fetchRequest.predicate = predicate;
-  fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:sortTerm ascending:ascending]];
+  if (sortTerm) {
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:sortTerm ascending:ascending]];
+  }
   NSArray *results = [NimbleStore executeFetchRequest:fetchRequest inContext:context];
   return results;
 }

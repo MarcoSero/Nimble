@@ -12,6 +12,7 @@
 		62DD229CF7C9ABD4254C844C /* _Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD204504080067BE4CD7E5 /* _Book.m */; };
 		62DD23298D59557697B34FEE /* _Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2AB84626163E6F9D36D8 /* _Author.m */; };
 		62DD245D3DE9669B8B84FD89 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD20EAC6243989A1D4A419 /* Book.m */; };
+		62DD2508477E79420070C126 /* NSManagedObject+Creation.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2AE3CD6E8D9F6BC7F3B8 /* NSManagedObject+Creation.m */; };
 		62DD259E408F1480B9906E3F /* NSManagedObjectContext+NimbleContexts.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD25B15B558D1D1614A693 /* NSManagedObjectContext+NimbleContexts.m */; };
 		62DD25E0A6D607F6ABC57B87 /* _Reader.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2497A8CBB2759A7A29D9 /* _Reader.m */; };
 		62DD27496432851BE632B99B /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2191E6747EF66EFA5B52 /* Author.m */; };
@@ -39,6 +40,7 @@
 		62DD2191E6747EF66EFA5B52 /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
 		62DD21A5B2AC3F231528AA18 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		62DD22A01D136EE316092FA5 /* Reader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reader.m; sourceTree = "<group>"; };
+		62DD23992249FF1715469BD8 /* NSManagedObject+Creation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Creation.h"; sourceTree = "<group>"; };
 		62DD23E162ACB112F24EBB6D /* NSManagedObjectContext+NimbleContexts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+NimbleContexts.h"; sourceTree = "<group>"; };
 		62DD2497A8CBB2759A7A29D9 /* _Reader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Reader.m; sourceTree = "<group>"; };
 		62DD24A0532B09667826A247 /* _Reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Reader.h; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 		62DD29B1A6589805BC67D0D2 /* _Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Author.h; sourceTree = "<group>"; };
 		62DD2A01E1ADBB85C75CE74E /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 		62DD2AB84626163E6F9D36D8 /* _Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Author.m; sourceTree = "<group>"; };
+		62DD2AE3CD6E8D9F6BC7F3B8 /* NSManagedObject+Creation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Creation.m"; sourceTree = "<group>"; };
 		62DD2AEBAD286CA5060CCB0F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		62DD2C767395D1BFD589BE4E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		62DD2F092DCFE5122BD954CE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -218,6 +221,8 @@
 				A9040B88178E0EE700CCE8EF /* NSManagedObject+Finders.m */,
 				62DD25B15B558D1D1614A693 /* NSManagedObjectContext+NimbleContexts.m */,
 				62DD23E162ACB112F24EBB6D /* NSManagedObjectContext+NimbleContexts.h */,
+				62DD2AE3CD6E8D9F6BC7F3B8 /* NSManagedObject+Creation.m */,
+				62DD23992249FF1715469BD8 /* NSManagedObject+Creation.h */,
 			);
 			path = Nimble;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 				62DD229CF7C9ABD4254C844C /* _Book.m in Sources */,
 				62DD25E0A6D607F6ABC57B87 /* _Reader.m in Sources */,
 				62DD259E408F1480B9906E3F /* NSManagedObjectContext+NimbleContexts.m in Sources */,
+				62DD2508477E79420070C126 /* NSManagedObject+Creation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

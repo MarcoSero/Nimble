@@ -107,7 +107,6 @@
 + (NSArray *)executeFetchRequest:(NSFetchRequest *)request inContext:(NimbleContext)context
 {
   NSParameterAssert(request);
-  NSParameterAssert(context);
 
   if (context == NimbleMainContext) {
     return [sing.mainContext executeFetchRequest:request error:nil];
