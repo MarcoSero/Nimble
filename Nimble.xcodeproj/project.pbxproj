@@ -7,20 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62DD214A52EBAE4B68DA7CF1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62DD2867E7159881EE6F7859 /* MainStoryboard.storyboard */; };
+		62DD21B716E4188A8AFA750A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2C767395D1BFD589BE4E /* ViewController.m */; };
+		62DD229CF7C9ABD4254C844C /* _Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD204504080067BE4CD7E5 /* _Book.m */; };
+		62DD23298D59557697B34FEE /* _Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2AB84626163E6F9D36D8 /* _Author.m */; };
+		62DD245D3DE9669B8B84FD89 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD20EAC6243989A1D4A419 /* Book.m */; };
+		62DD259E408F1480B9906E3F /* NSManagedObjectContext+NimbleContexts.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD25B15B558D1D1614A693 /* NSManagedObjectContext+NimbleContexts.m */; };
+		62DD25E0A6D607F6ABC57B87 /* _Reader.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2497A8CBB2759A7A29D9 /* _Reader.m */; };
+		62DD27496432851BE632B99B /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2191E6747EF66EFA5B52 /* Author.m */; };
+		62DD28BC1B0827C5BEE816F2 /* Model.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 62DD21A5B2AC3F231528AA18 /* Model.xcdatamodel */; };
+		62DD2EBBF1D9C5CEBEB7F330 /* Reader.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD22A01D136EE316092FA5 /* Reader.m */; };
+		62DD2F5A34897B71C59F24B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD213AD61FA8E29FEDF5BB /* AppDelegate.m */; };
 		A9040B5F178E0ECC00CCE8EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9040B5E178E0ECC00CCE8EF /* UIKit.framework */; };
 		A9040B61178E0ECC00CCE8EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9040B60178E0ECC00CCE8EF /* Foundation.framework */; };
 		A9040B63178E0ECC00CCE8EF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9040B62178E0ECC00CCE8EF /* CoreGraphics.framework */; };
 		A9040B69178E0ECC00CCE8EF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9040B67178E0ECC00CCE8EF /* InfoPlist.strings */; };
 		A9040B6B178E0ECC00CCE8EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9040B6A178E0ECC00CCE8EF /* main.m */; };
-		A9040B6F178E0ECC00CCE8EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9040B6E178E0ECC00CCE8EF /* AppDelegate.m */; };
 		A9040B71178E0ECC00CCE8EF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A9040B70178E0ECC00CCE8EF /* Default.png */; };
 		A9040B73178E0ECC00CCE8EF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9040B72178E0ECC00CCE8EF /* Default@2x.png */; };
 		A9040B75178E0ECC00CCE8EF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9040B74178E0ECC00CCE8EF /* Default-568h@2x.png */; };
-		A9040B78178E0ECC00CCE8EF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9040B76178E0ECC00CCE8EF /* MainStoryboard.storyboard */; };
-		A9040B7B178E0ECC00CCE8EF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9040B7A178E0ECC00CCE8EF /* ViewController.m */; };
+		A9040B89178E0EE700CCE8EF /* NimbleStore+Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A9040B84178E0EE700CCE8EF /* NimbleStore+Defaults.m */; };
+		A9040B8A178E0EE700CCE8EF /* NimbleStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A9040B86178E0EE700CCE8EF /* NimbleStore.m */; };
+		A9040B8B178E0EE700CCE8EF /* NSManagedObject+Finders.m in Sources */ = {isa = PBXBuildFile; fileRef = A9040B88178E0EE700CCE8EF /* NSManagedObject+Finders.m */; };
+		A9040B90178E106400CCE8EF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9040B8F178E106400CCE8EF /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		62DD204504080067BE4CD7E5 /* _Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Book.m; sourceTree = "<group>"; };
+		62DD20EAC6243989A1D4A419 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		62DD213AD61FA8E29FEDF5BB /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		62DD2191E6747EF66EFA5B52 /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
+		62DD21A5B2AC3F231528AA18 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		62DD22A01D136EE316092FA5 /* Reader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reader.m; sourceTree = "<group>"; };
+		62DD23E162ACB112F24EBB6D /* NSManagedObjectContext+NimbleContexts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+NimbleContexts.h"; sourceTree = "<group>"; };
+		62DD2497A8CBB2759A7A29D9 /* _Reader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Reader.m; sourceTree = "<group>"; };
+		62DD24A0532B09667826A247 /* _Reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Reader.h; sourceTree = "<group>"; };
+		62DD256B7DCB6CEB1EDDE8CB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = Nimble/en.lproj/MainStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
+		62DD25B15B558D1D1614A693 /* NSManagedObjectContext+NimbleContexts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+NimbleContexts.m"; sourceTree = "<group>"; };
+		62DD27F778FCA09459456F2B /* Reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reader.h; sourceTree = "<group>"; };
+		62DD28BB2A0F009467BF967B /* _Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Book.h; sourceTree = "<group>"; };
+		62DD29616FAC6B4CA1D7FBF8 /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
+		62DD29B1A6589805BC67D0D2 /* _Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Author.h; sourceTree = "<group>"; };
+		62DD2A01E1ADBB85C75CE74E /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		62DD2AB84626163E6F9D36D8 /* _Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Author.m; sourceTree = "<group>"; };
+		62DD2AEBAD286CA5060CCB0F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		62DD2C767395D1BFD589BE4E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		62DD2F092DCFE5122BD954CE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A9040B5B178E0ECC00CCE8EF /* Nimble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nimble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9040B5E178E0ECC00CCE8EF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A9040B60178E0ECC00CCE8EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -29,14 +61,17 @@
 		A9040B68178E0ECC00CCE8EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A9040B6A178E0ECC00CCE8EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A9040B6C178E0ECC00CCE8EF /* Nimble-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nimble-Prefix.pch"; sourceTree = "<group>"; };
-		A9040B6D178E0ECC00CCE8EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A9040B6E178E0ECC00CCE8EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A9040B70178E0ECC00CCE8EF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A9040B72178E0ECC00CCE8EF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A9040B74178E0ECC00CCE8EF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		A9040B77178E0ECC00CCE8EF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		A9040B79178E0ECC00CCE8EF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A9040B7A178E0ECC00CCE8EF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A9040B82178E0EE700CCE8EF /* Nimble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nimble.h; sourceTree = "<group>"; };
+		A9040B83178E0EE700CCE8EF /* NimbleStore+Defaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NimbleStore+Defaults.h"; sourceTree = "<group>"; };
+		A9040B84178E0EE700CCE8EF /* NimbleStore+Defaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NimbleStore+Defaults.m"; sourceTree = "<group>"; };
+		A9040B85178E0EE700CCE8EF /* NimbleStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimbleStore.h; sourceTree = "<group>"; };
+		A9040B86178E0EE700CCE8EF /* NimbleStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimbleStore.m; sourceTree = "<group>"; };
+		A9040B87178E0EE700CCE8EF /* NSManagedObject+Finders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Finders.h"; sourceTree = "<group>"; };
+		A9040B88178E0EE700CCE8EF /* NSManagedObject+Finders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Finders.m"; sourceTree = "<group>"; };
+		A9040B8F178E106400CCE8EF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9040B90178E106400CCE8EF /* CoreData.framework in Frameworks */,
 				A9040B5F178E0ECC00CCE8EF /* UIKit.framework in Frameworks */,
 				A9040B61178E0ECC00CCE8EF /* Foundation.framework in Frameworks */,
 				A9040B63178E0ECC00CCE8EF /* CoreGraphics.framework in Frameworks */,
@@ -53,6 +89,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62DD21BFED1A0DD591D467DE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				62DD2867E7159881EE6F7859 /* MainStoryboard.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		62DD25103D792ACE256A6B8A /* Mogenerated */ = {
+			isa = PBXGroup;
+			children = (
+				62DD24A0532B09667826A247 /* _Reader.h */,
+				62DD2AB84626163E6F9D36D8 /* _Author.m */,
+				62DD204504080067BE4CD7E5 /* _Book.m */,
+				62DD29B1A6589805BC67D0D2 /* _Author.h */,
+				62DD2497A8CBB2759A7A29D9 /* _Reader.m */,
+				62DD28BB2A0F009467BF967B /* _Book.h */,
+			);
+			path = Mogenerated;
+			sourceTree = "<group>";
+		};
+		62DD28907972642C31792695 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				62DD22A01D136EE316092FA5 /* Reader.m */,
+				62DD29616FAC6B4CA1D7FBF8 /* Author.h */,
+				62DD2A01E1ADBB85C75CE74E /* Book.h */,
+				62DD27F778FCA09459456F2B /* Reader.h */,
+				62DD20EAC6243989A1D4A419 /* Book.m */,
+				62DD2191E6747EF66EFA5B52 /* Author.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		62DD2A292F8D95C312224D87 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				62DD2F092DCFE5122BD954CE /* AppDelegate.h */,
+				62DD213AD61FA8E29FEDF5BB /* AppDelegate.m */,
+				62DD2FD32EC3C7CAD43F9FBB /* Model */,
+				62DD2CA6BC4731325B39F0C1 /* Controllers */,
+				62DD21BFED1A0DD591D467DE /* View */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		62DD2CA6BC4731325B39F0C1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				62DD2C767395D1BFD589BE4E /* ViewController.m */,
+				62DD2AEBAD286CA5060CCB0F /* ViewController.h */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		62DD2FD32EC3C7CAD43F9FBB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				62DD21A5B2AC3F231528AA18 /* Model.xcdatamodel */,
+				62DD25103D792ACE256A6B8A /* Mogenerated */,
+				62DD28907972642C31792695 /* Classes */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A9040B52178E0ECC00CCE8EF = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +174,7 @@
 		A9040B5D178E0ECC00CCE8EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9040B8F178E106400CCE8EF /* CoreData.framework */,
 				A9040B5E178E0ECC00CCE8EF /* UIKit.framework */,
 				A9040B60178E0ECC00CCE8EF /* Foundation.framework */,
 				A9040B62178E0ECC00CCE8EF /* CoreGraphics.framework */,
@@ -83,12 +185,9 @@
 		A9040B64178E0ECC00CCE8EF /* Nimble */ = {
 			isa = PBXGroup;
 			children = (
-				A9040B6D178E0ECC00CCE8EF /* AppDelegate.h */,
-				A9040B6E178E0ECC00CCE8EF /* AppDelegate.m */,
-				A9040B76178E0ECC00CCE8EF /* MainStoryboard.storyboard */,
-				A9040B79178E0ECC00CCE8EF /* ViewController.h */,
-				A9040B7A178E0ECC00CCE8EF /* ViewController.m */,
+				A9040B81178E0EE700CCE8EF /* Nimble */,
 				A9040B65178E0ECC00CCE8EF /* Supporting Files */,
+				62DD2A292F8D95C312224D87 /* Demo */,
 			);
 			path = Nimble;
 			sourceTree = "<group>";
@@ -107,6 +206,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A9040B81178E0EE700CCE8EF /* Nimble */ = {
+			isa = PBXGroup;
+			children = (
+				A9040B82178E0EE700CCE8EF /* Nimble.h */,
+				A9040B85178E0EE700CCE8EF /* NimbleStore.h */,
+				A9040B86178E0EE700CCE8EF /* NimbleStore.m */,
+				A9040B83178E0EE700CCE8EF /* NimbleStore+Defaults.h */,
+				A9040B84178E0EE700CCE8EF /* NimbleStore+Defaults.m */,
+				A9040B87178E0EE700CCE8EF /* NSManagedObject+Finders.h */,
+				A9040B88178E0EE700CCE8EF /* NSManagedObject+Finders.m */,
+				62DD25B15B558D1D1614A693 /* NSManagedObjectContext+NimbleContexts.m */,
+				62DD23E162ACB112F24EBB6D /* NSManagedObjectContext+NimbleContexts.h */,
+			);
+			path = Nimble;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -114,6 +229,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9040B7E178E0ECC00CCE8EF /* Build configuration list for PBXNativeTarget "Nimble" */;
 			buildPhases = (
+				A9040B91178E124000CCE8EF /* ShellScript */,
 				A9040B57178E0ECC00CCE8EF /* Sources */,
 				A9040B58178E0ECC00CCE8EF /* Frameworks */,
 				A9040B59178E0ECC00CCE8EF /* Resources */,
@@ -162,11 +278,27 @@
 				A9040B71178E0ECC00CCE8EF /* Default.png in Resources */,
 				A9040B73178E0ECC00CCE8EF /* Default@2x.png in Resources */,
 				A9040B75178E0ECC00CCE8EF /* Default-568h@2x.png in Resources */,
-				A9040B78178E0ECC00CCE8EF /* MainStoryboard.storyboard in Resources */,
+				62DD214A52EBAE4B68DA7CF1 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A9040B91178E124000CCE8EF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mogenerator -m Nimble/Demo/Model/Model.xcdatamodel -H Nimble/Demo/Model/Classes -M Nimble/Demo/Model/Mogenerated --template-var arc=true";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A9040B57178E0ECC00CCE8EF /* Sources */ = {
@@ -174,28 +306,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9040B6B178E0ECC00CCE8EF /* main.m in Sources */,
-				A9040B6F178E0ECC00CCE8EF /* AppDelegate.m in Sources */,
-				A9040B7B178E0ECC00CCE8EF /* ViewController.m in Sources */,
+				A9040B89178E0EE700CCE8EF /* NimbleStore+Defaults.m in Sources */,
+				A9040B8A178E0EE700CCE8EF /* NimbleStore.m in Sources */,
+				A9040B8B178E0EE700CCE8EF /* NSManagedObject+Finders.m in Sources */,
+				62DD2F5A34897B71C59F24B7 /* AppDelegate.m in Sources */,
+				62DD28BC1B0827C5BEE816F2 /* Model.xcdatamodel in Sources */,
+				62DD21B716E4188A8AFA750A /* ViewController.m in Sources */,
+				62DD2EBBF1D9C5CEBEB7F330 /* Reader.m in Sources */,
+				62DD245D3DE9669B8B84FD89 /* Book.m in Sources */,
+				62DD27496432851BE632B99B /* Author.m in Sources */,
+				62DD23298D59557697B34FEE /* _Author.m in Sources */,
+				62DD229CF7C9ABD4254C844C /* _Book.m in Sources */,
+				62DD25E0A6D607F6ABC57B87 /* _Reader.m in Sources */,
+				62DD259E408F1480B9906E3F /* NSManagedObjectContext+NimbleContexts.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		62DD2867E7159881EE6F7859 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				62DD256B7DCB6CEB1EDDE8CB /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
 		A9040B67178E0ECC00CCE8EF /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A9040B68178E0ECC00CCE8EF /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		A9040B76178E0ECC00CCE8EF /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A9040B77178E0ECC00CCE8EF /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -298,6 +441,7 @@
 				A9040B80178E0ECC00CCE8EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
