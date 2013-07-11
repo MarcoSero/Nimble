@@ -12,6 +12,8 @@
 
 + (NSManagedObjectContext *)mainContext;
 + (NSManagedObjectContext *)backgroundContext;
+
 + (NSManagedObjectContext *)contextForType:(NimbleContextType)contextType;
++ (NimbleContextType)contextTypeForCurrentThread;
 
 @end

@@ -5,9 +5,12 @@
 //
 
 
+#import <objc/runtime.h>
 #import "NimbleStore.h"
 #import "NimbleStore+Defaults.h"
+#import "NimbleStore+Savers.h"
 #import "NSManagedObjectContext+NimbleContexts.h"
+
 
 #define sing [NimbleStore sharedInstance]
 #define MainThreadAssert NSAssert([NSThread isMainThread], @"%p has been called outside the main thread. Use saveBackgroundContext if you are in a background context", _cmd)
@@ -16,8 +19,9 @@
 @interface NimbleStore ()
 @property (strong, nonatomic) NSManagedObjectContext *mainContext;
 @property (strong, nonatomic) NSManagedObjectContext *backgroundContext;
-@property (strong, nonatomic) dispatch_queue_t backgroundSavingQueue;
 @end
+
+static char BackgroundSavingQueue;
 
 @implementation NimbleStore
 
@@ -66,77 +70,6 @@
                                              object:nil];
 }
 
-#pragma mark - Saving
-
-+ (void)saveInBackground:(NimbleSimpleBlock)changesBlock
-{
-  MainThreadAssert;
-
-  [self saveInBackground:changesBlock withCompletion:nil];
-}
-
-+ (void)saveInBackground:(NimbleSimpleBlock)changesBlock withCompletion:(NimbleErrorBlock)completion
-{
-  NSParameterAssert(changesBlock);
-  MainThreadAssert;
-
-  dispatch_async(sing.backgroundSavingQueue, ^{
-    [self saveBackgroundContextAndWait:changesBlock];
-    dispatch_async(dispatch_get_main_queue(), ^{
-      if (completion) {
-        completion(nil);
-      }
-    });
-  });
-}
-
-
-+ (void)saveMainContext:(NimbleSimpleBlock)changesBlock
-{
-  NSParameterAssert(changesBlock);
-  MainThreadAssert;
-
-  [sing.mainContext performBlock:^{
-    changesBlock(sing.mainContext);
-    [sing.mainContext save:nil];
-  }];
-}
-
-
-+ (void)saveMainContextAndWait:(NimbleSimpleBlock)changesBlock
-{
-  NSParameterAssert(changesBlock);
-  MainThreadAssert;
-
-  [sing.mainContext performBlockAndWait:^{
-    changesBlock(sing.mainContext);
-    [sing.mainContext save:nil];
-  }];
-}
-
-
-+ (void)saveBackgroundContext:(NimbleSimpleBlock)changesBlock
-{
-  NSParameterAssert(changesBlock);
-  BackgroundThreadAssert;
-
-  [sing.backgroundContext performBlock:^{
-    changesBlock(sing.backgroundContext);
-    [sing.backgroundContext save:nil];
-  }];
-}
-
-+ (void)saveBackgroundContextAndWait:(NimbleSimpleBlock)changesBlock
-{
-  NSParameterAssert(changesBlock);
-  BackgroundThreadAssert;
-
-  [sing.backgroundContext performBlockAndWait:^{
-    changesBlock(sing.backgroundContext);
-    [sing.backgroundContext save:nil];
-  }];
-}
-
 #pragma mark - Fetch request
 
 + (NSArray *)executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NimbleContextType)contextType
@@ -164,6 +97,23 @@
 {
   SEL selector = @selector(mergeChangesFromContextDidSaveNotification:);
   [_mainContext performSelectorOnMainThread:selector withObject:notification waitUntilDone:YES];
+}
+
+#pragma mark - Background saving queue
+
+- (dispatch_queue_t)backgroundSavingQueue
+{
+  return objc_getAssociatedObject(self, &BackgroundSavingQueue);
+}
+
++ (dispatch_queue_t)backgroundSavingQueue
+{
+  return objc_getAssociatedObject(sing, &BackgroundSavingQueue);
+}
+
+- (void)setBackgroundSavingQueue:(dispatch_queue_t)queue
+{
+  objc_setAssociatedObject(self, &BackgroundSavingQueue, queue, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 #pragma mark - Dealloc

@@ -8,7 +8,6 @@
 #import <Foundation/Foundation.h>
 #import "NimbleStore.h"
 
-
 @interface NimbleStore (Defaults)
 
 + (NSString *)defaultStoreName;

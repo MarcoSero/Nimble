@@ -26,10 +26,15 @@
   if (contextType == NimbleMainContext) {
     return [self mainContext];
   }
-  else {
-    return [self backgroundContext];
-  }
+  return [self backgroundContext];
 }
 
 
++ (NimbleContextType)contextTypeForCurrentThread
+{
+  if ([NSThread isMainThread]) {
+    return NimbleMainContext;
+  }
+  return NimbleBackgroundContext;
+}
 @end

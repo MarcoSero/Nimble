@@ -12,7 +12,7 @@
 
 + (NSString *)defaultStoreName
 {
-  return [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"];
+  return [NSString stringWithFormat:@"%@.sqlite", [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"]];
 }
 
 + (NSString *)applicationDocumentsDirectory

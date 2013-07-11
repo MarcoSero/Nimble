@@ -8,3 +8,5 @@
 
 #import "NimbleStore.h"
 #import "NSManagedObject+Finders.h"
+#import "NSManagedObject+Creators.h"
+#import "NimbleStore+Savers.h"
