@@ -10,7 +10,7 @@
 
 @implementation NSManagedObject (Creation)
 
-+ (instancetype)createInNimbleContext:(NimbleContext)context
++ (instancetype)createInNimbleContext:(NimbleContextType)context
 {
   NSManagedObjectContext *managedObjectContext;
   if (context == NimbleMainContext) {

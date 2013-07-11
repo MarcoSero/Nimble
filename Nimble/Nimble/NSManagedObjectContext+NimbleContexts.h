@@ -6,10 +6,12 @@
 
 
 #import <Foundation/Foundation.h>
+#import "NimbleStore.h"
 
 @interface NSManagedObjectContext (NimbleContexts)
 
 + (NSManagedObjectContext *)mainContext;
 + (NSManagedObjectContext *)backgroundContext;
++ (NSManagedObjectContext *)contextForType:(NimbleContextType)contextType;
 
 @end

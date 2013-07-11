@@ -21,4 +21,15 @@
   return [NimbleStore backgroundContext];
 }
 
++ (NSManagedObjectContext *)contextForType:(NimbleContextType)contextType
+{
+  if (contextType == NimbleMainContext) {
+    return [self mainContext];
+  }
+  else {
+    return [self backgroundContext];
+  }
+}
+
+
 @end

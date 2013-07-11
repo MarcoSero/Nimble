@@ -18,7 +18,7 @@
     // Override point for customization after application launch.
   
   [NimbleStore setupStore];
-  [NimbleStore saveMainContextWithChangesAndWait:^(NSManagedObjectContext *context) {
+  [NimbleStore saveMainContextAndWait:^(NSManagedObjectContext *context) {
     Book *book = [Book createInContext:context];
   }];
 

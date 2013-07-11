@@ -11,6 +11,6 @@
 @interface NSManagedObject (Creation)
 
 + (instancetype)createInContext:(NSManagedObjectContext *)managedObjectContext;
-+ (instancetype)createInNimbleContext:(NimbleContext)context;
++ (instancetype)createInNimbleContext:(NimbleContextType)context;
 
 @end

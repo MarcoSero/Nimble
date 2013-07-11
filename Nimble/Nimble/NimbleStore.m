@@ -7,12 +7,16 @@
 
 #import "NimbleStore.h"
 #import "NimbleStore+Defaults.h"
+#import "NSManagedObjectContext+NimbleContexts.h"
 
 #define sing [NimbleStore sharedInstance]
+#define MainThreadAssert NSAssert([NSThread isMainThread], @"%p has been called outside the main thread. Use saveBackgroundContext if you are in a background context", _cmd)
+#define BackgroundThreadAssert NSAssert([NSThread isMainThread], @"%p has been called inside the main thread. Use the other savers if you are in the main context", _cmd)
 
 @interface NimbleStore ()
 @property (strong, nonatomic) NSManagedObjectContext *mainContext;
 @property (strong, nonatomic) NSManagedObjectContext *backgroundContext;
+@property (strong, nonatomic) dispatch_queue_t backgroundSavingQueue;
 @end
 
 @implementation NimbleStore
@@ -53,6 +57,8 @@
   [sing.mainContext setPersistentStoreCoordinator:persistentStoreCoordinator];
   [sing.backgroundContext setPersistentStoreCoordinator:persistentStoreCoordinator];
 
+  sing.backgroundSavingQueue = dispatch_queue_create([@"BackgroundSavingQueue" UTF8String], nil);
+
   // register observer to merge contexts
   [[NSNotificationCenter defaultCenter] addObserver:sing
                                            selector:@selector(contextDidSave:)
@@ -62,9 +68,33 @@
 
 #pragma mark - Saving
 
-+ (void)saveMainContextWithChanges:(NimbleSimpleBlock)changesBlock
++ (void)saveInBackground:(NimbleSimpleBlock)changesBlock
+{
+  MainThreadAssert;
+
+  [self saveInBackground:changesBlock withCompletion:nil];
+}
+
++ (void)saveInBackground:(NimbleSimpleBlock)changesBlock withCompletion:(NimbleErrorBlock)completion
 {
   NSParameterAssert(changesBlock);
+  MainThreadAssert;
+
+  dispatch_async(sing.backgroundSavingQueue, ^{
+    [self saveBackgroundContextAndWait:changesBlock];
+    dispatch_async(dispatch_get_main_queue(), ^{
+      if (completion) {
+        completion(nil);
+      }
+    });
+  });
+}
+
+
++ (void)saveMainContext:(NimbleSimpleBlock)changesBlock
+{
+  NSParameterAssert(changesBlock);
+  MainThreadAssert;
 
   [sing.mainContext performBlock:^{
     changesBlock(sing.mainContext);
@@ -72,19 +102,11 @@
   }];
 }
 
-+ (void)saveBackgroundContextWithChanges:(NimbleSimpleBlock)changesBlock
+
++ (void)saveMainContextAndWait:(NimbleSimpleBlock)changesBlock
 {
   NSParameterAssert(changesBlock);
-
-  [sing.backgroundContext performBlock:^{
-    changesBlock(sing.backgroundContext);
-    [sing.backgroundContext save:nil];
-  }];
-}
-
-+ (void)saveMainContextWithChangesAndWait:(NimbleSimpleBlock)changesBlock
-{
-  NSParameterAssert(changesBlock);
+  MainThreadAssert;
 
   [sing.mainContext performBlockAndWait:^{
     changesBlock(sing.mainContext);
@@ -92,9 +114,22 @@
   }];
 }
 
-+ (void)saveBackgroundContextWithChangesAndWait:(NimbleSimpleBlock)changesBlock
+
++ (void)saveBackgroundContext:(NimbleSimpleBlock)changesBlock
 {
   NSParameterAssert(changesBlock);
+  BackgroundThreadAssert;
+
+  [sing.backgroundContext performBlock:^{
+    changesBlock(sing.backgroundContext);
+    [sing.backgroundContext save:nil];
+  }];
+}
+
++ (void)saveBackgroundContextAndWait:(NimbleSimpleBlock)changesBlock
+{
+  NSParameterAssert(changesBlock);
+  BackgroundThreadAssert;
 
   [sing.backgroundContext performBlockAndWait:^{
     changesBlock(sing.backgroundContext);
@@ -104,16 +139,11 @@
 
 #pragma mark - Fetch request
 
-+ (NSArray *)executeFetchRequest:(NSFetchRequest *)request inContext:(NimbleContext)context
++ (NSArray *)executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NimbleContextType)contextType
 {
   NSParameterAssert(request);
 
-  if (context == NimbleMainContext) {
-    return [sing.mainContext executeFetchRequest:request error:nil];
-  }
-  else {
-    return [sing.backgroundContext executeFetchRequest:request error:nil];
-  }
+  return [[NSManagedObjectContext contextForType:contextType] executeFetchRequest:request error:nil];
 }
 
 #pragma mark - Contexts
@@ -127,8 +157,6 @@
 {
   return sing.backgroundContext;
 }
-
-
 
 #pragma mark - Merging
 
