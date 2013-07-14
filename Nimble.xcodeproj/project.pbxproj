@@ -32,7 +32,22 @@
 		A9040B8A178E0EE700CCE8EF /* NimbleStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A9040B86178E0EE700CCE8EF /* NimbleStore.m */; };
 		A9040B8B178E0EE700CCE8EF /* NSManagedObject+Finders.m in Sources */ = {isa = PBXBuildFile; fileRef = A9040B88178E0EE700CCE8EF /* NSManagedObject+Finders.m */; };
 		A9040B90178E106400CCE8EF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9040B8F178E106400CCE8EF /* CoreData.framework */; };
+		A9541F1C1793572A008D92FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9040B60178E0ECC00CCE8EF /* Foundation.framework */; };
+		A9541F1D1793572A008D92FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9040B5E178E0ECC00CCE8EF /* UIKit.framework */; };
+		A9541F231793572A008D92FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9541F211793572A008D92FC /* InfoPlist.strings */; };
+		A9541F251793572A008D92FC /* Nimble_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9541F241793572A008D92FC /* Nimble_Tests.m */; };
+		A9541F2D1793573E008D92FC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9541F2C1793573E008D92FC /* XCTest.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A9541F271793572A008D92FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9040B53178E0ECC00CCE8EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9040B5A178E0ECC00CCE8EF;
+			remoteInfo = Nimble;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		62DD204504080067BE4CD7E5 /* _Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Book.m; sourceTree = "<group>"; };
@@ -78,6 +93,12 @@
 		A9040B87178E0EE700CCE8EF /* NSManagedObject+Finders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Finders.h"; sourceTree = "<group>"; };
 		A9040B88178E0EE700CCE8EF /* NSManagedObject+Finders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Finders.m"; sourceTree = "<group>"; };
 		A9040B8F178E106400CCE8EF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A9541F191793572A008D92FC /* Nimble Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nimble Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9541F201793572A008D92FC /* Nimble Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Nimble Tests-Info.plist"; sourceTree = "<group>"; };
+		A9541F221793572A008D92FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A9541F241793572A008D92FC /* Nimble_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Nimble_Tests.m; sourceTree = "<group>"; };
+		A9541F261793572A008D92FC /* Nimble Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nimble Tests-Prefix.pch"; sourceTree = "<group>"; };
+		A9541F2C1793573E008D92FC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +110,16 @@
 				A9040B5F178E0ECC00CCE8EF /* UIKit.framework in Frameworks */,
 				A9040B61178E0ECC00CCE8EF /* Foundation.framework in Frameworks */,
 				A9040B63178E0ECC00CCE8EF /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9541F161793572A008D92FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9541F2D1793573E008D92FC /* XCTest.framework in Frameworks */,
+				A9541F1D1793572A008D92FC /* UIKit.framework in Frameworks */,
+				A9541F1C1793572A008D92FC /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				A9040B64178E0ECC00CCE8EF /* Nimble */,
+				A9541F1E1793572A008D92FC /* Nimble Tests */,
 				A9040B5D178E0ECC00CCE8EF /* Frameworks */,
 				A9040B5C178E0ECC00CCE8EF /* Products */,
 			);
@@ -173,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				A9040B5B178E0ECC00CCE8EF /* Nimble.app */,
+				A9541F191793572A008D92FC /* Nimble Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -180,6 +213,7 @@
 		A9040B5D178E0ECC00CCE8EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9541F2C1793573E008D92FC /* XCTest.framework */,
 				A9040B8F178E106400CCE8EF /* CoreData.framework */,
 				A9040B5E178E0ECC00CCE8EF /* UIKit.framework */,
 				A9040B60178E0ECC00CCE8EF /* Foundation.framework */,
@@ -232,6 +266,25 @@
 			path = Nimble;
 			sourceTree = "<group>";
 		};
+		A9541F1E1793572A008D92FC /* Nimble Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A9541F241793572A008D92FC /* Nimble_Tests.m */,
+				A9541F1F1793572A008D92FC /* Supporting Files */,
+			);
+			path = "Nimble Tests";
+			sourceTree = "<group>";
+		};
+		A9541F1F1793572A008D92FC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9541F201793572A008D92FC /* Nimble Tests-Info.plist */,
+				A9541F211793572A008D92FC /* InfoPlist.strings */,
+				A9541F261793572A008D92FC /* Nimble Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -253,6 +306,24 @@
 			productReference = A9040B5B178E0ECC00CCE8EF /* Nimble.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A9541F181793572A008D92FC /* Nimble Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9541F291793572A008D92FC /* Build configuration list for PBXNativeTarget "Nimble Tests" */;
+			buildPhases = (
+				A9541F151793572A008D92FC /* Sources */,
+				A9541F161793572A008D92FC /* Frameworks */,
+				A9541F171793572A008D92FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9541F281793572A008D92FC /* PBXTargetDependency */,
+			);
+			name = "Nimble Tests";
+			productName = "Nimble Tests";
+			productReference = A9541F191793572A008D92FC /* Nimble Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -261,6 +332,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Marco Sero";
+				TargetAttributes = {
+					A9541F181793572A008D92FC = {
+						TestTargetID = A9040B5A178E0ECC00CCE8EF;
+					};
+				};
 			};
 			buildConfigurationList = A9040B56178E0ECC00CCE8EF /* Build configuration list for PBXProject "Nimble" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -275,6 +351,7 @@
 			projectRoot = "";
 			targets = (
 				A9040B5A178E0ECC00CCE8EF /* Nimble */,
+				A9541F181793572A008D92FC /* Nimble Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -289,6 +366,14 @@
 				A9040B73178E0ECC00CCE8EF /* Default@2x.png in Resources */,
 				A9040B75178E0ECC00CCE8EF /* Default-568h@2x.png in Resources */,
 				62DD214A52EBAE4B68DA7CF1 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9541F171793572A008D92FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9541F231793572A008D92FC /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,7 +419,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A9541F151793572A008D92FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9541F251793572A008D92FC /* Nimble_Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9541F281793572A008D92FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9040B5A178E0ECC00CCE8EF /* Nimble */;
+			targetProxy = A9541F271793572A008D92FC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		62DD2867E7159881EE6F7859 /* MainStoryboard.storyboard */ = {
@@ -349,6 +450,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				A9040B68178E0ECC00CCE8EF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A9541F211793572A008D92FC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9541F221793572A008D92FC /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -415,6 +524,10 @@
 		A9040B7F178E0ECC00CCE8EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nimble/Nimble-Prefix.pch";
 				INFOPLIST_FILE = "Nimble/Nimble-Info.plist";
@@ -426,11 +539,72 @@
 		A9040B80178E0ECC00CCE8EF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nimble/Nimble-Prefix.pch";
 				INFOPLIST_FILE = "Nimble/Nimble-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A9541F2A1793572A008D92FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Nimble.app/Nimble";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Nimble Tests/Nimble Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "Nimble Tests/Nimble Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		A9541F2B1793572A008D92FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Nimble.app/Nimble";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Nimble Tests/Nimble Tests-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "Nimble Tests/Nimble Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -454,6 +628,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A9541F291793572A008D92FC /* Build configuration list for PBXNativeTarget "Nimble Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9541F2A1793572A008D92FC /* Debug */,
+				A9541F2B1793572A008D92FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
