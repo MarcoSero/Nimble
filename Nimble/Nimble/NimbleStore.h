@@ -29,6 +29,6 @@ typedef void (^NimbleErrorBlock)(NSError *error);
 
 + (NSManagedObjectContext *)mainContext;
 + (NSManagedObjectContext *)backgroundContext;
-+ (dispatch_queue_t)backgroundSavingQueue;
++ (dispatch_queue_t)queueForBackgroundSavings;
 
 @end

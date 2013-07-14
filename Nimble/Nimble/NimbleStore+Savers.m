@@ -9,6 +9,9 @@
 #import "NSManagedObjectContext+NimbleContexts.h"
 #import "NimbleStore+Defaults.h"
 
+#define MainThreadAssert NSAssert([NSThread isMainThread], @"%p has been called outside the main thread. Use saveBackgroundContext if you are in a background context", _cmd)
+#define BackgroundThreadAssert NSAssert([NSThread isMainThread], @"%p has been called inside the main thread. Use the other savers if you are in the main context", _cmd)
+
 @implementation NimbleStore (Savers)
 
 + (void)saveInProperContext:(NimbleSimpleBlock)changes
@@ -46,7 +49,7 @@
 {
   NSParameterAssert(changes);
 
-  dispatch_async([self backgroundSavingQueue], ^{
+  dispatch_async([self queueForBackgroundSavings], ^{
 
     NSManagedObjectContext *backgroundContext = [NSManagedObjectContext backgroundContext];
     [backgroundContext performBlockAndWait:^{

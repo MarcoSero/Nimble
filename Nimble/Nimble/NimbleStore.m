@@ -13,15 +13,12 @@
 
 
 #define sing [NimbleStore sharedInstance]
-#define MainThreadAssert NSAssert([NSThread isMainThread], @"%p has been called outside the main thread. Use saveBackgroundContext if you are in a background context", _cmd)
-#define BackgroundThreadAssert NSAssert([NSThread isMainThread], @"%p has been called inside the main thread. Use the other savers if you are in the main context", _cmd)
 
 @interface NimbleStore ()
 @property (strong, nonatomic) NSManagedObjectContext *mainContext;
 @property (strong, nonatomic) NSManagedObjectContext *backgroundContext;
+@property (strong, nonatomic) dispatch_queue_t queueForBackgroundSavings;
 @end
-
-static char BackgroundSavingQueue;
 
 @implementation NimbleStore
 
@@ -61,7 +58,7 @@ static char BackgroundSavingQueue;
   [sing.mainContext setPersistentStoreCoordinator:persistentStoreCoordinator];
   [sing.backgroundContext setPersistentStoreCoordinator:persistentStoreCoordinator];
 
-  sing.backgroundSavingQueue = dispatch_queue_create([@"BackgroundSavingQueue" UTF8String], nil);
+  sing.queueForBackgroundSavings = dispatch_queue_create([@"BackgroundSavingQueue" UTF8String], nil);
 
   // register observer to merge contexts
   [[NSNotificationCenter defaultCenter] addObserver:sing
@@ -101,19 +98,9 @@ static char BackgroundSavingQueue;
 
 #pragma mark - Background saving queue
 
-- (dispatch_queue_t)backgroundSavingQueue
++ (dispatch_queue_t)queueForBackgroundSavings
 {
-  return objc_getAssociatedObject(self, &BackgroundSavingQueue);
-}
-
-+ (dispatch_queue_t)backgroundSavingQueue
-{
-  return objc_getAssociatedObject(sing, &BackgroundSavingQueue);
-}
-
-- (void)setBackgroundSavingQueue:(dispatch_queue_t)queue
-{
-  objc_setAssociatedObject(self, &BackgroundSavingQueue, queue, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+  return sing.queueForBackgroundSavings;
 }
 
 #pragma mark - Dealloc

@@ -36,7 +36,7 @@
 /**
 * Perform all the changes in a background queue and then merge everything into the main context.
 * The completion block is called straight after the background context has been saved and
-* all the changes might be not yet merged into the main context.
+* all the changes might not be merged into the main context yet.
 *
 */
 + (void)saveInBackground:(NimbleSimpleBlock)changes completion:(NimbleErrorBlock)completion;
