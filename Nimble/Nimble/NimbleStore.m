@@ -14,7 +14,7 @@
 @interface NimbleStore ()
 @property (strong, nonatomic) NSManagedObjectContext *mainContext;
 @property (strong, nonatomic) NSManagedObjectContext *backgroundContext;
-@property (strong, nonatomic) dispatch_queue_t queueForBackgroundSavings;
+@property (strong, nonatomic) NSOperationQueue *queueForBackgroundSavings;
 @end
 
 static NimbleStore *mainStore;
@@ -48,7 +48,8 @@ static NimbleStore *mainStore;
   [mainStore.mainContext setPersistentStoreCoordinator:persistentStoreCoordinator];
   [mainStore.backgroundContext setPersistentStoreCoordinator:persistentStoreCoordinator];
 
-  mainStore.queueForBackgroundSavings = dispatch_queue_create([@"BackgroundSavingQueue" UTF8String], nil);
+  mainStore.queueForBackgroundSavings = [[NSOperationQueue alloc] init];
+  mainStore.queueForBackgroundSavings.maxConcurrentOperationCount = 1;
 
   // register observer to merge contexts
   [[NSNotificationCenter defaultCenter] addObserver:mainStore
@@ -88,7 +89,7 @@ static NimbleStore *mainStore;
 
 #pragma mark - Background saving queue
 
-+ (dispatch_queue_t)queueForBackgroundSavings
++ (NSOperationQueue *)queueForBackgroundSavings
 {
   return mainStore.queueForBackgroundSavings;
 }

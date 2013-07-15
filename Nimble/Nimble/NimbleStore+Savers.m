@@ -49,7 +49,7 @@
 {
   NSParameterAssert(changes);
 
-  dispatch_async([self queueForBackgroundSavings], ^{
+  [[self queueForBackgroundSavings] addOperationWithBlock:^{
 
     NSManagedObjectContext *backgroundContext = [NSManagedObjectContext backgroundContext];
     [backgroundContext performBlockAndWait:^{
@@ -62,7 +62,8 @@
         completion(nil);
       }
     });
-  });
+
+  }];
 }
 
 
