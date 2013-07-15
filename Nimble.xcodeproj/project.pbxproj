@@ -44,6 +44,7 @@
 		A9541F3317935ACE008D92FC /* NimbleStore+Savers.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD26F1ACA1C144F87848C8 /* NimbleStore+Savers.m */; };
 		A9541F3617935B88008D92FC /* NimbleStackCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9541F3517935B88008D92FC /* NimbleStackCreationTests.m */; };
 		A9541F3717935C73008D92FC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9040B8F178E106400CCE8EF /* CoreData.framework */; };
+		A97225B017949A88005C6DDE /* NimbleSaversTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2F89D3C30BFCFA6C2FB0 /* NimbleSaversTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		62DD2C767395D1BFD589BE4E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		62DD2E822FFD9DE064D35949 /* NSManagedObject+Creators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Creators.h"; sourceTree = "<group>"; };
 		62DD2F092DCFE5122BD954CE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		62DD2F89D3C30BFCFA6C2FB0 /* NimbleSaversTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NimbleSaversTests.m; path = Tests/NimbleSaversTests.m; sourceTree = "<group>"; };
 		A9040B5B178E0ECC00CCE8EF /* Nimble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nimble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9040B5E178E0ECC00CCE8EF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A9040B60178E0ECC00CCE8EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -279,6 +281,7 @@
 			children = (
 				A9541F1F1793572A008D92FC /* Supporting Files */,
 				A9541F3517935B88008D92FC /* NimbleStackCreationTests.m */,
+				62DD2F89D3C30BFCFA6C2FB0 /* NimbleSaversTests.m */,
 			);
 			path = "Nimble Tests";
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				A9541F2E17935AAC008D92FC /* NimbleStore.m in Sources */,
 				A9541F3617935B88008D92FC /* NimbleStackCreationTests.m in Sources */,
 				A9541F3317935ACE008D92FC /* NimbleStore+Savers.m in Sources */,
+				A97225B017949A88005C6DDE /* NimbleSaversTests.m in Sources */,
 				A9541F3017935AB2008D92FC /* NSManagedObject+Finders.m in Sources */,
 				A9541F3217935AC0008D92FC /* NSManagedObject+Creators.m in Sources */,
 				A9541F3117935AB7008D92FC /* NSManagedObjectContext+NimbleContexts.m in Sources */,

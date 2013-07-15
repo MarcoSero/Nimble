@@ -6,9 +6,6 @@
 //  Copyright (c) 2013 Marco Sero. All rights reserved.
 //
 
-#import "NimbleStore.h"
-#import "NimbleStore+Defaults.h"
-
 @interface NimbleStackCreationTests : XCTestCase
 @property (strong, nonatomic) NSString *customStoreName;
 @property (strong, nonatomic) NSString *defaultPath;
@@ -32,13 +29,13 @@
   [super tearDown];
 }
 
-- (void)testDefaultSetup
+- (void)testFirstSetup
 {
   [NimbleStore setupStore];
   XCTAssertTrue([[NSFileManager defaultManager] fileExistsAtPath:_defaultPath]);
 }
 
-- (void)testDoubleSetup
+- (void)testSecondSetup
 {
   XCTAssertThrows(([NimbleStore setupStoreWithFilename:_customStoreName]), @"");
 }

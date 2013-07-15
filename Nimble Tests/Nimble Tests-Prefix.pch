@@ -9,4 +9,5 @@
   #import <Foundation/Foundation.h>
 #import <XCTest/XCTest.h>
 #import <CoreData/CoreData.h>
+#import "Nimble.h"
 #endif
