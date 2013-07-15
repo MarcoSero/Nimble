@@ -12,25 +12,24 @@
 #import "NSManagedObjectContext+NimbleContexts.h"
 
 
-#define sing [NimbleStore sharedInstance]
-
 @interface NimbleStore ()
 @property (strong, nonatomic) NSManagedObjectContext *mainContext;
 @property (strong, nonatomic) NSManagedObjectContext *backgroundContext;
 @property (strong, nonatomic) dispatch_queue_t queueForBackgroundSavings;
 @end
 
+static NimbleStore *mainStore;
+
 @implementation NimbleStore
 
 + (NimbleStore *)sharedInstance
 {
   static dispatch_once_t onceToken;
-  static NimbleStore *singleton;
   dispatch_once(&onceToken, ^{
-    singleton = [[NimbleStore alloc] init];
+    mainStore = [[NimbleStore alloc] init];
   });
 
-  return singleton;
+  return mainStore;
 }
 
 #pragma mark - Setup store
@@ -42,7 +41,7 @@
 
 + (void)setupStoreWithFilename:(NSString *)filename
 {
-  NSAssert(!sing.mainContext && !sing.backgroundContext, @"Store already was already set up", nil);
+  NSAssert(!mainStore.mainContext && !mainStore.backgroundContext, @"Store already was already set up", nil);
   NSParameterAssert(filename);
 
   NSManagedObjectModel *model = [NSManagedObjectModel mergedModelFromBundles:nil];
@@ -53,18 +52,18 @@
   NSError *error;
   [persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:nil error:&error];
 
-  sing.mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-  sing.backgroundContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-  [sing.mainContext setPersistentStoreCoordinator:persistentStoreCoordinator];
-  [sing.backgroundContext setPersistentStoreCoordinator:persistentStoreCoordinator];
+  mainStore.mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+  mainStore.backgroundContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+  [mainStore.mainContext setPersistentStoreCoordinator:persistentStoreCoordinator];
+  [mainStore.backgroundContext setPersistentStoreCoordinator:persistentStoreCoordinator];
 
-  sing.queueForBackgroundSavings = dispatch_queue_create([@"BackgroundSavingQueue" UTF8String], nil);
+  mainStore.queueForBackgroundSavings = dispatch_queue_create([@"BackgroundSavingQueue" UTF8String], nil);
 
   // register observer to merge contexts
-  [[NSNotificationCenter defaultCenter] addObserver:sing
+  [[NSNotificationCenter defaultCenter] addObserver:mainStore
                                            selector:@selector(contextDidSave:)
                                                name:NSManagedObjectContextDidSaveNotification
-                                             object:nil];
+                                             object:mainStore.backgroundContext];
 }
 
 #pragma mark - Fetch request
@@ -80,12 +79,12 @@
 
 + (NSManagedObjectContext *)mainContext
 {
-  return sing.mainContext;
+  return mainStore.mainContext;
 }
 
 + (NSManagedObjectContext *)backgroundContext
 {
-  return sing.backgroundContext;
+  return mainStore.backgroundContext;
 }
 
 #pragma mark - Merging
@@ -100,14 +99,14 @@
 
 + (dispatch_queue_t)queueForBackgroundSavings
 {
-  return sing.queueForBackgroundSavings;
+  return mainStore.queueForBackgroundSavings;
 }
 
 #pragma mark - Dealloc
 
 - (void)dealloc
 {
-  [[NSNotificationCenter defaultCenter] removeObserver:sing];
+  [[NSNotificationCenter defaultCenter] removeObserver:mainStore];
 }
 
 @end
