@@ -67,7 +67,7 @@
 		62DD22A01D136EE316092FA5 /* Reader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reader.m; sourceTree = "<group>"; };
 		62DD2497A8CBB2759A7A29D9 /* _Reader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Reader.m; sourceTree = "<group>"; };
 		62DD24A0532B09667826A247 /* _Reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Reader.h; sourceTree = "<group>"; };
-		62DD256B7DCB6CEB1EDDE8CB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = Nimble/en.lproj/MainStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
+		62DD256B7DCB6CEB1EDDE8CB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = NimbleDemo/en.lproj/MainStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
 		62DD25C177CDA6869D4E8E31 /* NSManagedObjectContext+NimbleContexts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+NimbleContexts.m"; sourceTree = "<group>"; };
 		62DD25D6FED930D81F3498E2 /* NSManagedObjectContext+NimbleContexts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+NimbleContexts.h"; sourceTree = "<group>"; };
 		62DD274A54F5D5F2A543FA5C /* NimbleStore+Defaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NimbleStore+Defaults.m"; sourceTree = "<group>"; };
@@ -89,23 +89,23 @@
 		62DD2DCF294604E4A28EAB96 /* NimbleStore+Savers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NimbleStore+Savers.h"; sourceTree = "<group>"; };
 		62DD2F092DCFE5122BD954CE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		62DD2F89D3C30BFCFA6C2FB0 /* NimbleSaversTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NimbleSaversTests.m; path = Tests/NimbleSaversTests.m; sourceTree = "<group>"; };
-		A9040B5B178E0ECC00CCE8EF /* Nimble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nimble.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9040B5B178E0ECC00CCE8EF /* NimbleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NimbleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9040B5E178E0ECC00CCE8EF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A9040B60178E0ECC00CCE8EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A9040B62178E0ECC00CCE8EF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		A9040B66178E0ECC00CCE8EF /* Nimble-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Nimble-Info.plist"; sourceTree = "<group>"; };
+		A9040B66178E0ECC00CCE8EF /* NimbleDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "NimbleDemo-Info.plist"; sourceTree = "<group>"; };
 		A9040B68178E0ECC00CCE8EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A9040B6A178E0ECC00CCE8EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A9040B6C178E0ECC00CCE8EF /* Nimble-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nimble-Prefix.pch"; sourceTree = "<group>"; };
+		A9040B6C178E0ECC00CCE8EF /* NimbleDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NimbleDemo-Prefix.pch"; sourceTree = "<group>"; };
 		A9040B70178E0ECC00CCE8EF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A9040B72178E0ECC00CCE8EF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A9040B74178E0ECC00CCE8EF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A9040B82178E0EE700CCE8EF /* Nimble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nimble.h; sourceTree = "<group>"; };
 		A9040B8F178E106400CCE8EF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		A9541F191793572A008D92FC /* Nimble Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nimble Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9541F201793572A008D92FC /* Nimble Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Nimble Tests-Info.plist"; sourceTree = "<group>"; };
+		A9541F191793572A008D92FC /* NimbleDemo Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NimbleDemo Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9541F201793572A008D92FC /* NimbleDemo Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "NimbleDemo Tests-Info.plist"; sourceTree = "<group>"; };
 		A9541F221793572A008D92FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A9541F261793572A008D92FC /* Nimble Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nimble Tests-Prefix.pch"; sourceTree = "<group>"; };
+		A9541F261793572A008D92FC /* NimbleDemo Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NimbleDemo Tests-Prefix.pch"; sourceTree = "<group>"; };
 		A9541F2C1793573E008D92FC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A9541F3517935B88008D92FC /* NimbleStackCreationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NimbleStackCreationTests.m; path = Tests/NimbleStackCreationTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -230,8 +230,8 @@
 		A9040B52178E0ECC00CCE8EF = {
 			isa = PBXGroup;
 			children = (
-				A9040B64178E0ECC00CCE8EF /* Nimble */,
-				A9541F1E1793572A008D92FC /* Nimble Tests */,
+				A9040B64178E0ECC00CCE8EF /* NimbleDemo */,
+				A9541F1E1793572A008D92FC /* NimbleDemo Tests */,
 				A9040B5D178E0ECC00CCE8EF /* Frameworks */,
 				A9040B5C178E0ECC00CCE8EF /* Products */,
 			);
@@ -240,8 +240,8 @@
 		A9040B5C178E0ECC00CCE8EF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A9040B5B178E0ECC00CCE8EF /* Nimble.app */,
-				A9541F191793572A008D92FC /* Nimble Tests.xctest */,
+				A9040B5B178E0ECC00CCE8EF /* NimbleDemo.app */,
+				A9541F191793572A008D92FC /* NimbleDemo Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -258,23 +258,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A9040B64178E0ECC00CCE8EF /* Nimble */ = {
+		A9040B64178E0ECC00CCE8EF /* NimbleDemo */ = {
 			isa = PBXGroup;
 			children = (
 				A9040B81178E0EE700CCE8EF /* Nimble */,
 				A9040B65178E0ECC00CCE8EF /* Supporting Files */,
 				62DD2A292F8D95C312224D87 /* Demo */,
 			);
-			path = Nimble;
+			path = NimbleDemo;
 			sourceTree = "<group>";
 		};
 		A9040B65178E0ECC00CCE8EF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A9040B66178E0ECC00CCE8EF /* Nimble-Info.plist */,
+				A9040B66178E0ECC00CCE8EF /* NimbleDemo-Info.plist */,
 				A9040B67178E0ECC00CCE8EF /* InfoPlist.strings */,
 				A9040B6A178E0ECC00CCE8EF /* main.m */,
-				A9040B6C178E0ECC00CCE8EF /* Nimble-Prefix.pch */,
+				A9040B6C178E0ECC00CCE8EF /* NimbleDemo-Prefix.pch */,
 				A9040B70178E0ECC00CCE8EF /* Default.png */,
 				A9040B72178E0ECC00CCE8EF /* Default@2x.png */,
 				A9040B74178E0ECC00CCE8EF /* Default-568h@2x.png */,
@@ -289,25 +289,26 @@
 				62DD25BDCF548A56B79774A2 /* Main Store */,
 				62DD257BEF9CDBB16BE51BC9 /* Categories */,
 			);
-			path = Nimble;
+			name = Nimble;
+			path = ../Nimble;
 			sourceTree = "<group>";
 		};
-		A9541F1E1793572A008D92FC /* Nimble Tests */ = {
+		A9541F1E1793572A008D92FC /* NimbleDemo Tests */ = {
 			isa = PBXGroup;
 			children = (
 				A9541F1F1793572A008D92FC /* Supporting Files */,
 				A9541F3517935B88008D92FC /* NimbleStackCreationTests.m */,
 				62DD2F89D3C30BFCFA6C2FB0 /* NimbleSaversTests.m */,
 			);
-			path = "Nimble Tests";
+			path = "NimbleDemo Tests";
 			sourceTree = "<group>";
 		};
 		A9541F1F1793572A008D92FC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A9541F201793572A008D92FC /* Nimble Tests-Info.plist */,
+				A9541F201793572A008D92FC /* NimbleDemo Tests-Info.plist */,
 				A9541F211793572A008D92FC /* InfoPlist.strings */,
-				A9541F261793572A008D92FC /* Nimble Tests-Prefix.pch */,
+				A9541F261793572A008D92FC /* NimbleDemo Tests-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -315,9 +316,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A9040B5A178E0ECC00CCE8EF /* Nimble */ = {
+		A9040B5A178E0ECC00CCE8EF /* NimbleDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A9040B7E178E0ECC00CCE8EF /* Build configuration list for PBXNativeTarget "Nimble" */;
+			buildConfigurationList = A9040B7E178E0ECC00CCE8EF /* Build configuration list for PBXNativeTarget "NimbleDemo" */;
 			buildPhases = (
 				A9040B91178E124000CCE8EF /* ShellScript */,
 				A9040B57178E0ECC00CCE8EF /* Sources */,
@@ -328,14 +329,14 @@
 			);
 			dependencies = (
 			);
-			name = Nimble;
+			name = NimbleDemo;
 			productName = Nimble;
-			productReference = A9040B5B178E0ECC00CCE8EF /* Nimble.app */;
+			productReference = A9040B5B178E0ECC00CCE8EF /* NimbleDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A9541F181793572A008D92FC /* Nimble Tests */ = {
+		A9541F181793572A008D92FC /* NimbleDemo Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A9541F291793572A008D92FC /* Build configuration list for PBXNativeTarget "Nimble Tests" */;
+			buildConfigurationList = A9541F291793572A008D92FC /* Build configuration list for PBXNativeTarget "NimbleDemo Tests" */;
 			buildPhases = (
 				A9541F151793572A008D92FC /* Sources */,
 				A9541F161793572A008D92FC /* Frameworks */,
@@ -346,9 +347,9 @@
 			dependencies = (
 				A9541F281793572A008D92FC /* PBXTargetDependency */,
 			);
-			name = "Nimble Tests";
+			name = "NimbleDemo Tests";
 			productName = "Nimble Tests";
-			productReference = A9541F191793572A008D92FC /* Nimble Tests.xctest */;
+			productReference = A9541F191793572A008D92FC /* NimbleDemo Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -361,11 +362,11 @@
 				ORGANIZATIONNAME = "Marco Sero";
 				TargetAttributes = {
 					A9541F181793572A008D92FC = {
-						TestTargetID = A9040B5A178E0ECC00CCE8EF /* Nimble */;
+						TestTargetID = A9040B5A178E0ECC00CCE8EF;
 					};
 				};
 			};
-			buildConfigurationList = A9040B56178E0ECC00CCE8EF /* Build configuration list for PBXProject "Nimble" */;
+			buildConfigurationList = A9040B56178E0ECC00CCE8EF /* Build configuration list for PBXProject "NimbleDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -377,8 +378,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A9040B5A178E0ECC00CCE8EF /* Nimble */,
-				A9541F181793572A008D92FC /* Nimble Tests */,
+				A9040B5A178E0ECC00CCE8EF /* NimbleDemo */,
+				A9541F181793572A008D92FC /* NimbleDemo Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -418,7 +419,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mogenerator -m Nimble/Demo/Model/Model.xcdatamodel -H Nimble/Demo/Model/Classes -M Nimble/Demo/Model/Mogenerated --template-var arc=true";
+			shellScript = "mogenerator -m NimbleDemo/Demo/Model/Model.xcdatamodel -H NimbleDemo/Demo/Model/Classes -M NimbleDemo/Demo/Model/Mogenerated --template-var arc=true";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -466,7 +467,7 @@
 /* Begin PBXTargetDependency section */
 		A9541F281793572A008D92FC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A9040B5A178E0ECC00CCE8EF /* Nimble */;
+			target = A9040B5A178E0ECC00CCE8EF /* NimbleDemo */;
 			targetProxy = A9541F271793572A008D92FC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -563,9 +564,9 @@
 					"$(SRCROOT)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Nimble/Nimble-Prefix.pch";
-				INFOPLIST_FILE = "Nimble/Nimble-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "NimbleDemo/NimbleDemo-Prefix.pch";
+				INFOPLIST_FILE = "NimbleDemo/NimbleDemo-Info.plist";
+				PRODUCT_NAME = NimbleDemo;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -578,9 +579,9 @@
 					"$(SRCROOT)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Nimble/Nimble-Prefix.pch";
-				INFOPLIST_FILE = "Nimble/Nimble-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "NimbleDemo/NimbleDemo-Prefix.pch";
+				INFOPLIST_FILE = "NimbleDemo/NimbleDemo-Info.plist";
+				PRODUCT_NAME = NimbleDemo;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -599,7 +600,7 @@
 					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Nimble Tests/Nimble Tests-Prefix.pch";
+				GCC_PREFIX_HEADER = "Nimble Tests/NimbleDemo Tests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -607,9 +608,9 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = "Nimble Tests/Nimble Tests-Info.plist";
+				INFOPLIST_FILE = "Nimble Tests/NimbleDemo Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "NimbleDemo Tests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -630,13 +631,13 @@
 					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Nimble Tests/Nimble Tests-Prefix.pch";
+				GCC_PREFIX_HEADER = "Nimble Tests/NimbleDemo Tests-Prefix.pch";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = "Nimble Tests/Nimble Tests-Info.plist";
+				INFOPLIST_FILE = "Nimble Tests/NimbleDemo Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "NimbleDemo Tests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -645,7 +646,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A9040B56178E0ECC00CCE8EF /* Build configuration list for PBXProject "Nimble" */ = {
+		A9040B56178E0ECC00CCE8EF /* Build configuration list for PBXProject "NimbleDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A9040B7C178E0ECC00CCE8EF /* Debug */,
@@ -654,7 +655,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A9040B7E178E0ECC00CCE8EF /* Build configuration list for PBXNativeTarget "Nimble" */ = {
+		A9040B7E178E0ECC00CCE8EF /* Build configuration list for PBXNativeTarget "NimbleDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A9040B7F178E0ECC00CCE8EF /* Debug */,
@@ -663,7 +664,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A9541F291793572A008D92FC /* Build configuration list for PBXNativeTarget "Nimble Tests" */ = {
+		A9541F291793572A008D92FC /* Build configuration list for PBXNativeTarget "NimbleDemo Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A9541F2A1793572A008D92FC /* Debug */,

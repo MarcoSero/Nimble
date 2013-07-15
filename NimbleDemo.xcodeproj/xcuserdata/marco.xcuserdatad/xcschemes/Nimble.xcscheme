@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A9040B5A178E0ECC00CCE8EF"
-               BuildableName = "Nimble.app"
-               BlueprintName = "Nimble"
-               ReferencedContainer = "container:Nimble.xcodeproj">
+               BuildableName = "NimbleDemo.app"
+               BlueprintName = "NimbleDemo"
+               ReferencedContainer = "container:NimbleDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A9541F181793572A008D92FC"
-               BuildableName = "Nimble Tests.xctest"
-               BlueprintName = "Nimble Tests"
-               ReferencedContainer = "container:Nimble.xcodeproj">
+               BuildableName = "NimbleDemo Tests.xctest"
+               BlueprintName = "NimbleDemo Tests"
+               ReferencedContainer = "container:NimbleDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A9040B5A178E0ECC00CCE8EF"
-            BuildableName = "Nimble.app"
-            BlueprintName = "Nimble"
-            ReferencedContainer = "container:Nimble.xcodeproj">
+            BuildableName = "NimbleDemo.app"
+            BlueprintName = "NimbleDemo"
+            ReferencedContainer = "container:NimbleDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A9040B5A178E0ECC00CCE8EF"
-            BuildableName = "Nimble.app"
-            BlueprintName = "Nimble"
-            ReferencedContainer = "container:Nimble.xcodeproj">
+            BuildableName = "NimbleDemo.app"
+            BlueprintName = "NimbleDemo"
+            ReferencedContainer = "container:NimbleDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A9040B5A178E0ECC00CCE8EF"
-            BuildableName = "Nimble.app"
-            BlueprintName = "Nimble"
-            ReferencedContainer = "container:Nimble.xcodeproj">
+            BuildableName = "NimbleDemo.app"
+            BlueprintName = "NimbleDemo"
+            ReferencedContainer = "container:NimbleDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
