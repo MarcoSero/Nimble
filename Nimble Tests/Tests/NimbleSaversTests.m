@@ -25,16 +25,16 @@
 
 - (void)testSaveInBackground
 {
-  [NimbleStore saveInBackground:^(NimbleContextType contextType) {
+  [NimbleStore nb_saveInBackground:^(NimbleContextType contextType) {
     XCTAssertFalse(([NSThread mainThread]), @"Is not main thread");
-  } completion:^(NSError *error) {
+  }                     completion:^(NSError *error) {
     XCTAssertTrue(([NSThread mainThread]), @"Is main thread");
   }];
 }
 
 - (void)testSaveInProperContextUsingMainThread
 {
-  [NimbleStore saveInProperContext:^(NimbleContextType contextType) {
+  [NimbleStore nb_saveInProperContext:^(NimbleContextType contextType) {
     XCTAssertTrue(([NSThread mainThread]), @"Is main thread");
   }];
 }
@@ -42,7 +42,7 @@
 - (void)testSaveInProperContextUsingBackgroundThread
 {
   dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    [NimbleStore saveInProperContext:^(NimbleContextType contextType) {
+    [NimbleStore nb_saveInProperContext:^(NimbleContextType contextType) {
       XCTAssertTrue(([NSThread mainThread]), @"Is not main thread");
     }];
   });

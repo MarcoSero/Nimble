@@ -160,48 +160,48 @@
 *
 */
 
-+ (NSFetchedResultsController *)fetchAllWithDelegate:(id <NSFetchedResultsControllerDelegate>)delegate
++ (NSFetchedResultsController *)nb_fetchAllWithDelegate:(id <NSFetchedResultsControllerDelegate>)delegate
 {
-  return [self fetchAllGroupedBy:nil withPredicate:nil sortedBy:nil ascending:NO delegate:delegate inContextType:NimbleMainContext];
+  return [self nb_fetchAllGroupedBy:nil withPredicate:nil sortedBy:nil ascending:NO delegate:delegate inContextType:NimbleMainContext];
 }
 
-+ (NSFetchedResultsController *)fetchAllWithDelegate:(id <NSFetchedResultsControllerDelegate>)delegate inContextType:(NimbleContextType)context
++ (NSFetchedResultsController *)nb_fetchAllWithDelegate:(id <NSFetchedResultsControllerDelegate>)delegate inContextType:(NimbleContextType)context
 {
-  return [self fetchAllGroupedBy:nil withPredicate:nil sortedBy:nil ascending:NO delegate:delegate inContextType:context];
+  return [self nb_fetchAllGroupedBy:nil withPredicate:nil sortedBy:nil ascending:NO delegate:delegate inContextType:context];
 }
 
-+ (NSFetchedResultsController *)fetchAllSortedBy:(NSString *)sortTerm ascending:(BOOL)ascending withPredicate:(NSPredicate *)predicate groupBy:(NSString *)groupingKeyPath delegate:(id <NSFetchedResultsControllerDelegate>)delegate
++ (NSFetchedResultsController *)nb_fetchAllSortedBy:(NSString *)sortTerm ascending:(BOOL)ascending withPredicate:(NSPredicate *)predicate groupBy:(NSString *)groupingKeyPath delegate:(id <NSFetchedResultsControllerDelegate>)delegate
 {
-  return [self fetchAllGroupedBy:nil withPredicate:predicate sortedBy:sortTerm ascending:ascending delegate:delegate inContextType:NimbleMainContext];
+  return [self nb_fetchAllGroupedBy:nil withPredicate:predicate sortedBy:sortTerm ascending:ascending delegate:delegate inContextType:NimbleMainContext];
 }
 
-+ (NSFetchedResultsController *)fetchAllSortedBy:(NSString *)sortTerm ascending:(BOOL)ascending withPredicate:(NSPredicate *)predicate groupBy:(NSString *)groupingKeyPath delegate:(id <NSFetchedResultsControllerDelegate>)delegate inContextType:(NimbleContextType)context
++ (NSFetchedResultsController *)nb_fetchAllSortedBy:(NSString *)sortTerm ascending:(BOOL)ascending withPredicate:(NSPredicate *)predicate groupBy:(NSString *)groupingKeyPath delegate:(id <NSFetchedResultsControllerDelegate>)delegate inContextType:(NimbleContextType)context
 {
-  return [self fetchAllGroupedBy:nil withPredicate:predicate sortedBy:sortTerm ascending:ascending delegate:delegate inContextType:context];
+  return [self nb_fetchAllGroupedBy:nil withPredicate:predicate sortedBy:sortTerm ascending:ascending delegate:delegate inContextType:context];
 }
 
-+ (NSFetchedResultsController *)fetchAllGroupedBy:(NSString *)group withPredicate:(NSPredicate *)predicate sortedBy:(NSString *)sortTerm ascending:(BOOL)ascending
++ (NSFetchedResultsController *)nb_fetchAllGroupedBy:(NSString *)group withPredicate:(NSPredicate *)predicate sortedBy:(NSString *)sortTerm ascending:(BOOL)ascending
 {
-  return [self fetchAllGroupedBy:group withPredicate:predicate sortedBy:sortTerm ascending:ascending delegate:nil inContextType:NimbleMainContext];
+  return [self nb_fetchAllGroupedBy:group withPredicate:predicate sortedBy:sortTerm ascending:ascending delegate:nil inContextType:NimbleMainContext];
 }
 
-+ (NSFetchedResultsController *)fetchAllGroupedBy:(NSString *)group withPredicate:(NSPredicate *)predicate sortedBy:(NSString *)sortTerm ascending:(BOOL)ascending inContextType:(NimbleContextType)context
++ (NSFetchedResultsController *)nb_fetchAllGroupedBy:(NSString *)group withPredicate:(NSPredicate *)predicate sortedBy:(NSString *)sortTerm ascending:(BOOL)ascending inContextType:(NimbleContextType)context
 {
-  return [self fetchAllGroupedBy:group withPredicate:predicate sortedBy:sortTerm ascending:ascending delegate:nil inContextType:context];
+  return [self nb_fetchAllGroupedBy:group withPredicate:predicate sortedBy:sortTerm ascending:ascending delegate:nil inContextType:context];
 }
 
-+ (NSFetchedResultsController *)fetchAllGroupedBy:(NSString *)group withPredicate:(NSPredicate *)predicate sortedBy:(NSString *)sortTerm ascending:(BOOL)ascending delegate:(id <NSFetchedResultsControllerDelegate>)delegate
++ (NSFetchedResultsController *)nb_fetchAllGroupedBy:(NSString *)group withPredicate:(NSPredicate *)predicate sortedBy:(NSString *)sortTerm ascending:(BOOL)ascending delegate:(id <NSFetchedResultsControllerDelegate>)delegate
 {
-  return [self fetchAllGroupedBy:group withPredicate:predicate sortedBy:sortTerm ascending:ascending delegate:delegate inContextType:NimbleMainContext];
+  return [self nb_fetchAllGroupedBy:group withPredicate:predicate sortedBy:sortTerm ascending:ascending delegate:delegate inContextType:NimbleMainContext];
 }
 
-+ (NSFetchedResultsController *)fetchAllGroupedBy:(NSString *)group withPredicate:(NSPredicate *)predicate sortedBy:(NSString *)sortTerm ascending:(BOOL)ascending delegate:(id <NSFetchedResultsControllerDelegate>)delegate inContextType:(NimbleContextType)contextType
++ (NSFetchedResultsController *)nb_fetchAllGroupedBy:(NSString *)group withPredicate:(NSPredicate *)predicate sortedBy:(NSString *)sortTerm ascending:(BOOL)ascending delegate:(id <NSFetchedResultsControllerDelegate>)delegate inContextType:(NimbleContextType)contextType
 {
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass(self.class)];
   fetchRequest.predicate = (predicate) ? predicate : nil;
   fetchRequest.sortDescriptors = (sortTerm) ? @[[NSSortDescriptor sortDescriptorWithKey:sortTerm ascending:ascending]] : nil;
 
-  NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[NSManagedObjectContext contextForType:contextType] sectionNameKeyPath:group cacheName:nil];
+  NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[NSManagedObjectContext nb_contextForType:contextType] sectionNameKeyPath:group cacheName:nil];
   fetchedResultsController.delegate = delegate;
   return fetchedResultsController;
 }
@@ -221,7 +221,7 @@
   fetchRequest.predicate = predicate;
   fetchRequest.sortDescriptors = (sortTerm) ? @[[NSSortDescriptor sortDescriptorWithKey:sortTerm ascending:ascending]] : nil;
   if (fetchLimit > 0) {fetchRequest.fetchLimit = fetchLimit;}
-  NSArray *results = [NimbleStore executeFetchRequest:fetchRequest inContextOfType:context];
+  NSArray *results = [NimbleStore nb_executeFetchRequest:fetchRequest inContextOfType:context];
   return results;
 }
 

@@ -10,10 +10,10 @@
 
 @interface NSManagedObjectContext (NimbleContexts)
 
-+ (NSManagedObjectContext *)mainContext;
-+ (NSManagedObjectContext *)backgroundContext;
++ (NSManagedObjectContext *)nb_mainContext;
++ (NSManagedObjectContext *)nb_backgroundContext;
 
-+ (NSManagedObjectContext *)contextForType:(NimbleContextType)contextType;
-+ (NimbleContextType)contextTypeForCurrentThread;
++ (NSManagedObjectContext *)nb_contextForType:(NimbleContextType)contextType;
++ (NimbleContextType)nb_contextTypeForCurrentThread;
 
 @end

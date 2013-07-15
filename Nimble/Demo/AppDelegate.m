@@ -15,11 +15,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-  
-  [NimbleStore setupStore];
-  [NimbleStore saveInBackground:^(NimbleContextType type) {
-    [Book createInContextOfType:type];
-  }                  completion:^(NSError *error) {
+
+  [NimbleStore nb_setupStore];
+  [NimbleStore nb_saveInBackground:^(NimbleContextType type) {
+    [Book nb_createInContextOfType:type];
+  }                     completion:^(NSError *error) {
     NSLog(@"all books %@", [Book nb_findAll]);
   }];
 

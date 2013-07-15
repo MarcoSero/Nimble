@@ -18,17 +18,17 @@ typedef void (^NimbleErrorBlock)(NSError *error);
 
 @interface NimbleStore : NSObject
 
-+ (void)setupStore;
-+ (void)setupStoreWithFilename:(NSString *)filename;
++ (void)nb_setupStore;
++ (void)nb_setupStoreWithFilename:(NSString *)filename;
 
 /**
 * Execute a fetch request in one of the contexts
 *
 */
-+ (NSArray *)executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NimbleContextType)contextType;
++ (NSArray *)nb_executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NimbleContextType)contextType;
 
-+ (NSManagedObjectContext *)mainContext;
-+ (NSManagedObjectContext *)backgroundContext;
-+ (NSOperationQueue *)queueForBackgroundSavings;
++ (NSManagedObjectContext *)nb_mainContext;
++ (NSManagedObjectContext *)nb_backgroundContext;
++ (NSOperationQueue *)nb_queueForBackgroundSavings;
 
 @end

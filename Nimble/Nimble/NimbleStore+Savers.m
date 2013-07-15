@@ -14,12 +14,12 @@
 
 @implementation NimbleStore (Savers)
 
-+ (void)saveInProperContext:(NimbleSimpleBlock)changes
++ (void)nb_saveInProperContext:(NimbleSimpleBlock)changes
 {
   NSParameterAssert(changes);
 
-  NimbleContextType contextType = [NSManagedObjectContext contextTypeForCurrentThread];
-  NSManagedObjectContext *context = [NSManagedObjectContext contextForType:contextType];
+  NimbleContextType contextType = [NSManagedObjectContext nb_contextTypeForCurrentThread];
+  NSManagedObjectContext *context = [NSManagedObjectContext nb_contextForType:contextType];
 
   [context performBlock:^{
     changes(contextType);
@@ -27,12 +27,12 @@
   }];
 }
 
-+ (void)saveInProperContextAndWait:(NimbleSimpleBlock)changes
++ (void)nb_saveInProperContextAndWait:(NimbleSimpleBlock)changes
 {
   NSParameterAssert(changes);
 
-  NimbleContextType contextType = [NSManagedObjectContext contextTypeForCurrentThread];
-  NSManagedObjectContext *context = [NSManagedObjectContext contextForType:contextType];
+  NimbleContextType contextType = [NSManagedObjectContext nb_contextTypeForCurrentThread];
+  NSManagedObjectContext *context = [NSManagedObjectContext nb_contextForType:contextType];
 
   [context performBlockAndWait:^{
     changes(contextType);
@@ -40,18 +40,18 @@
   }];
 }
 
-+ (void)saveInBackground:(NimbleSimpleBlock)changes
++ (void)nb_saveInBackground:(NimbleSimpleBlock)changes
 {
-  [self saveInBackground:changes completion:nil];
+  [self nb_saveInBackground:changes completion:nil];
 }
 
-+ (void)saveInBackground:(NimbleSimpleBlock)changes completion:(NimbleErrorBlock)completion
++ (void)nb_saveInBackground:(NimbleSimpleBlock)changes completion:(NimbleErrorBlock)completion
 {
   NSParameterAssert(changes);
 
-  [[self queueForBackgroundSavings] addOperationWithBlock:^{
+  [[self nb_queueForBackgroundSavings] addOperationWithBlock:^{
 
-    NSManagedObjectContext *backgroundContext = [NSManagedObjectContext backgroundContext];
+    NSManagedObjectContext *backgroundContext = [NSManagedObjectContext nb_backgroundContext];
     [backgroundContext performBlockAndWait:^{
       changes(NimbleBackgroundContext);
       [backgroundContext save:nil];

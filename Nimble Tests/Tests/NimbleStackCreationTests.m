@@ -18,8 +18,8 @@
 {
   [super setUp];
   _customStoreName = @"Store_1.sqlite";
-  _defaultPath = [NSString stringWithFormat:@"%@/%@", [NimbleStore applicationDocumentsDirectory], [NimbleStore defaultStoreName]];
-  _customPath = [NSString stringWithFormat:@"%@/%@", [NimbleStore applicationDocumentsDirectory], _customPath];
+  _defaultPath = [NSString stringWithFormat:@"%@/%@", [NimbleStore nb_applicationDocumentsDirectory], [NimbleStore nb_defaultStoreName]];
+  _customPath = [NSString stringWithFormat:@"%@/%@", [NimbleStore nb_applicationDocumentsDirectory], _customPath];
   [[NSFileManager defaultManager] removeItemAtPath:_defaultPath error:nil];
   [[NSFileManager defaultManager] removeItemAtPath:_customPath error:nil];
 }
@@ -31,13 +31,13 @@
 
 - (void)testFirstSetup
 {
-  [NimbleStore setupStore];
+  [NimbleStore nb_setupStore];
   XCTAssertTrue([[NSFileManager defaultManager] fileExistsAtPath:_defaultPath]);
 }
 
 - (void)testSecondSetup
 {
-  XCTAssertThrows(([NimbleStore setupStoreWithFilename:_customStoreName]), @"");
+  XCTAssertThrows(([NimbleStore nb_setupStoreWithFilename:_customStoreName]), @"");
 }
 
 @end

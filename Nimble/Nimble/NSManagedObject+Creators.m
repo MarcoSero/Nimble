@@ -10,9 +10,9 @@
 
 @implementation NSManagedObject (Creation)
 
-+ (instancetype)createInContextOfType:(NimbleContextType)contextType
++ (instancetype)nb_createInContextOfType:(NimbleContextType)contextType
 {
-  NSManagedObjectContext *context = [NSManagedObjectContext contextForType:contextType];
+  NSManagedObjectContext *context = [NSManagedObjectContext nb_contextForType:contextType];
   return [self createInContext:context];
 }
 

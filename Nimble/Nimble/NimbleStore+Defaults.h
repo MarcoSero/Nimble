@@ -10,7 +10,7 @@
 
 @interface NimbleStore (Defaults)
 
-+ (NSString *)defaultStoreName;
-+ (NSString *)applicationDocumentsDirectory;
++ (NSString *)nb_defaultStoreName;
++ (NSString *)nb_applicationDocumentsDirectory;
 
 @end

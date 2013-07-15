@@ -11,26 +11,26 @@
 
 @implementation NSManagedObjectContext (NimbleContexts)
 
-+ (NSManagedObjectContext *)mainContext
++ (NSManagedObjectContext *)nb_mainContext
 {
-  return [NimbleStore mainContext];
+  return [NimbleStore nb_mainContext];
 }
 
-+ (NSManagedObjectContext *)backgroundContext
++ (NSManagedObjectContext *)nb_backgroundContext
 {
-  return [NimbleStore backgroundContext];
+  return [NimbleStore nb_backgroundContext];
 }
 
-+ (NSManagedObjectContext *)contextForType:(NimbleContextType)contextType
++ (NSManagedObjectContext *)nb_contextForType:(NimbleContextType)contextType
 {
   if (contextType == NimbleMainContext) {
-    return [self mainContext];
+    return [self nb_mainContext];
   }
-  return [self backgroundContext];
+  return [self nb_backgroundContext];
 }
 
 
-+ (NimbleContextType)contextTypeForCurrentThread
++ (NimbleContextType)nb_contextTypeForCurrentThread
 {
   if ([NSThread isMainThread]) {
     return NimbleMainContext;

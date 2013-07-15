@@ -17,7 +17,7 @@
 * background context the merge is done automatically.
 *
 */
-+ (void)saveInProperContext:(NimbleSimpleBlock)changes;
++ (void)nb_saveInProperContext:(NimbleSimpleBlock)changes;
 
 /**
 * Perform all the changes *synchronously* in the right context based on the thread you are in
@@ -25,13 +25,13 @@
 * background context the merge is done automatically.
 *
 */
-+ (void)saveInProperContextAndWait:(NimbleSimpleBlock)changes;
++ (void)nb_saveInProperContextAndWait:(NimbleSimpleBlock)changes;
 
 /**
 * Perform all the changes in a background queue and then merge everything into the main context
 *
 */
-+ (void)saveInBackground:(NimbleSimpleBlock)changes;
++ (void)nb_saveInBackground:(NimbleSimpleBlock)changes;
 
 /**
 * Perform all the changes in a background queue and then merge everything into the main context.
@@ -39,6 +39,6 @@
 * all the changes might not be merged into the main context yet.
 *
 */
-+ (void)saveInBackground:(NimbleSimpleBlock)changes completion:(NimbleErrorBlock)completion;
++ (void)nb_saveInBackground:(NimbleSimpleBlock)changes completion:(NimbleErrorBlock)completion;
 
 @end

@@ -10,12 +10,12 @@
 
 @implementation NimbleStore (Defaults)
 
-+ (NSString *)defaultStoreName
++ (NSString *)nb_defaultStoreName
 {
   return [NSString stringWithFormat:@"%@.sqlite", [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"]];
 }
 
-+ (NSString *)applicationDocumentsDirectory
++ (NSString *)nb_applicationDocumentsDirectory
 {
   NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
   return ([paths count] > 0) ? [paths objectAtIndex:0] : nil;

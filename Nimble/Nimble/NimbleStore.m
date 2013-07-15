@@ -23,12 +23,12 @@ static NimbleStore *mainStore;
 
 #pragma mark - Setup store
 
-+ (void)setupStore
++ (void)nb_setupStore
 {
-  [self setupStoreWithFilename:[self.class defaultStoreName]];
+  [self nb_setupStoreWithFilename:[self.class nb_defaultStoreName]];
 }
 
-+ (void)setupStoreWithFilename:(NSString *)filename
++ (void)nb_setupStoreWithFilename:(NSString *)filename
 {
   NSAssert(!mainStore, @"Store already was already set up", nil);
   NSParameterAssert(filename);
@@ -38,7 +38,7 @@ static NimbleStore *mainStore;
   NSManagedObjectModel *model = [NSManagedObjectModel mergedModelFromBundles:nil];
   NSPersistentStoreCoordinator *persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
 
-  NSString *fileURL = [NSString localizedStringWithFormat:@"%@/%@", [self.class applicationDocumentsDirectory], filename];
+  NSString *fileURL = [NSString localizedStringWithFormat:@"%@/%@", [self.class nb_applicationDocumentsDirectory], filename];
   NSURL *url = [NSURL fileURLWithPath:fileURL];
   NSError *error;
   [persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:nil error:&error];
@@ -60,21 +60,21 @@ static NimbleStore *mainStore;
 
 #pragma mark - Fetch request
 
-+ (NSArray *)executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NimbleContextType)contextType
++ (NSArray *)nb_executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NimbleContextType)contextType
 {
   NSParameterAssert(request);
 
-  return [[NSManagedObjectContext contextForType:contextType] executeFetchRequest:request error:nil];
+  return [[NSManagedObjectContext nb_contextForType:contextType] executeFetchRequest:request error:nil];
 }
 
 #pragma mark - Contexts
 
-+ (NSManagedObjectContext *)mainContext
++ (NSManagedObjectContext *)nb_mainContext
 {
   return mainStore.mainContext;
 }
 
-+ (NSManagedObjectContext *)backgroundContext
++ (NSManagedObjectContext *)nb_backgroundContext
 {
   return mainStore.backgroundContext;
 }
@@ -89,7 +89,7 @@ static NimbleStore *mainStore;
 
 #pragma mark - Background saving queue
 
-+ (NSOperationQueue *)queueForBackgroundSavings
++ (NSOperationQueue *)nb_queueForBackgroundSavings
 {
   return mainStore.queueForBackgroundSavings;
 }
