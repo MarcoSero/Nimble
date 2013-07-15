@@ -35,8 +35,15 @@
 		A9541F1C1793572A008D92FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9040B60178E0ECC00CCE8EF /* Foundation.framework */; };
 		A9541F1D1793572A008D92FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9040B5E178E0ECC00CCE8EF /* UIKit.framework */; };
 		A9541F231793572A008D92FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9541F211793572A008D92FC /* InfoPlist.strings */; };
-		A9541F251793572A008D92FC /* Nimble_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9541F241793572A008D92FC /* Nimble_Tests.m */; };
 		A9541F2D1793573E008D92FC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9541F2C1793573E008D92FC /* XCTest.framework */; };
+		A9541F2E17935AAC008D92FC /* NimbleStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A9040B86178E0EE700CCE8EF /* NimbleStore.m */; };
+		A9541F2F17935AAF008D92FC /* NimbleStore+Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A9040B84178E0EE700CCE8EF /* NimbleStore+Defaults.m */; };
+		A9541F3017935AB2008D92FC /* NSManagedObject+Finders.m in Sources */ = {isa = PBXBuildFile; fileRef = A9040B88178E0EE700CCE8EF /* NSManagedObject+Finders.m */; };
+		A9541F3117935AB7008D92FC /* NSManagedObjectContext+NimbleContexts.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD25B15B558D1D1614A693 /* NSManagedObjectContext+NimbleContexts.m */; };
+		A9541F3217935AC0008D92FC /* NSManagedObject+Creators.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD212BCA13F6C37E95FAB9 /* NSManagedObject+Creators.m */; };
+		A9541F3317935ACE008D92FC /* NimbleStore+Savers.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD26F1ACA1C144F87848C8 /* NimbleStore+Savers.m */; };
+		A9541F3617935B88008D92FC /* NimbleStackCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9541F3517935B88008D92FC /* NimbleStackCreationTests.m */; };
+		A9541F3717935C73008D92FC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9040B8F178E106400CCE8EF /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,9 +103,9 @@
 		A9541F191793572A008D92FC /* Nimble Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nimble Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9541F201793572A008D92FC /* Nimble Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Nimble Tests-Info.plist"; sourceTree = "<group>"; };
 		A9541F221793572A008D92FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A9541F241793572A008D92FC /* Nimble_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Nimble_Tests.m; sourceTree = "<group>"; };
 		A9541F261793572A008D92FC /* Nimble Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nimble Tests-Prefix.pch"; sourceTree = "<group>"; };
 		A9541F2C1793573E008D92FC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A9541F3517935B88008D92FC /* NimbleStackCreationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NimbleStackCreationTests.m; path = Tests/NimbleStackCreationTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9541F3717935C73008D92FC /* CoreData.framework in Frameworks */,
 				A9541F2D1793573E008D92FC /* XCTest.framework in Frameworks */,
 				A9541F1D1793572A008D92FC /* UIKit.framework in Frameworks */,
 				A9541F1C1793572A008D92FC /* Foundation.framework in Frameworks */,
@@ -256,12 +264,12 @@
 				A9040B84178E0EE700CCE8EF /* NimbleStore+Defaults.m */,
 				A9040B87178E0EE700CCE8EF /* NSManagedObject+Finders.h */,
 				A9040B88178E0EE700CCE8EF /* NSManagedObject+Finders.m */,
-				62DD25B15B558D1D1614A693 /* NSManagedObjectContext+NimbleContexts.m */,
 				62DD23E162ACB112F24EBB6D /* NSManagedObjectContext+NimbleContexts.h */,
+				62DD25B15B558D1D1614A693 /* NSManagedObjectContext+NimbleContexts.m */,
 				62DD2E822FFD9DE064D35949 /* NSManagedObject+Creators.h */,
 				62DD212BCA13F6C37E95FAB9 /* NSManagedObject+Creators.m */,
-				62DD26F1ACA1C144F87848C8 /* NimbleStore+Savers.m */,
 				62DD20C4C4160170ADFA7C97 /* NimbleStore+Savers.h */,
+				62DD26F1ACA1C144F87848C8 /* NimbleStore+Savers.m */,
 			);
 			path = Nimble;
 			sourceTree = "<group>";
@@ -269,8 +277,8 @@
 		A9541F1E1793572A008D92FC /* Nimble Tests */ = {
 			isa = PBXGroup;
 			children = (
-				A9541F241793572A008D92FC /* Nimble_Tests.m */,
 				A9541F1F1793572A008D92FC /* Supporting Files */,
+				A9541F3517935B88008D92FC /* NimbleStackCreationTests.m */,
 			);
 			path = "Nimble Tests";
 			sourceTree = "<group>";
@@ -334,7 +342,7 @@
 				ORGANIZATIONNAME = "Marco Sero";
 				TargetAttributes = {
 					A9541F181793572A008D92FC = {
-						TestTargetID = A9040B5A178E0ECC00CCE8EF;
+						TestTargetID = A9040B5A178E0ECC00CCE8EF /* Nimble */;
 					};
 				};
 			};
@@ -423,7 +431,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9541F251793572A008D92FC /* Nimble_Tests.m in Sources */,
+				A9541F2F17935AAF008D92FC /* NimbleStore+Defaults.m in Sources */,
+				A9541F2E17935AAC008D92FC /* NimbleStore.m in Sources */,
+				A9541F3617935B88008D92FC /* NimbleStackCreationTests.m in Sources */,
+				A9541F3317935ACE008D92FC /* NimbleStore+Savers.m in Sources */,
+				A9541F3017935AB2008D92FC /* NSManagedObject+Finders.m in Sources */,
+				A9541F3217935AC0008D92FC /* NSManagedObject+Creators.m in Sources */,
+				A9541F3117935AB7008D92FC /* NSManagedObjectContext+NimbleContexts.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,6 +650,7 @@
 				A9541F2B1793572A008D92FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
