@@ -16,6 +16,7 @@
 - (void)setUp
 {
   [super setUp];
+  [NimbleStore nb_setupInMemoryStore];
 }
 
 - (void)tearDown

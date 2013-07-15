@@ -30,8 +30,18 @@ static NimbleStore *mainStore;
 
 + (void)nb_setupStoreWithFilename:(NSString *)filename
 {
-  NSAssert(!mainStore, @"Store already was already set up", nil);
   NSParameterAssert(filename);
+  [self setupStoreWithName:filename storeType:NSSQLiteStoreType];
+}
+
++ (void)nb_setupInMemoryStore
+{
+  [self setupStoreWithName:nil storeType:NSInMemoryStoreType];
+}
+
++ (void)setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType
+{
+  NSAssert(!mainStore, @"Store already was already set up", nil);
 
   mainStore = [[NimbleStore alloc] init];
 
@@ -41,7 +51,7 @@ static NimbleStore *mainStore;
   NSString *fileURL = [NSString localizedStringWithFormat:@"%@/%@", [self.class nb_applicationDocumentsDirectory], filename];
   NSURL *url = [NSURL fileURLWithPath:fileURL];
   NSError *error;
-  [persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:nil error:&error];
+  [persistentStoreCoordinator addPersistentStoreWithType:storeType configuration:nil URL:url options:nil error:&error];
 
   mainStore.mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
   mainStore.backgroundContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
@@ -57,6 +67,8 @@ static NimbleStore *mainStore;
                                                name:NSManagedObjectContextDidSaveNotification
                                              object:mainStore.backgroundContext];
 }
+
+
 
 #pragma mark - Fetch request
 

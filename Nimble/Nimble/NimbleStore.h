@@ -20,6 +20,7 @@ typedef void (^NimbleErrorBlock)(NSError *error);
 
 + (void)nb_setupStore;
 + (void)nb_setupStoreWithFilename:(NSString *)filename;
++ (void)nb_setupInMemoryStore;
 
 /**
 * Execute a fetch request in one of the contexts
