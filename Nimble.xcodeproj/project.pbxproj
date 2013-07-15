@@ -7,18 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		62DD2144DBBFCB526AF22F74 /* NimbleStore+Savers.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD26F1ACA1C144F87848C8 /* NimbleStore+Savers.m */; };
+		62DD2035813B7DDBF770FA6C /* NimbleStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2C82DD1462527EB97633 /* NimbleStore.m */; };
+		62DD20865C9DDCD88DF7976D /* NSManagedObjectContext+NimbleContexts.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD25C177CDA6869D4E8E31 /* NSManagedObjectContext+NimbleContexts.m */; };
+		62DD20E00DC66C9F66A33373 /* NSManagedObject+Finders.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2AD6A1E922073C15F826 /* NSManagedObject+Finders.m */; };
 		62DD214A52EBAE4B68DA7CF1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62DD2867E7159881EE6F7859 /* MainStoryboard.storyboard */; };
 		62DD21B716E4188A8AFA750A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2C767395D1BFD589BE4E /* ViewController.m */; };
 		62DD229CF7C9ABD4254C844C /* _Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD204504080067BE4CD7E5 /* _Book.m */; };
 		62DD23298D59557697B34FEE /* _Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2AB84626163E6F9D36D8 /* _Author.m */; };
+		62DD2354A88509B035CEA5A3 /* NimbleStore+Savers.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2D83F97418BD827407C7 /* NimbleStore+Savers.m */; };
 		62DD245D3DE9669B8B84FD89 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD20EAC6243989A1D4A419 /* Book.m */; };
-		62DD259E408F1480B9906E3F /* NSManagedObjectContext+NimbleContexts.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD25B15B558D1D1614A693 /* NSManagedObjectContext+NimbleContexts.m */; };
+		62DD250588F6C9D7F2DA7568 /* NSManagedObjectContext+NimbleContexts.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD25C177CDA6869D4E8E31 /* NSManagedObjectContext+NimbleContexts.m */; };
 		62DD25E0A6D607F6ABC57B87 /* _Reader.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2497A8CBB2759A7A29D9 /* _Reader.m */; };
+		62DD26BC407BDA15204DC7C9 /* NSManagedObject+Creators.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2C83A62C1D12F54F7346 /* NSManagedObject+Creators.m */; };
+		62DD271859910A8C74C95CFD /* NimbleStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2C82DD1462527EB97633 /* NimbleStore.m */; };
 		62DD27496432851BE632B99B /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2191E6747EF66EFA5B52 /* Author.m */; };
+		62DD278CDA241AC1AC06A90A /* NSManagedObject+Finders.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2AD6A1E922073C15F826 /* NSManagedObject+Finders.m */; };
+		62DD287E45A8149989447123 /* NimbleStore+Savers.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2D83F97418BD827407C7 /* NimbleStore+Savers.m */; };
 		62DD28BC1B0827C5BEE816F2 /* Model.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 62DD21A5B2AC3F231528AA18 /* Model.xcdatamodel */; };
-		62DD2E891677539B8C935E0D /* NSManagedObject+Creators.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD212BCA13F6C37E95FAB9 /* NSManagedObject+Creators.m */; };
+		62DD293205EF7ABB0662F4E3 /* NSManagedObject+Creators.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2C83A62C1D12F54F7346 /* NSManagedObject+Creators.m */; };
+		62DD2B81CB910C3B895F6C37 /* NimbleStore+Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD274A54F5D5F2A543FA5C /* NimbleStore+Defaults.m */; };
 		62DD2EBBF1D9C5CEBEB7F330 /* Reader.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD22A01D136EE316092FA5 /* Reader.m */; };
+		62DD2F2555B64142EEF8503E /* NimbleStore+Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD274A54F5D5F2A543FA5C /* NimbleStore+Defaults.m */; };
 		62DD2F5A34897B71C59F24B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD213AD61FA8E29FEDF5BB /* AppDelegate.m */; };
 		A9040B5F178E0ECC00CCE8EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9040B5E178E0ECC00CCE8EF /* UIKit.framework */; };
 		A9040B61178E0ECC00CCE8EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9040B60178E0ECC00CCE8EF /* Foundation.framework */; };
@@ -28,20 +37,11 @@
 		A9040B71178E0ECC00CCE8EF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A9040B70178E0ECC00CCE8EF /* Default.png */; };
 		A9040B73178E0ECC00CCE8EF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9040B72178E0ECC00CCE8EF /* Default@2x.png */; };
 		A9040B75178E0ECC00CCE8EF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9040B74178E0ECC00CCE8EF /* Default-568h@2x.png */; };
-		A9040B89178E0EE700CCE8EF /* NimbleStore+Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A9040B84178E0EE700CCE8EF /* NimbleStore+Defaults.m */; };
-		A9040B8A178E0EE700CCE8EF /* NimbleStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A9040B86178E0EE700CCE8EF /* NimbleStore.m */; };
-		A9040B8B178E0EE700CCE8EF /* NSManagedObject+Finders.m in Sources */ = {isa = PBXBuildFile; fileRef = A9040B88178E0EE700CCE8EF /* NSManagedObject+Finders.m */; };
 		A9040B90178E106400CCE8EF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9040B8F178E106400CCE8EF /* CoreData.framework */; };
 		A9541F1C1793572A008D92FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9040B60178E0ECC00CCE8EF /* Foundation.framework */; };
 		A9541F1D1793572A008D92FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9040B5E178E0ECC00CCE8EF /* UIKit.framework */; };
 		A9541F231793572A008D92FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9541F211793572A008D92FC /* InfoPlist.strings */; };
 		A9541F2D1793573E008D92FC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9541F2C1793573E008D92FC /* XCTest.framework */; };
-		A9541F2E17935AAC008D92FC /* NimbleStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A9040B86178E0EE700CCE8EF /* NimbleStore.m */; };
-		A9541F2F17935AAF008D92FC /* NimbleStore+Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A9040B84178E0EE700CCE8EF /* NimbleStore+Defaults.m */; };
-		A9541F3017935AB2008D92FC /* NSManagedObject+Finders.m in Sources */ = {isa = PBXBuildFile; fileRef = A9040B88178E0EE700CCE8EF /* NSManagedObject+Finders.m */; };
-		A9541F3117935AB7008D92FC /* NSManagedObjectContext+NimbleContexts.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD25B15B558D1D1614A693 /* NSManagedObjectContext+NimbleContexts.m */; };
-		A9541F3217935AC0008D92FC /* NSManagedObject+Creators.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD212BCA13F6C37E95FAB9 /* NSManagedObject+Creators.m */; };
-		A9541F3317935ACE008D92FC /* NimbleStore+Savers.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD26F1ACA1C144F87848C8 /* NimbleStore+Savers.m */; };
 		A9541F3617935B88008D92FC /* NimbleStackCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9541F3517935B88008D92FC /* NimbleStackCreationTests.m */; };
 		A9541F3717935C73008D92FC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9040B8F178E106400CCE8EF /* CoreData.framework */; };
 		A97225B017949A88005C6DDE /* NimbleSaversTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2F89D3C30BFCFA6C2FB0 /* NimbleSaversTests.m */; };
@@ -59,28 +59,34 @@
 
 /* Begin PBXFileReference section */
 		62DD204504080067BE4CD7E5 /* _Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Book.m; sourceTree = "<group>"; };
-		62DD20C4C4160170ADFA7C97 /* NimbleStore+Savers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NimbleStore+Savers.h"; sourceTree = "<group>"; };
+		62DD2076625512D282157419 /* NimbleStore+Defaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NimbleStore+Defaults.h"; sourceTree = "<group>"; };
 		62DD20EAC6243989A1D4A419 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
-		62DD212BCA13F6C37E95FAB9 /* NSManagedObject+Creators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Creators.m"; sourceTree = "<group>"; };
 		62DD213AD61FA8E29FEDF5BB /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		62DD2191E6747EF66EFA5B52 /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
 		62DD21A5B2AC3F231528AA18 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		62DD22A01D136EE316092FA5 /* Reader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reader.m; sourceTree = "<group>"; };
-		62DD23E162ACB112F24EBB6D /* NSManagedObjectContext+NimbleContexts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+NimbleContexts.h"; sourceTree = "<group>"; };
 		62DD2497A8CBB2759A7A29D9 /* _Reader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Reader.m; sourceTree = "<group>"; };
 		62DD24A0532B09667826A247 /* _Reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Reader.h; sourceTree = "<group>"; };
 		62DD256B7DCB6CEB1EDDE8CB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = Nimble/en.lproj/MainStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
-		62DD25B15B558D1D1614A693 /* NSManagedObjectContext+NimbleContexts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+NimbleContexts.m"; sourceTree = "<group>"; };
-		62DD26F1ACA1C144F87848C8 /* NimbleStore+Savers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NimbleStore+Savers.m"; sourceTree = "<group>"; };
+		62DD25C177CDA6869D4E8E31 /* NSManagedObjectContext+NimbleContexts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+NimbleContexts.m"; sourceTree = "<group>"; };
+		62DD25D6FED930D81F3498E2 /* NSManagedObjectContext+NimbleContexts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+NimbleContexts.h"; sourceTree = "<group>"; };
+		62DD274A54F5D5F2A543FA5C /* NimbleStore+Defaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NimbleStore+Defaults.m"; sourceTree = "<group>"; };
 		62DD27F778FCA09459456F2B /* Reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reader.h; sourceTree = "<group>"; };
 		62DD28BB2A0F009467BF967B /* _Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Book.h; sourceTree = "<group>"; };
 		62DD29616FAC6B4CA1D7FBF8 /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
 		62DD29B1A6589805BC67D0D2 /* _Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Author.h; sourceTree = "<group>"; };
 		62DD2A01E1ADBB85C75CE74E /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		62DD2A11F83EA4347F30860D /* NimbleStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimbleStore.h; sourceTree = "<group>"; };
 		62DD2AB84626163E6F9D36D8 /* _Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Author.m; sourceTree = "<group>"; };
+		62DD2AD6A1E922073C15F826 /* NSManagedObject+Finders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Finders.m"; sourceTree = "<group>"; };
 		62DD2AEBAD286CA5060CCB0F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		62DD2C767395D1BFD589BE4E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		62DD2E822FFD9DE064D35949 /* NSManagedObject+Creators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Creators.h"; sourceTree = "<group>"; };
+		62DD2C82DD1462527EB97633 /* NimbleStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimbleStore.m; sourceTree = "<group>"; };
+		62DD2C83A62C1D12F54F7346 /* NSManagedObject+Creators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Creators.m"; sourceTree = "<group>"; };
+		62DD2CE539DD7732846E9E15 /* NSManagedObject+Finders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Finders.h"; sourceTree = "<group>"; };
+		62DD2D61205FAFA993D9477E /* NSManagedObject+Creators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Creators.h"; sourceTree = "<group>"; };
+		62DD2D83F97418BD827407C7 /* NimbleStore+Savers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NimbleStore+Savers.m"; sourceTree = "<group>"; };
+		62DD2DCF294604E4A28EAB96 /* NimbleStore+Savers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NimbleStore+Savers.h"; sourceTree = "<group>"; };
 		62DD2F092DCFE5122BD954CE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		62DD2F89D3C30BFCFA6C2FB0 /* NimbleSaversTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NimbleSaversTests.m; path = Tests/NimbleSaversTests.m; sourceTree = "<group>"; };
 		A9040B5B178E0ECC00CCE8EF /* Nimble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nimble.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,12 +101,6 @@
 		A9040B72178E0ECC00CCE8EF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A9040B74178E0ECC00CCE8EF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A9040B82178E0EE700CCE8EF /* Nimble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nimble.h; sourceTree = "<group>"; };
-		A9040B83178E0EE700CCE8EF /* NimbleStore+Defaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NimbleStore+Defaults.h"; sourceTree = "<group>"; };
-		A9040B84178E0EE700CCE8EF /* NimbleStore+Defaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NimbleStore+Defaults.m"; sourceTree = "<group>"; };
-		A9040B85178E0EE700CCE8EF /* NimbleStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimbleStore.h; sourceTree = "<group>"; };
-		A9040B86178E0EE700CCE8EF /* NimbleStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimbleStore.m; sourceTree = "<group>"; };
-		A9040B87178E0EE700CCE8EF /* NSManagedObject+Finders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Finders.h"; sourceTree = "<group>"; };
-		A9040B88178E0EE700CCE8EF /* NSManagedObject+Finders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Finders.m"; sourceTree = "<group>"; };
 		A9040B8F178E106400CCE8EF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A9541F191793572A008D92FC /* Nimble Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nimble Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9541F201793572A008D92FC /* Nimble Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Nimble Tests-Info.plist"; sourceTree = "<group>"; };
@@ -155,6 +155,32 @@
 				62DD28BB2A0F009467BF967B /* _Book.h */,
 			);
 			path = Mogenerated;
+			sourceTree = "<group>";
+		};
+		62DD257BEF9CDBB16BE51BC9 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				62DD2AD6A1E922073C15F826 /* NSManagedObject+Finders.m */,
+				62DD274A54F5D5F2A543FA5C /* NimbleStore+Defaults.m */,
+				62DD2C83A62C1D12F54F7346 /* NSManagedObject+Creators.m */,
+				62DD2076625512D282157419 /* NimbleStore+Defaults.h */,
+				62DD2CE539DD7732846E9E15 /* NSManagedObject+Finders.h */,
+				62DD2DCF294604E4A28EAB96 /* NimbleStore+Savers.h */,
+				62DD25C177CDA6869D4E8E31 /* NSManagedObjectContext+NimbleContexts.m */,
+				62DD2D61205FAFA993D9477E /* NSManagedObject+Creators.h */,
+				62DD25D6FED930D81F3498E2 /* NSManagedObjectContext+NimbleContexts.h */,
+				62DD2D83F97418BD827407C7 /* NimbleStore+Savers.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		62DD25BDCF548A56B79774A2 /* Main Store */ = {
+			isa = PBXGroup;
+			children = (
+				62DD2A11F83EA4347F30860D /* NimbleStore.h */,
+				62DD2C82DD1462527EB97633 /* NimbleStore.m */,
+			);
+			path = "Main Store";
 			sourceTree = "<group>";
 		};
 		62DD28907972642C31792695 /* Classes */ = {
@@ -260,18 +286,8 @@
 			isa = PBXGroup;
 			children = (
 				A9040B82178E0EE700CCE8EF /* Nimble.h */,
-				A9040B85178E0EE700CCE8EF /* NimbleStore.h */,
-				A9040B86178E0EE700CCE8EF /* NimbleStore.m */,
-				A9040B83178E0EE700CCE8EF /* NimbleStore+Defaults.h */,
-				A9040B84178E0EE700CCE8EF /* NimbleStore+Defaults.m */,
-				A9040B87178E0EE700CCE8EF /* NSManagedObject+Finders.h */,
-				A9040B88178E0EE700CCE8EF /* NSManagedObject+Finders.m */,
-				62DD23E162ACB112F24EBB6D /* NSManagedObjectContext+NimbleContexts.h */,
-				62DD25B15B558D1D1614A693 /* NSManagedObjectContext+NimbleContexts.m */,
-				62DD2E822FFD9DE064D35949 /* NSManagedObject+Creators.h */,
-				62DD212BCA13F6C37E95FAB9 /* NSManagedObject+Creators.m */,
-				62DD20C4C4160170ADFA7C97 /* NimbleStore+Savers.h */,
-				62DD26F1ACA1C144F87848C8 /* NimbleStore+Savers.m */,
+				62DD25BDCF548A56B79774A2 /* Main Store */,
+				62DD257BEF9CDBB16BE51BC9 /* Categories */,
 			);
 			path = Nimble;
 			sourceTree = "<group>";
@@ -412,9 +428,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9040B6B178E0ECC00CCE8EF /* main.m in Sources */,
-				A9040B89178E0EE700CCE8EF /* NimbleStore+Defaults.m in Sources */,
-				A9040B8A178E0EE700CCE8EF /* NimbleStore.m in Sources */,
-				A9040B8B178E0EE700CCE8EF /* NSManagedObject+Finders.m in Sources */,
 				62DD2F5A34897B71C59F24B7 /* AppDelegate.m in Sources */,
 				62DD28BC1B0827C5BEE816F2 /* Model.xcdatamodel in Sources */,
 				62DD21B716E4188A8AFA750A /* ViewController.m in Sources */,
@@ -424,9 +437,12 @@
 				62DD23298D59557697B34FEE /* _Author.m in Sources */,
 				62DD229CF7C9ABD4254C844C /* _Book.m in Sources */,
 				62DD25E0A6D607F6ABC57B87 /* _Reader.m in Sources */,
-				62DD259E408F1480B9906E3F /* NSManagedObjectContext+NimbleContexts.m in Sources */,
-				62DD2E891677539B8C935E0D /* NSManagedObject+Creators.m in Sources */,
-				62DD2144DBBFCB526AF22F74 /* NimbleStore+Savers.m in Sources */,
+				62DD2035813B7DDBF770FA6C /* NimbleStore.m in Sources */,
+				62DD20E00DC66C9F66A33373 /* NSManagedObject+Finders.m in Sources */,
+				62DD2B81CB910C3B895F6C37 /* NimbleStore+Defaults.m in Sources */,
+				62DD293205EF7ABB0662F4E3 /* NSManagedObject+Creators.m in Sources */,
+				62DD20865C9DDCD88DF7976D /* NSManagedObjectContext+NimbleContexts.m in Sources */,
+				62DD2354A88509B035CEA5A3 /* NimbleStore+Savers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,14 +450,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9541F2F17935AAF008D92FC /* NimbleStore+Defaults.m in Sources */,
-				A9541F2E17935AAC008D92FC /* NimbleStore.m in Sources */,
 				A9541F3617935B88008D92FC /* NimbleStackCreationTests.m in Sources */,
-				A9541F3317935ACE008D92FC /* NimbleStore+Savers.m in Sources */,
 				A97225B017949A88005C6DDE /* NimbleSaversTests.m in Sources */,
-				A9541F3017935AB2008D92FC /* NSManagedObject+Finders.m in Sources */,
-				A9541F3217935AC0008D92FC /* NSManagedObject+Creators.m in Sources */,
-				A9541F3117935AB7008D92FC /* NSManagedObjectContext+NimbleContexts.m in Sources */,
+				62DD271859910A8C74C95CFD /* NimbleStore.m in Sources */,
+				62DD278CDA241AC1AC06A90A /* NSManagedObject+Finders.m in Sources */,
+				62DD2F2555B64142EEF8503E /* NimbleStore+Defaults.m in Sources */,
+				62DD26BC407BDA15204DC7C9 /* NSManagedObject+Creators.m in Sources */,
+				62DD250588F6C9D7F2DA7568 /* NSManagedObjectContext+NimbleContexts.m in Sources */,
+				62DD287E45A8149989447123 /* NimbleStore+Savers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
