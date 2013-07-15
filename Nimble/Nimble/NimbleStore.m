@@ -8,7 +8,6 @@
 #import <objc/runtime.h>
 #import "NimbleStore.h"
 #import "NimbleStore+Defaults.h"
-#import "NimbleStore+Savers.h"
 #import "NSManagedObjectContext+NimbleContexts.h"
 
 
@@ -22,16 +21,6 @@ static NimbleStore *mainStore;
 
 @implementation NimbleStore
 
-+ (NimbleStore *)sharedInstance
-{
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-    mainStore = [[NimbleStore alloc] init];
-  });
-
-  return mainStore;
-}
-
 #pragma mark - Setup store
 
 + (void)setupStore
@@ -41,8 +30,10 @@ static NimbleStore *mainStore;
 
 + (void)setupStoreWithFilename:(NSString *)filename
 {
-  NSAssert(!mainStore.mainContext && !mainStore.backgroundContext, @"Store already was already set up", nil);
+  NSAssert(!mainStore, @"Store already was already set up", nil);
   NSParameterAssert(filename);
+
+  mainStore = [[NimbleStore alloc] init];
 
   NSManagedObjectModel *model = [NSManagedObjectModel mergedModelFromBundles:nil];
   NSPersistentStoreCoordinator *persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
