@@ -160,15 +160,15 @@
 		62DD257BEF9CDBB16BE51BC9 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				62DD2AD6A1E922073C15F826 /* NSManagedObject+Finders.m */,
-				62DD274A54F5D5F2A543FA5C /* NimbleStore+Defaults.m */,
-				62DD2C83A62C1D12F54F7346 /* NSManagedObject+Creators.m */,
-				62DD2076625512D282157419 /* NimbleStore+Defaults.h */,
 				62DD2CE539DD7732846E9E15 /* NSManagedObject+Finders.h */,
-				62DD2DCF294604E4A28EAB96 /* NimbleStore+Savers.h */,
+				62DD2AD6A1E922073C15F826 /* NSManagedObject+Finders.m */,
+				62DD2076625512D282157419 /* NimbleStore+Defaults.h */,
+				62DD274A54F5D5F2A543FA5C /* NimbleStore+Defaults.m */,
+				62DD25D6FED930D81F3498E2 /* NSManagedObjectContext+NimbleContexts.h */,
 				62DD25C177CDA6869D4E8E31 /* NSManagedObjectContext+NimbleContexts.m */,
 				62DD2D61205FAFA993D9477E /* NSManagedObject+Creators.h */,
-				62DD25D6FED930D81F3498E2 /* NSManagedObjectContext+NimbleContexts.h */,
+				62DD2C83A62C1D12F54F7346 /* NSManagedObject+Creators.m */,
+				62DD2DCF294604E4A28EAB96 /* NimbleStore+Savers.h */,
 				62DD2D83F97418BD827407C7 /* NimbleStore+Savers.m */,
 			);
 			path = Categories;

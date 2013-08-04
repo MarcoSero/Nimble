@@ -10,16 +10,6 @@ The answer is quite easy. I needed a CoreData wrapper with these features:
 - just 2 contexts: one for the main thread and the other for the background ones, because as someone has actually proved, this is much faster than parent+children. Read [here](http://floriankugler.com/blog/2013/4/29/concurrent-core-data-stack-performance-shootout) and [here](http://floriankugler.com/blog/2013/5/11/backstage-with-nested-managed-object-contexts)
 - iOS 7's new iCloud API
 
-## How
-
-    [NimbleStore nb_setupStore];
-
-    [NimbleStore nb_saveInBackground:^(NimbleContextType contextType) {
-      [Book nb_createInContextOfType:contextType];
-    }];
-
-Is. That. Easy.
-
 ## Install
 
 CocoaPods makes our lifes easy :)
@@ -31,6 +21,38 @@ and then import `Nimble.h` into your prefix file.
 ## Tests
 
 Most of the "" code has been tested with the new `XCTest`.
+
+## How it works
+
+First, set up the store
+
+    [NimbleStore nb_setupStore];
+
+You can also choose a custom name
+
+    [NimbleStore nb_setupStoreWithFilename:@"CustomName"];
+
+or a in-memory store
+
+    [NimbleStore nb_setupInMemoryStore
+
+### Savers
+
+To save in background:
+
+    [NimbleStore nb_saveInBackground:^(NimbleContextType contextType) {
+      [Book nb_createInContextOfType:contextType];
+    }];
+
+If you want to save into the context you are in, you can simply do
+
+    [NimbleStore nb_saveInProperContext:^(NimbleContextType contextType) {
+      [Book nb_createInContextOfType:contextType];
+    }];
+
+### Finders
+
+You can find all type of finders and fetchers in `NSManagedObject+Finders.h`
 
 ## Contact
 
