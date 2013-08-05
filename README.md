@@ -50,9 +50,29 @@ If you want to save into the context you are in, you can simply do
       [Book nb_createInContextOfType:contextType];
     }];
 
+### Creators
+
+You can create a new object with 
+
+    [YourModelObject nb_createInContextOfType:NimbleMainContext];
+
+to create an object and in the same time initialize some of its property, you can just use
+
+    [YourModelObject nb_createInContextOfType:NimbleMainContext initializingPropertiesWithDictionary:@{
+        @"name" : @"Marco" ,
+        @"surname" : @"Sero"
+    }];
+
 ### Finders
 
 You can find all type of finders and fetchers in `NSManagedObject+Finders.h`
+
+### Removing the nb_ prefix
+
+If you want to use Nimble without the `nb_` prefix, you can just define `NBVeryNimble` before the main import
+
+    #define NBVeryNimble
+    #import "Nimble.h"
 
 ## Contact
 

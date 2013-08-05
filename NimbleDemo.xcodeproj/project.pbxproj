@@ -362,7 +362,7 @@
 				ORGANIZATIONNAME = "Marco Sero";
 				TargetAttributes = {
 					A9541F181793572A008D92FC = {
-						TestTargetID = A9040B5A178E0ECC00CCE8EF;
+						TestTargetID = A9040B5A178E0ECC00CCE8EF /* NimbleDemo */;
 					};
 				};
 			};
