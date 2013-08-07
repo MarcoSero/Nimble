@@ -21,6 +21,7 @@ typedef void (^NimbleErrorBlock)(NSError *error);
 + (void)nb_setupStore;
 + (void)nb_setupStoreWithFilename:(NSString *)filename;
 + (void)nb_setupInMemoryStore;
++ (void)nb_setup_iCloudStore;
 
 /**
 * Execute a fetch request in one of the contexts

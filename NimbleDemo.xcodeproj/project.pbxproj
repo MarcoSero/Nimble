@@ -566,6 +566,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NimbleDemo/NimbleDemo-Prefix.pch";
 				INFOPLIST_FILE = "NimbleDemo/NimbleDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = NimbleDemo;
 				WRAPPER_EXTENSION = app;
 			};
@@ -581,6 +582,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NimbleDemo/NimbleDemo-Prefix.pch";
 				INFOPLIST_FILE = "NimbleDemo/NimbleDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = NimbleDemo;
 				WRAPPER_EXTENSION = app;
 			};
