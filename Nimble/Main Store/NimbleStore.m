@@ -10,6 +10,7 @@
 #import "NimbleStore+Defaults.h"
 #import "NSManagedObjectContext+NimbleContexts.h"
 
+NSString *const NBStoreGotReplacedByCloudStore = @"NBStoreGotReplacedByCloudStore";
 
 @interface NimbleStore ()
 @property(strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
@@ -84,11 +85,11 @@ static NimbleStore *mainStore;
 
   if (iCloudEnabled) {
     [[NSNotificationCenter defaultCenter] addObserver:mainStore
-                                             selector:@selector(storeWillChangeFrom_iCloud:)
+                                             selector:@selector(storesWillChange:)
                                                  name:NSPersistentStoreCoordinatorStoresWillChangeNotification
                                                object:mainStore.persistentStoreCoordinator];
     [[NSNotificationCenter defaultCenter] addObserver:mainStore
-                                             selector:@selector(mergeChangesFrom_iCloud:)
+                                             selector:@selector(storesDidChange:)
                                                  name:NSPersistentStoreDidImportUbiquitousContentChangesNotification
                                                object:mainStore.persistentStoreCoordinator];
   }
@@ -124,23 +125,24 @@ static NimbleStore *mainStore;
   }];
 }
 
-- (void)mergeChangesFrom_iCloud:(NSNotification *)notification
+- (void)storesWillChange:(NSNotification *)notification
 {
-  NSLog(@"%p", _cmd);
+  if ([mainStore.mainContext hasChanges]) {
+    [mainStore.mainContext save:nil];
+  }
+  [mainStore.mainContext reset];
+  [mainStore.backgroundContext reset];
+  
+  //reset user interface
+}
+
+- (void)storesDidChange:(NSNotification *)notification
+{
   [self.mainContext performBlock:^{
     [self.mainContext mergeChangesFromContextDidSaveNotification:notification];
   }];
 }
 
-- (void)storeWillChangeFrom_iCloud:(NSNotification *)storeWillChangeFromiCloud
-{
-  NSLog(@"%p", _cmd);
-  if ([mainStore.mainContext hasChanges]) {
-    [mainStore.mainContext save:nil];
-  }
-  [mainStore.mainContext reset];
-  //reset user interface
-}
 
 
 

@@ -10,9 +10,14 @@
 
 @implementation NimbleStore (Defaults)
 
++ (NSString *)nb_appName
+{
+  return [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"];
+}
+
 + (NSString *)nb_defaultStoreName
 {
-  return [NSString stringWithFormat:@"%@.sqlite", [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"]];
+  return [NSString stringWithFormat:@"%@.sqlite", [self nb_appName]];
 }
 
 + (NSString *)nb_applicationDocumentsDirectory

@@ -21,10 +21,18 @@
 {
   self = [super init];
   if (self) {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(iCloudHasBeenEnabled:) name:NBStoreGotReplacedByCloudStore object:nil];
     _tableView = tableView;
     return self;
   }
   return nil;
+}
+
+- (void)iCloudHasBeenEnabled:(NSNotification *)notification
+{
+  NSLog(@"notification %@", notification);
+  _fetchedResultsController = nil;
+  [self.tableView reloadData];
 }
 
 - (NSFetchedResultsController *)fetchedResultsController

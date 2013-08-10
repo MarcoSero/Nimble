@@ -12,6 +12,7 @@
 
 + (BOOL)iCloudAvailable;
 + (void)nb_setup_iCloudStore;
-+ (void)nb_setup_iCloudStoreWithCloudURL:(NSURL *)cloudURL localStoreNamed:(NSString *)localStoreName containerID:(NSString *)containerID contentNameKey:(NSString *)contentNameKey;
+
++ (void)nb_setup_iCloudStoreWithContentNameKey:(NSString *)contentNameKey containerID:(NSString *)containerID localStoreNamed:(NSString *)localStoreName;
 
 @end

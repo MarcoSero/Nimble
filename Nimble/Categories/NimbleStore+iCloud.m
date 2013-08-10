@@ -23,22 +23,19 @@
 
 + (void)nb_setup_iCloudStore
 {
-  NSURL *URLForUbiquityContainerIdentifier = [self URLForUbiquityContainer];
-  if (!URLForUbiquityContainerIdentifier) {
+  if (![self iCloudAvailable]) {
     NSLog(@"iCloud not available.");
     [self nb_setupStore];
     return;
   }
 
-  NSString* coreDataCloudContent = [[URLForUbiquityContainerIdentifier path] stringByAppendingPathComponent:[self.class nb_defaultStoreName]];
-  NSURL *cloudURL = [NSURL fileURLWithPath:coreDataCloudContent];
   NSString *containerID = [[[NSBundle mainBundle] infoDictionary] objectForKey:(id)kCFBundleIdentifierKey];
   NSString *contentNameKey = @"iCloudNimbleStore";
 
-  [self nb_setup_iCloudStoreWithCloudURL:cloudURL localStoreNamed:[self.class nb_defaultStoreName] containerID:containerID contentNameKey:contentNameKey];
+  [self nb_setup_iCloudStoreWithContentNameKey:contentNameKey containerID:containerID localStoreNamed:[self.class nb_appName]];
 }
 
-+ (void)nb_setup_iCloudStoreWithCloudURL:(NSURL *)cloudURL localStoreNamed:(NSString *)localStoreName containerID:(NSString *)containerID contentNameKey:(NSString *)contentNameKey
++ (void)nb_setup_iCloudStoreWithContentNameKey:(NSString *)contentNameKey containerID:(NSString *)containerID localStoreNamed:(NSString *)localStoreName
 {
   BOOL iCloudAvailable = [self iCloudAvailable];
   if (!iCloudAvailable) {
@@ -47,12 +44,11 @@
 
   NSDictionary *iCloudOptions = @{
     NSPersistentStoreUbiquitousContentNameKey : contentNameKey,
-    NSPersistentStoreUbiquitousContentURLKey : cloudURL,
+    NSPersistentStoreUbiquitousContentURLKey : @"logs",
     NSMigratePersistentStoresAutomaticallyOption : @(YES),
     NSInferMappingModelAutomaticallyOption : @(YES),
-//    NSPersistentStoreUbiquitousContainerIdentifierKey : containerID,
-//    NSPersistentStoreRebuildFromUbiquitousContentOption : @YES,
-//    NSPersistentStoreRemoveUbiquitousMetadataOption: @YES
+    NSPersistentStoreRebuildFromUbiquitousContentOption : @YES,
+//    NSPersistentStoreUbiquitousContainerIdentifierKey : containerID
   };
   [self nb_setupStoreWithName:localStoreName storeType:NSSQLiteStoreType iCloudEnabled:iCloudAvailable options:iCloudOptions];
 }
