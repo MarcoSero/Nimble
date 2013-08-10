@@ -26,6 +26,7 @@
 		62DD28BC1B0827C5BEE816F2 /* Model.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 62DD21A5B2AC3F231528AA18 /* Model.xcdatamodel */; };
 		62DD293205EF7ABB0662F4E3 /* NSManagedObject+Creators.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2C83A62C1D12F54F7346 /* NSManagedObject+Creators.m */; };
 		62DD2B81CB910C3B895F6C37 /* NimbleStore+Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD274A54F5D5F2A543FA5C /* NimbleStore+Defaults.m */; };
+		62DD2C1883314F84B6355A41 /* NimbleStore+iCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2FF93F5D12086DF59A9C /* NimbleStore+iCloud.m */; };
 		62DD2EBBF1D9C5CEBEB7F330 /* Reader.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD22A01D136EE316092FA5 /* Reader.m */; };
 		62DD2F08E72F0DC09C575526 /* HBBooksDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2EEA9618334A8AAB6DDC /* HBBooksDataSource.m */; };
 		62DD2F2555B64142EEF8503E /* NimbleStore+Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD274A54F5D5F2A543FA5C /* NimbleStore+Defaults.m */; };
@@ -81,6 +82,7 @@
 		62DD2AB84626163E6F9D36D8 /* _Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Author.m; sourceTree = "<group>"; };
 		62DD2AD6A1E922073C15F826 /* NSManagedObject+Finders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Finders.m"; sourceTree = "<group>"; };
 		62DD2AEBAD286CA5060CCB0F /* NBBooksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBooksViewController.h; sourceTree = "<group>"; };
+		62DD2BD9387CEA23DD116E25 /* NimbleStore+iCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NimbleStore+iCloud.h"; sourceTree = "<group>"; };
 		62DD2C767395D1BFD589BE4E /* NBBooksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBooksViewController.m; sourceTree = "<group>"; };
 		62DD2C82DD1462527EB97633 /* NimbleStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimbleStore.m; sourceTree = "<group>"; };
 		62DD2C83A62C1D12F54F7346 /* NSManagedObject+Creators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Creators.m"; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		62DD2EEA9618334A8AAB6DDC /* HBBooksDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBBooksDataSource.m; sourceTree = "<group>"; };
 		62DD2F092DCFE5122BD954CE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		62DD2F89D3C30BFCFA6C2FB0 /* NimbleSaversTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NimbleSaversTests.m; path = Tests/NimbleSaversTests.m; sourceTree = "<group>"; };
+		62DD2FF93F5D12086DF59A9C /* NimbleStore+iCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NimbleStore+iCloud.m"; sourceTree = "<group>"; };
 		A9040B5B178E0ECC00CCE8EF /* NimbleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NimbleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9040B5E178E0ECC00CCE8EF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A9040B60178E0ECC00CCE8EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -183,6 +186,8 @@
 				62DD2C83A62C1D12F54F7346 /* NSManagedObject+Creators.m */,
 				62DD2DCF294604E4A28EAB96 /* NimbleStore+Savers.h */,
 				62DD2D83F97418BD827407C7 /* NimbleStore+Savers.m */,
+				62DD2FF93F5D12086DF59A9C /* NimbleStore+iCloud.m */,
+				62DD2BD9387CEA23DD116E25 /* NimbleStore+iCloud.h */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -468,6 +473,7 @@
 				62DD20865C9DDCD88DF7976D /* NSManagedObjectContext+NimbleContexts.m in Sources */,
 				62DD2354A88509B035CEA5A3 /* NimbleStore+Savers.m in Sources */,
 				62DD2F08E72F0DC09C575526 /* HBBooksDataSource.m in Sources */,
+				62DD2C1883314F84B6355A41 /* NimbleStore+iCloud.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

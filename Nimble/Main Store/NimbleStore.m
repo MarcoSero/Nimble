@@ -42,42 +42,10 @@ static NimbleStore *mainStore;
 
 + (void)setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType
 {
-  [self setupStoreWithName:filename storeType:storeType iCloudEnabled:NO options:nil ];
+  [self nb_setupStoreWithName:filename storeType:storeType iCloudEnabled:NO options:nil ];
 }
 
-+ (void)nb_setup_iCloudStore
-{
-  // cloud URL
-  NSURL *URLForUbiquityContainerIdentifier = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
-  NSString* coreDataCloudContent = [[URLForUbiquityContainerIdentifier path] stringByAppendingPathComponent:[self.class nb_defaultStoreName]];
-  NSURL *cloudURL = [NSURL fileURLWithPath:coreDataCloudContent];
-
-  // container id
-  NSString *containerID = [[[NSBundle mainBundle] infoDictionary] objectForKey:(id)kCFBundleIdentifierKey];
-
-  // content name key
-  NSString *contentNameKey = [NSString stringWithFormat:@"%@.%@", containerID, [self.class nb_defaultStoreName]];
-
-  [self nb_setup_iCloudStoreWithCloudURL:cloudURL localStoreNamed:[self.class nb_defaultStoreName] containerID:containerID contentNameKey:contentNameKey];
-}
-
-+ (void)nb_setup_iCloudStoreWithCloudURL:(NSURL *)cloudURL localStoreNamed:(NSString *)localStoreName containerID:(NSString *)containerID contentNameKey:(NSString *)contentNameKey
-{
-  NSDictionary *iCloudOptions = @{
-    NSPersistentStoreUbiquitousContentNameKey : contentNameKey,
-    NSPersistentStoreUbiquitousContentURLKey : cloudURL,
-    NSMigratePersistentStoresAutomaticallyOption : @(YES),
-    NSInferMappingModelAutomaticallyOption : @(YES),
-    NSPersistentStoreUbiquitousContainerIdentifierKey : containerID,
-    NSPersistentStoreRebuildFromUbiquitousContentOption : @YES,
-    NSPersistentStoreRemoveUbiquitousMetadataOption: @YES
-  };
-  [self setupStoreWithName:localStoreName storeType:NSSQLiteStoreType iCloudEnabled:YES options:iCloudOptions];
-}
-
-#pragma mark - Private main initializer
-
-+ (void)setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType iCloudEnabled:(BOOL)iCloudEnabled options:(NSDictionary *)options
++ (void)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType iCloudEnabled:(BOOL)iCloudEnabled options:(NSDictionary *)options
 {
   NSAssert(!mainStore, @"Store already was already set up", nil);
 
@@ -115,11 +83,11 @@ static NimbleStore *mainStore;
                                              object:mainStore.backgroundContext];
 
   if (iCloudEnabled) {
-    [[NSNotificationCenter defaultCenter] addObserver:self
+    [[NSNotificationCenter defaultCenter] addObserver:mainStore
                                              selector:@selector(storeWillChangeFrom_iCloud:)
                                                  name:NSPersistentStoreCoordinatorStoresWillChangeNotification
                                                object:mainStore.persistentStoreCoordinator];
-    [[NSNotificationCenter defaultCenter] addObserver:self
+    [[NSNotificationCenter defaultCenter] addObserver:mainStore
                                              selector:@selector(mergeChangesFrom_iCloud:)
                                                  name:NSPersistentStoreDidImportUbiquitousContentChangesNotification
                                                object:mainStore.persistentStoreCoordinator];
@@ -158,6 +126,7 @@ static NimbleStore *mainStore;
 
 - (void)mergeChangesFrom_iCloud:(NSNotification *)notification
 {
+  NSLog(@"%p", _cmd);
   [self.mainContext performBlock:^{
     [self.mainContext mergeChangesFromContextDidSaveNotification:notification];
   }];
@@ -165,6 +134,7 @@ static NimbleStore *mainStore;
 
 - (void)storeWillChangeFrom_iCloud:(NSNotification *)storeWillChangeFromiCloud
 {
+  NSLog(@"%p", _cmd);
   if ([mainStore.mainContext hasChanges]) {
     [mainStore.mainContext save:nil];
   }

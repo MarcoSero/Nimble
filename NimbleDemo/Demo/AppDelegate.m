@@ -16,12 +16,12 @@
 {
     // Override point for customization after application launch.
 
-  [NimbleStore nb_setupStore];
-  [NimbleStore nb_saveInBackground:^(NimbleContextType type) {
-    [Book nb_createInContextOfType:type];
-  }                     completion:^(NSError *error) {
-    NSLog(@"all books %@", [Book nb_findAll]);
-  }];
+  [NimbleStore nb_setup_iCloudStore];
+//  [NimbleStore nb_saveInBackground:^(NimbleContextType type) {
+//    [Book nb_createInContextOfType:type];
+//  }                     completion:^(NSError *error) {
+//    NSLog(@"all books %@", [Book nb_findAll]);
+//  }];
 
 
 

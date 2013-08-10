@@ -18,10 +18,10 @@ typedef void (^NimbleErrorBlock)(NSError *error);
 
 @interface NimbleStore : NSObject
 
++ (void)nb_setupInMemoryStore;
 + (void)nb_setupStore;
 + (void)nb_setupStoreWithFilename:(NSString *)filename;
-+ (void)nb_setupInMemoryStore;
-+ (void)nb_setup_iCloudStore;
++ (void)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType iCloudEnabled:(BOOL)iCloudEnabled options:(NSDictionary *)options;
 
 /**
 * Execute a fetch request in one of the contexts

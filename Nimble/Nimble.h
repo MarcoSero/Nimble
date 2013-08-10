@@ -11,3 +11,4 @@
 #import "NSManagedObject+Creators.h"
 #import "NimbleStore+Savers.h"
 #import "NimbleStore+Defaults.h"
+#import "NimbleStore+iCloud.h"
