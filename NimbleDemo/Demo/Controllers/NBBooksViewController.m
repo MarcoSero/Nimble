@@ -37,8 +37,8 @@
   }
 
   [NimbleStore nb_saveInBackground:^(NimbleContextType contextType) {
-    [Book nb_createInContextOfType:contextType initializingPropertiesWithDictionary:@{ @"name" : textField.text } ];
-  } completion:^(NSError *error) {
+    [Book nb_createInContextOfType:contextType initializingPropertiesWithDictionary:@{@"name" : textField.text}];
+  }                     completion:^(NSError *error) {
     if (error) {
       NSLog(@"saved with error");
     }

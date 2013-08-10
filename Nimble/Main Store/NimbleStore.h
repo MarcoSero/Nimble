@@ -33,6 +33,5 @@ typedef void (^NimbleErrorBlock)(NSError *error);
 
 + (NSManagedObjectContext *)nb_mainContext;
 + (NSManagedObjectContext *)nb_backgroundContext;
-+ (NSOperationQueue *)nb_queueForBackgroundSavings;
 
 @end

@@ -73,7 +73,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "129"
             endingLineNumber = "129"
-            landmarkName = "-storesWillChange:"
+            landmarkName = "-storesDidChange:"
             landmarkType = "5">
             <Actions>
                <BreakpointActionProxy
@@ -97,7 +97,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "140"
             endingLineNumber = "140"
-            landmarkName = "-storesDidChange:"
+            landmarkName = "-dealloc"
             landmarkType = "5">
             <Actions>
                <BreakpointActionProxy

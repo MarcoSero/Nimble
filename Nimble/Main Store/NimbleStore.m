@@ -16,7 +16,6 @@ NSString *const NBStoreGotReplacedByCloudStore = @"NBStoreGotReplacedByCloudStor
 @property(strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property(strong, nonatomic) NSManagedObjectContext *mainContext;
 @property(strong, nonatomic) NSManagedObjectContext *backgroundContext;
-@property(strong, nonatomic) NSOperationQueue *queueForBackgroundSavings;
 @end
 
 static NimbleStore *mainStore;
@@ -74,12 +73,9 @@ static NimbleStore *mainStore;
   [mainStore.mainContext setPersistentStoreCoordinator:mainStore.persistentStoreCoordinator];
   [mainStore.backgroundContext setPersistentStoreCoordinator:mainStore.persistentStoreCoordinator];
 
-  mainStore.queueForBackgroundSavings = [[NSOperationQueue alloc] init];
-  mainStore.queueForBackgroundSavings.maxConcurrentOperationCount = 1;
-
   // register observer to merge contexts
   [[NSNotificationCenter defaultCenter] addObserver:mainStore
-                                           selector:@selector(contextDidSave:)
+                                           selector:@selector(storesDidChange:)
                                                name:NSManagedObjectContextDidSaveNotification
                                              object:mainStore.backgroundContext];
 
@@ -118,13 +114,6 @@ static NimbleStore *mainStore;
 
 #pragma mark - Notifications
 
-- (void)contextDidSave:(NSNotification *)notification
-{
-  [self.mainContext performBlock:^{
-    [self.mainContext mergeChangesFromContextDidSaveNotification:notification];
-  }];
-}
-
 - (void)storesWillChange:(NSNotification *)notification
 {
   if ([mainStore.mainContext hasChanges]) {
@@ -141,16 +130,6 @@ static NimbleStore *mainStore;
   [self.mainContext performBlock:^{
     [self.mainContext mergeChangesFromContextDidSaveNotification:notification];
   }];
-}
-
-
-
-
-#pragma mark - Background saving queue
-
-+ (NSOperationQueue *)nb_queueForBackgroundSavings
-{
-  return mainStore.queueForBackgroundSavings;
 }
 
 #pragma mark - Dealloc
