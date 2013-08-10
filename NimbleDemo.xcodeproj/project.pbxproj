@@ -11,7 +11,7 @@
 		62DD20865C9DDCD88DF7976D /* NSManagedObjectContext+NimbleContexts.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD25C177CDA6869D4E8E31 /* NSManagedObjectContext+NimbleContexts.m */; };
 		62DD20E00DC66C9F66A33373 /* NSManagedObject+Finders.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2AD6A1E922073C15F826 /* NSManagedObject+Finders.m */; };
 		62DD214A52EBAE4B68DA7CF1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62DD2867E7159881EE6F7859 /* MainStoryboard.storyboard */; };
-		62DD21B716E4188A8AFA750A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2C767395D1BFD589BE4E /* ViewController.m */; };
+		62DD21B716E4188A8AFA750A /* NBBooksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2C767395D1BFD589BE4E /* NBBooksViewController.m */; };
 		62DD229CF7C9ABD4254C844C /* _Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD204504080067BE4CD7E5 /* _Book.m */; };
 		62DD23298D59557697B34FEE /* _Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2AB84626163E6F9D36D8 /* _Author.m */; };
 		62DD2354A88509B035CEA5A3 /* NimbleStore+Savers.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2D83F97418BD827407C7 /* NimbleStore+Savers.m */; };
@@ -27,6 +27,7 @@
 		62DD293205EF7ABB0662F4E3 /* NSManagedObject+Creators.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2C83A62C1D12F54F7346 /* NSManagedObject+Creators.m */; };
 		62DD2B81CB910C3B895F6C37 /* NimbleStore+Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD274A54F5D5F2A543FA5C /* NimbleStore+Defaults.m */; };
 		62DD2EBBF1D9C5CEBEB7F330 /* Reader.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD22A01D136EE316092FA5 /* Reader.m */; };
+		62DD2F08E72F0DC09C575526 /* HBBooksDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2EEA9618334A8AAB6DDC /* HBBooksDataSource.m */; };
 		62DD2F2555B64142EEF8503E /* NimbleStore+Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD274A54F5D5F2A543FA5C /* NimbleStore+Defaults.m */; };
 		62DD2F5A34897B71C59F24B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD213AD61FA8E29FEDF5BB /* AppDelegate.m */; };
 		A9040B5F178E0ECC00CCE8EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9040B5E178E0ECC00CCE8EF /* UIKit.framework */; };
@@ -79,14 +80,16 @@
 		62DD2A11F83EA4347F30860D /* NimbleStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimbleStore.h; sourceTree = "<group>"; };
 		62DD2AB84626163E6F9D36D8 /* _Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Author.m; sourceTree = "<group>"; };
 		62DD2AD6A1E922073C15F826 /* NSManagedObject+Finders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Finders.m"; sourceTree = "<group>"; };
-		62DD2AEBAD286CA5060CCB0F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		62DD2C767395D1BFD589BE4E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		62DD2AEBAD286CA5060CCB0F /* NBBooksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBooksViewController.h; sourceTree = "<group>"; };
+		62DD2C767395D1BFD589BE4E /* NBBooksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBooksViewController.m; sourceTree = "<group>"; };
 		62DD2C82DD1462527EB97633 /* NimbleStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimbleStore.m; sourceTree = "<group>"; };
 		62DD2C83A62C1D12F54F7346 /* NSManagedObject+Creators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Creators.m"; sourceTree = "<group>"; };
+		62DD2CA396FC586D4FB88979 /* HBBooksDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBBooksDataSource.h; sourceTree = "<group>"; };
 		62DD2CE539DD7732846E9E15 /* NSManagedObject+Finders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Finders.h"; sourceTree = "<group>"; };
 		62DD2D61205FAFA993D9477E /* NSManagedObject+Creators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Creators.h"; sourceTree = "<group>"; };
 		62DD2D83F97418BD827407C7 /* NimbleStore+Savers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NimbleStore+Savers.m"; sourceTree = "<group>"; };
 		62DD2DCF294604E4A28EAB96 /* NimbleStore+Savers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NimbleStore+Savers.h"; sourceTree = "<group>"; };
+		62DD2EEA9618334A8AAB6DDC /* HBBooksDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBBooksDataSource.m; sourceTree = "<group>"; };
 		62DD2F092DCFE5122BD954CE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		62DD2F89D3C30BFCFA6C2FB0 /* NimbleSaversTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NimbleSaversTests.m; path = Tests/NimbleSaversTests.m; sourceTree = "<group>"; };
 		A9040B5B178E0ECC00CCE8EF /* NimbleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NimbleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +111,7 @@
 		A9541F261793572A008D92FC /* NimbleDemo Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NimbleDemo Tests-Prefix.pch"; sourceTree = "<group>"; };
 		A9541F2C1793573E008D92FC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A9541F3517935B88008D92FC /* NimbleStackCreationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NimbleStackCreationTests.m; path = Tests/NimbleStackCreationTests.m; sourceTree = "<group>"; };
+		A9CDBBC717B63679003C35CD /* NimbleDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = NimbleDemo.entitlements; path = ../NimbleDemo.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62DD2060668EA0070360838C /* Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				62DD2CA396FC586D4FB88979 /* HBBooksDataSource.h */,
+				62DD2EEA9618334A8AAB6DDC /* HBBooksDataSource.m */,
+			);
+			path = "Data Sources";
+			sourceTree = "<group>";
+		};
 		62DD21BFED1A0DD591D467DE /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,11 +212,13 @@
 		62DD2A292F8D95C312224D87 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				A9CDBBC717B63679003C35CD /* NimbleDemo.entitlements */,
 				62DD2F092DCFE5122BD954CE /* AppDelegate.h */,
 				62DD213AD61FA8E29FEDF5BB /* AppDelegate.m */,
 				62DD2FD32EC3C7CAD43F9FBB /* Model */,
 				62DD2CA6BC4731325B39F0C1 /* Controllers */,
 				62DD21BFED1A0DD591D467DE /* View */,
+				62DD2060668EA0070360838C /* Data Sources */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -211,8 +226,8 @@
 		62DD2CA6BC4731325B39F0C1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				62DD2C767395D1BFD589BE4E /* ViewController.m */,
-				62DD2AEBAD286CA5060CCB0F /* ViewController.h */,
+				62DD2C767395D1BFD589BE4E /* NBBooksViewController.m */,
+				62DD2AEBAD286CA5060CCB0F /* NBBooksViewController.h */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -361,6 +376,14 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Marco Sero";
 				TargetAttributes = {
+					A9040B5A178E0ECC00CCE8EF = {
+						DevelopmentTeam = QMB7R3FNF8;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
 					A9541F181793572A008D92FC = {
 						TestTargetID = A9040B5A178E0ECC00CCE8EF /* NimbleDemo */;
 					};
@@ -431,7 +454,7 @@
 				A9040B6B178E0ECC00CCE8EF /* main.m in Sources */,
 				62DD2F5A34897B71C59F24B7 /* AppDelegate.m in Sources */,
 				62DD28BC1B0827C5BEE816F2 /* Model.xcdatamodel in Sources */,
-				62DD21B716E4188A8AFA750A /* ViewController.m in Sources */,
+				62DD21B716E4188A8AFA750A /* NBBooksViewController.m in Sources */,
 				62DD2EBBF1D9C5CEBEB7F330 /* Reader.m in Sources */,
 				62DD245D3DE9669B8B84FD89 /* Book.m in Sources */,
 				62DD27496432851BE632B99B /* Author.m in Sources */,
@@ -444,6 +467,7 @@
 				62DD293205EF7ABB0662F4E3 /* NSManagedObject+Creators.m in Sources */,
 				62DD20865C9DDCD88DF7976D /* NSManagedObjectContext+NimbleContexts.m in Sources */,
 				62DD2354A88509B035CEA5A3 /* NimbleStore+Savers.m in Sources */,
+				62DD2F08E72F0DC09C575526 /* HBBooksDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +583,8 @@
 		A9040B7F178E0ECC00CCE8EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NimbleDemo/NimbleDemo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Marco Sero (WYQDY2K7M2)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -568,6 +594,7 @@
 				INFOPLIST_FILE = "NimbleDemo/NimbleDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = NimbleDemo;
+				PROVISIONING_PROFILE = "9F7389DA-7248-4C15-9C79-91144D7FC61B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -575,6 +602,8 @@
 		A9040B80178E0ECC00CCE8EF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NimbleDemo/NimbleDemo.entitlements;
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -584,6 +613,7 @@
 				INFOPLIST_FILE = "NimbleDemo/NimbleDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = NimbleDemo;
+				PROVISIONING_PROFILE = "9F7389DA-7248-4C15-9C79-91144D7FC61B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

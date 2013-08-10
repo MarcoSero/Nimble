@@ -68,9 +68,9 @@ static NimbleStore *mainStore;
     NSPersistentStoreUbiquitousContentURLKey : cloudURL,
     NSMigratePersistentStoresAutomaticallyOption : @(YES),
     NSInferMappingModelAutomaticallyOption : @(YES),
-//    NSPersistentStoreUbiquitousContainerIdentifierKey : containerID,
-//    NSPersistentStoreRebuildFromUbiquitousContentOption : @YES,
-//    NSPersistentStoreRemoveUbiquitousMetadataOption: @YES
+    NSPersistentStoreUbiquitousContainerIdentifierKey : containerID,
+    NSPersistentStoreRebuildFromUbiquitousContentOption : @YES,
+    NSPersistentStoreRemoveUbiquitousMetadataOption: @YES
   };
   [self setupStoreWithName:localStoreName storeType:NSSQLiteStoreType iCloudEnabled:YES options:iCloudOptions];
 }
@@ -115,10 +115,10 @@ static NimbleStore *mainStore;
                                              object:mainStore.backgroundContext];
 
   if (iCloudEnabled) {
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(storeWillChangeFrom_iCloud:)
-//                                                 name:NSPersistentStoreCoordinatorStoresWillChangeNotification
-//                                               object:mainStore.persistentStoreCoordinator];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(storeWillChangeFrom_iCloud:)
+                                                 name:NSPersistentStoreCoordinatorStoresWillChangeNotification
+                                               object:mainStore.persistentStoreCoordinator];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(mergeChangesFrom_iCloud:)
                                                  name:NSPersistentStoreDidImportUbiquitousContentChangesNotification

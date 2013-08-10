@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  NBBooksViewController.h
 //  Nimble
 //
 //  Created by Marco Sero on 10/07/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface NBBooksViewController : UIViewController
 
 @end

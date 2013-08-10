@@ -16,7 +16,7 @@
 {
     // Override point for customization after application launch.
 
-  [NimbleStore nb_setupInMemoryStore];
+  [NimbleStore nb_setupStore];
   [NimbleStore nb_saveInBackground:^(NimbleContextType type) {
     [Book nb_createInContextOfType:type];
   }                     completion:^(NSError *error) {

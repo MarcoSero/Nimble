@@ -5,6 +5,7 @@
 
 
 extern const struct BookAttributes {
+	__unsafe_unretained NSString *name;
 } BookAttributes;
 
 extern const struct BookRelationships {
@@ -19,6 +20,7 @@ extern const struct BookFetchedProperties {
 @class Reader;
 
 
+
 @interface BookID : NSManagedObjectID {}
 @end
 
@@ -27,6 +29,16 @@ extern const struct BookFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (BookID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSString* name;
+
+
+
+//- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -59,6 +71,12 @@ extern const struct BookFetchedProperties {
 @end
 
 @interface _Book (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSString*)primitiveName;
+- (void)setPrimitiveName:(NSString*)value;
+
+
 
 
 
