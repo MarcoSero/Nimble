@@ -30,7 +30,6 @@
 
 - (void)iCloudHasBeenEnabled:(NSNotification *)notification
 {
-  NSLog(@"notification %@", notification);
   _fetchedResultsController = nil;
   [self.tableView reloadData];
 }

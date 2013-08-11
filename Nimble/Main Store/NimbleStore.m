@@ -9,6 +9,7 @@
 #import "NimbleStore+Defaults.h"
 #import "NSManagedObjectContext+NimbleContexts.h"
 
+NSString *const NBStoreAboutToBeReplacedByCloudStore = @"NBStoreAboutToBeReplacedByCloudStore";
 NSString *const NBStoreReplacedByCloudStore = @"NBStoreReplacedByCloudStore";
 
 @interface NimbleStore ()
@@ -92,20 +93,26 @@ static NimbleStore *mainStore;
 + (void)registerToNotificationsWith_iCloudEnabled:(BOOL)iCloudEnabled
 {
   [[NSNotificationCenter defaultCenter] addObserver:mainStore
-                                           selector:@selector(storesDidChangeHandler:)
+                                           selector:@selector(storesDidSaveHandler:)
                                                name:NSManagedObjectContextDidSaveNotification
                                              object:mainStore.backgroundContext];
 
-  if (iCloudEnabled) {
-    [[NSNotificationCenter defaultCenter] addObserver:mainStore
-                                             selector:@selector(storesWillChangeHandler:)
-                                                 name:NSPersistentStoreCoordinatorStoresWillChangeNotification
-                                               object:mainStore.persistentStoreCoordinator];
-    [[NSNotificationCenter defaultCenter] addObserver:mainStore
-                                             selector:@selector(storesDidImportHandler:)
-                                                 name:NSPersistentStoreDidImportUbiquitousContentChangesNotification
-                                               object:mainStore.persistentStoreCoordinator];
+  if (!iCloudEnabled) {
+    return;
   }
+
+  [[NSNotificationCenter defaultCenter] addObserver:mainStore
+                                           selector:@selector(storesDidChangeHandler:)
+                                               name:NSPersistentStoreCoordinatorStoresDidChangeNotification
+                                             object:mainStore.persistentStoreCoordinator];
+  [[NSNotificationCenter defaultCenter] addObserver:mainStore
+                                           selector:@selector(storesWillChangeHandler:)
+                                               name:NSPersistentStoreCoordinatorStoresWillChangeNotification
+                                             object:mainStore.persistentStoreCoordinator];
+  [[NSNotificationCenter defaultCenter] addObserver:mainStore
+                                           selector:@selector(storesDidImportHandler:)
+                                               name:NSPersistentStoreDidImportUbiquitousContentChangesNotification
+                                             object:mainStore.persistentStoreCoordinator];
 }
 
 + (BOOL)nb_removeAllStores:(NSError **)error
@@ -147,6 +154,16 @@ static NimbleStore *mainStore;
 #pragma mark - Notifications
 
 /**
+    Subscribe to NSManagedObjectContextDidSaveNotification
+*/
+- (void)storesDidSaveHandler:(NSNotification *)notification
+{
+  [self.mainContext performBlock:^{
+    [self.mainContext mergeChangesFromContextDidSaveNotification:notification];
+  }];
+}
+
+/**
     Subscribe to NSPersistentStoreCoordinatorStoresWillChangeNotification
 */
 - (void)storesWillChangeHandler:(NSNotification *)notification
@@ -166,25 +183,27 @@ static NimbleStore *mainStore;
     [moc reset];
   }];
 
-  //reset user interface
+  [[NSNotificationCenter defaultCenter] postNotificationName:NBStoreAboutToBeReplacedByCloudStore object:nil];
 }
 
 /**
-    Subscribe to NSManagedObjectContextDidSaveNotification
+    Subscribe to NSPersistentStoreCoordinatorStoresDidChangeNotification
 */
 - (void)storesDidChangeHandler:(NSNotification *)notification
 {
+  if ([notification.userInfo objectForKey:@"removed"] == nil) {
+    // just added local persistent store
+    // TODO: HACKY! remove this!
+    return;
+  }
+  
   [self.mainContext performBlock:^{
-    
     [self.mainContext mergeChangesFromContextDidSaveNotification:notification];
-    
-    // read here https://devforums.apple.com/message/865235
-    if (notification.object != self.backgroundContext) {
-      [[NSNotificationCenter defaultCenter] postNotificationName:NBStoreReplacedByCloudStore object:nil];
-    }
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:NBStoreReplacedByCloudStore object:nil];
+    NBLog(@"Using iCloud store");
   }];
 }
+
 
 /**
     Subscribe to NSPersistentStoreDidImportUbiquitousContentChangesNotification
