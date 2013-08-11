@@ -5,12 +5,11 @@
 //
 
 
-#import <objc/runtime.h>
 #import "NimbleStore.h"
 #import "NimbleStore+Defaults.h"
 #import "NSManagedObjectContext+NimbleContexts.h"
 
-NSString *const NBStoreGotReplacedByCloudStore = @"NBStoreGotReplacedByCloudStore";
+NSString *const NBStoreReplacedByCloudStore = @"NBStoreReplacedByCloudStore";
 
 @interface NimbleStore ()
 @property(strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
@@ -93,17 +92,17 @@ static NimbleStore *mainStore;
 + (void)registerToNotificationsWith_iCloudEnabled:(BOOL)iCloudEnabled
 {
   [[NSNotificationCenter defaultCenter] addObserver:mainStore
-                                           selector:@selector(storesDidChange:)
+                                           selector:@selector(storesDidChangeHandler:)
                                                name:NSManagedObjectContextDidSaveNotification
                                              object:mainStore.backgroundContext];
 
   if (iCloudEnabled) {
     [[NSNotificationCenter defaultCenter] addObserver:mainStore
-                                             selector:@selector(storesWillChange:)
+                                             selector:@selector(storesWillChangeHandler:)
                                                  name:NSPersistentStoreCoordinatorStoresWillChangeNotification
                                                object:mainStore.persistentStoreCoordinator];
     [[NSNotificationCenter defaultCenter] addObserver:mainStore
-                                             selector:@selector(storesDidChange:)
+                                             selector:@selector(storesDidImportHandler:)
                                                  name:NSPersistentStoreDidImportUbiquitousContentChangesNotification
                                                object:mainStore.persistentStoreCoordinator];
   }
@@ -150,7 +149,7 @@ static NimbleStore *mainStore;
 /**
     Subscribe to NSPersistentStoreCoordinatorStoresWillChangeNotification
 */
-- (void)storesWillChange:(NSNotification *)notification
+- (void)storesWillChangeHandler:(NSNotification *)notification
 {
   NSManagedObjectContext *moc = self.mainContext;
 
@@ -172,9 +171,25 @@ static NimbleStore *mainStore;
 
 /**
     Subscribe to NSManagedObjectContextDidSaveNotification
-    and NSPersistentStoreDidImportUbiquitousContentChangesNotification
 */
-- (void)storesDidChange:(NSNotification *)notification
+- (void)storesDidChangeHandler:(NSNotification *)notification
+{
+  [self.mainContext performBlock:^{
+    
+    [self.mainContext mergeChangesFromContextDidSaveNotification:notification];
+    
+    // read here https://devforums.apple.com/message/865235
+    if (notification.object != self.backgroundContext) {
+      [[NSNotificationCenter defaultCenter] postNotificationName:NBStoreReplacedByCloudStore object:nil];
+    }
+    
+  }];
+}
+
+/**
+    Subscribe to NSPersistentStoreDidImportUbiquitousContentChangesNotification
+*/
+- (void)storesDidImportHandler:(NSNotification *)notification
 {
   [self.mainContext performBlock:^{
     [self.mainContext mergeChangesFromContextDidSaveNotification:notification];

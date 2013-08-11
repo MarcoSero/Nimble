@@ -21,7 +21,7 @@
 {
   self = [super init];
   if (self) {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(iCloudHasBeenEnabled:) name:NBStoreGotReplacedByCloudStore object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(iCloudHasBeenEnabled:) name:NBStoreReplacedByCloudStore object:nil];
     _tableView = tableView;
     return self;
   }

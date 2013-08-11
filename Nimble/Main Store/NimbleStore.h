@@ -14,7 +14,7 @@ typedef NS_ENUM(NSUInteger, NimbleContextType) {
   NimbleBackgroundContext = 1
 };
 
-extern NSString *const NBStoreGotReplacedByCloudStore;
+extern NSString *const NBStoreReplacedByCloudStore;
 
 // let's try not to get crazy
 typedef void (^NimbleSimpleBlock)(NimbleContextType contextType);
