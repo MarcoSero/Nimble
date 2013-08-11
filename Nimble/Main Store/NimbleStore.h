@@ -20,16 +20,23 @@ typedef void (^NimbleErrorBlock)(NSError *error);
 
 @interface NimbleStore : NSObject
 
-+ (void)nb_setupInMemoryStore;
-+ (void)nb_setupStore;
-+ (void)nb_setupStoreWithFilename:(NSString *)filename;
-+ (void)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType iCloudEnabled:(BOOL)iCloudEnabled options:(NSDictionary *)options;
++ (void)nb_setupInMemoryStore:(NSError **)error;
+
++ (void)nb_setupStore:(NSError **)error;
+
++ (void)nb_setupStoreWithFilename:(NSString *)filename error:(NSError **)error;
+
++ (void)setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType error:(NSError **)error;
+
++ (void)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType iCloudEnabled:(BOOL)iCloudEnabled options:(NSDictionary *)options error:(NSError **)error;
+
++ (BOOL)nb_removeAllStores:(NSError **)error;
 
 /**
 * Execute a fetch request in one of the contexts
 *
 */
-+ (NSArray *)nb_executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NimbleContextType)contextType;
++ (NSArray *)nb_executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NimbleContextType)contextType error:(NSError **)error;
 
 + (NSManagedObjectContext *)nb_mainContext;
 + (NSManagedObjectContext *)nb_backgroundContext;

@@ -26,4 +26,24 @@
   return ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
 }
 
++ (NSURL *)nb_URLToStoreWithFilename:(NSString *)filename
+{
+  NSString *fileURL = [NSString localizedStringWithFormat:@"%@/%@", [self.class nb_applicationDocumentsDirectory], filename];
+  NSURL *localStoreURL = [NSURL fileURLWithPath:fileURL];
+  return localStoreURL;
+}
+
++ (NSURL *)URLForUbiquityContainer
+{
+  return [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
+}
+
++ (NSURL *)nb_iCloudURLToStoreWithFilename:(NSString *)filename
+{
+  NSString *fileURL = [NSString localizedStringWithFormat:@"%@/%@", [self.class URLForUbiquityContainer], filename];
+  NSURL *localStoreURL = [NSURL fileURLWithPath:fileURL];
+  return localStoreURL;
+}
+
+
 @end

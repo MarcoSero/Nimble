@@ -8,8 +8,9 @@
 #import "NimbleStore+Savers.h"
 #import "NSManagedObjectContext+NimbleContexts.h"
 #import "NimbleStore+Defaults.h"
+#import "Logging.h"
 
-@implementation NimbleStore (Savers)
+  @implementation NimbleStore (Savers)
 
 + (void)nb_saveInMain:(NimbleSimpleBlock)changes
 {
@@ -20,7 +21,15 @@
   [context performBlock:^{
 
     changes(NimbleMainContext);
-    [context save:nil];
+
+    NSError *error;
+    [context save:&error];
+
+    NBLogDebug(@"Saved main context");
+
+    if (error) {
+      NBLogError(@"Error saving main context: %@", error);
+    }
 
   }];
 }
@@ -34,7 +43,15 @@
   [context performBlockAndWait:^{
 
     changes(NimbleMainContext);
-    [context save:nil];
+
+    NSError *error;
+    [context save:&error];
+
+    NBLogDebug("Saved main context");
+
+    if (error) {
+      NBLogError("Error saving main context: %@", error);
+    }
 
   }];
 }
@@ -53,7 +70,15 @@
   [backgroundContext performBlockAndWait:^{
 
     changes(NimbleBackgroundContext);
-    [backgroundContext save:nil];
+
+    NSError *error;
+    [backgroundContext save:&error];
+
+    NBLogDebug("Saved background context");
+
+    if (error) {
+      NBLogError("Error saving background context: %@", error);
+    }
 
     if (completion) {
       dispatch_async(dispatch_get_main_queue(), ^{

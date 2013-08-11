@@ -7,6 +7,7 @@
 
 #import "NimbleStore+iCloud.h"
 #import "NimbleStore+Defaults.h"
+#import "Logging.h"
 
 
 @implementation NimbleStore (iCloud)
@@ -16,16 +17,12 @@
   return [self URLForUbiquityContainer] != nil;
 }
 
-+ (NSURL *)URLForUbiquityContainer
-{
-  return [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
-}
 
 + (void)nb_setup_iCloudStore
 {
   if (![self iCloudAvailable]) {
-    NSLog(@"iCloud not available.");
-    [self nb_setupStore];
+    NBLogError("iCloud not available.");
+    [self nb_setupStore:NULL ];
     return;
   }
 
@@ -38,17 +35,19 @@
 {
   BOOL iCloudAvailable = [self iCloudAvailable];
   if (!iCloudAvailable) {
-    NSLog(@"iCloud not available.");
+    NBLogError(@"iCloud not available.");
   }
 
   NSDictionary *iCloudOptions = @{
     NSPersistentStoreUbiquitousContentNameKey : contentNameKey,
     NSPersistentStoreUbiquitousContentURLKey : logs,
     NSMigratePersistentStoresAutomaticallyOption : @YES,
-    NSInferMappingModelAutomaticallyOption : @YES,
-    NSPersistentStoreRebuildFromUbiquitousContentOption : @YES
+    NSInferMappingModelAutomaticallyOption : @YES
+//    NSPersistentStoreRebuildFromUbiquitousContentOption : @YES
   };
-  [self nb_setupStoreWithName:localStoreName storeType:NSSQLiteStoreType iCloudEnabled:iCloudAvailable options:iCloudOptions];
+  [self nb_setupStoreWithName:localStoreName storeType:NSSQLiteStoreType iCloudEnabled:iCloudAvailable options:iCloudOptions error:NULL ];
 }
+
+
 
 @end

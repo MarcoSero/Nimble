@@ -91,6 +91,7 @@
 		62DD2D61205FAFA993D9477E /* NSManagedObject+Creators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Creators.h"; sourceTree = "<group>"; };
 		62DD2D83F97418BD827407C7 /* NimbleStore+Savers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NimbleStore+Savers.m"; sourceTree = "<group>"; };
 		62DD2DCF294604E4A28EAB96 /* NimbleStore+Savers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NimbleStore+Savers.h"; sourceTree = "<group>"; };
+		62DD2E3E11CAF39B0F6412F6 /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
 		62DD2EEA9618334A8AAB6DDC /* HBBooksDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBBooksDataSource.m; sourceTree = "<group>"; };
 		62DD2F092DCFE5122BD954CE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		62DD2F89D3C30BFCFA6C2FB0 /* NimbleSaversTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NimbleSaversTests.m; path = Tests/NimbleSaversTests.m; sourceTree = "<group>"; };
@@ -186,8 +187,8 @@
 				62DD2C83A62C1D12F54F7346 /* NSManagedObject+Creators.m */,
 				62DD2DCF294604E4A28EAB96 /* NimbleStore+Savers.h */,
 				62DD2D83F97418BD827407C7 /* NimbleStore+Savers.m */,
-				62DD2FF93F5D12086DF59A9C /* NimbleStore+iCloud.m */,
 				62DD2BD9387CEA23DD116E25 /* NimbleStore+iCloud.h */,
+				62DD2FF93F5D12086DF59A9C /* NimbleStore+iCloud.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -235,6 +236,14 @@
 				62DD2AEBAD286CA5060CCB0F /* NBBooksViewController.h */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		62DD2D47D1C6ADB276C9E6CA /* Logs */ = {
+			isa = PBXGroup;
+			children = (
+				62DD2E3E11CAF39B0F6412F6 /* Logging.h */,
+			);
+			path = Logs;
 			sourceTree = "<group>";
 		};
 		62DD2FD32EC3C7CAD43F9FBB /* Model */ = {
@@ -308,6 +317,7 @@
 				A9040B82178E0EE700CCE8EF /* Nimble.h */,
 				62DD25BDCF548A56B79774A2 /* Main Store */,
 				62DD257BEF9CDBB16BE51BC9 /* Categories */,
+				62DD2D47D1C6ADB276C9E6CA /* Logs */,
 			);
 			name = Nimble;
 			path = ../Nimble;

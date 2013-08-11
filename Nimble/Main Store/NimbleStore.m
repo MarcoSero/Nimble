@@ -9,6 +9,7 @@
 #import "NimbleStore.h"
 #import "NimbleStore+Defaults.h"
 #import "NSManagedObjectContext+NimbleContexts.h"
+#import "Logging.h"
 
 NSString *const NBStoreGotReplacedByCloudStore = @"NBStoreGotReplacedByCloudStore";
 
@@ -24,49 +25,61 @@ static NimbleStore *mainStore;
 
 #pragma mark - Setup store
 
-+ (void)nb_setupStore
++ (void)nb_setupStore:(NSError **)error
 {
-  [self nb_setupStoreWithFilename:[self.class nb_defaultStoreName]];
+  [self nb_setupStoreWithFilename:[self.class nb_defaultStoreName] error:error];
 }
 
-+ (void)nb_setupStoreWithFilename:(NSString *)filename
++ (void)nb_setupStoreWithFilename:(NSString *)filename error:(NSError **)error
 {
   NSParameterAssert(filename);
-  [self setupStoreWithName:filename storeType:NSSQLiteStoreType];
+
+  [self setupStoreWithName:filename storeType:NSSQLiteStoreType error:error];
 }
 
-+ (void)nb_setupInMemoryStore
++ (void)nb_setupInMemoryStore:(NSError **)error
 {
-  [self setupStoreWithName:nil storeType:NSInMemoryStoreType];
+  [self setupStoreWithName:nil storeType:NSInMemoryStoreType error:error];
 }
 
-+ (void)setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType
++ (void)setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType error:(NSError **)error
 {
-  [self nb_setupStoreWithName:filename storeType:storeType iCloudEnabled:NO options:nil ];
+  NSParameterAssert(filename);
+  NSParameterAssert(storeType);
+
+  [self nb_setupStoreWithName:filename storeType:storeType iCloudEnabled:NO options:nil error:error];
 }
 
-+ (void)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType iCloudEnabled:(BOOL)iCloudEnabled options:(NSDictionary *)options
++ (void)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType iCloudEnabled:(BOOL)iCloudEnabled options:(NSDictionary *)options error:(NSError **)error
 {
   NSAssert(!mainStore, @"Store already was already set up", nil);
 
   mainStore = [[NimbleStore alloc] init];
 
   NSManagedObjectModel *model = [NSManagedObjectModel mergedModelFromBundles:nil];
+
+  if (!model) {
+    *error = [NSError errorWithDomain:@"com.marcosero.Nimble" code:1 userInfo:@{@"error" : @"No managed object model found."}];
+  }
+
   mainStore.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
-  NSAssert(mainStore.persistentStoreCoordinator, @"Error creating persistent store coordinator", nil);
+
   [self registerToNotificationsWith_iCloudEnabled:iCloudEnabled];
 
-  NSString *fileURL = [NSString localizedStringWithFormat:@"%@/%@", [self.class nb_applicationDocumentsDirectory], filename];
-  NSURL *localStoreURL = [NSURL fileURLWithPath:fileURL];
+  NSURL *localStoreURL = [self nb_URLToStoreWithFilename:filename];
 
   [mainStore.persistentStoreCoordinator lock];
-  NSError *error;
   [mainStore.persistentStoreCoordinator addPersistentStoreWithType:storeType
-  configuration:nil
-  URL:localStoreURL
-  options:options
-  error:&error];
-  NSAssert(!error, @"Error initializing the store %@", error);
+                                                     configuration:nil
+                                                               URL:localStoreURL
+                                                           options:options
+                                                             error:error];
+
+  if (error) {
+    NBLogError(@"Error initialising the store: %@", *error);
+    return;
+  }
+
   [mainStore.persistentStoreCoordinator unlock];
 
   mainStore.mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
@@ -96,13 +109,28 @@ static NimbleStore *mainStore;
   }
 }
 
++ (BOOL)nb_removeAllStores:(NSError **)error
+{
+  NSPersistentStore *store = [mainStore.persistentStoreCoordinator.persistentStores lastObject];
+  NSURL *storeURL = [mainStore.persistentStoreCoordinator URLForPersistentStore:store];
+  BOOL success = [NSPersistentStoreCoordinator removeUbiquitousContentAndPersistentStoreAtURL:storeURL options:nil error:error];
+  return success;
+}
+
+
 #pragma mark - Fetch request
 
-+ (NSArray *)nb_executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NimbleContextType)contextType
++ (NSArray *)nb_executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NimbleContextType)contextType error:(NSError **)error
 {
   NSParameterAssert(request);
 
-  return [[NSManagedObjectContext nb_contextForType:contextType] executeFetchRequest:request error:nil];
+  NSArray *results = [[NSManagedObjectContext nb_contextForType:contextType] executeFetchRequest:request error:error];
+
+  if (error) {
+    NBLogError(@"Error in fetch request: %@\nError: @%", request, error);
+  }
+
+  return results;
 }
 
 #pragma mark - Contexts
@@ -124,15 +152,22 @@ static NimbleStore *mainStore;
 */
 - (void)storesWillChange:(NSNotification *)notification
 {
+  NBLogDebug(@"Received %@", notification.name);
   NSManagedObjectContext *moc = self.mainContext;
 
   [moc performBlockAndWait:^{
-    NSError *error = nil;
     if ([moc hasChanges]) {
+      NSError *error = nil;
+      NBLogDebug(@"Saving main context before reset");
       [moc save:&error];
+
+      if (error) {
+        NBLogError(@"Error saving main context: %@", error);
+      }
     }
 
     [moc reset];
+    NBLogDebug(@"Main context has been reset");
   }];
 
   //reset user interface
@@ -144,8 +179,11 @@ static NimbleStore *mainStore;
 */
 - (void)storesDidChange:(NSNotification *)notification
 {
+  NBLogDebug(@"Received %@", notification.name);
+
   [self.mainContext performBlock:^{
     [self.mainContext mergeChangesFromContextDidSaveNotification:notification];
+    NBLogDebug(@"Merged changes into main context from notification %@");
   }];
 }
 

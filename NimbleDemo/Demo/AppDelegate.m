@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Marco Sero. All rights reserved.
 //
 
+#define RESET_iCLOUD 0
+
 #import "AppDelegate.h"
 #import "Nimble.h"
 #import "Book.h"
@@ -17,14 +19,10 @@
     // Override point for customization after application launch.
 
   [NimbleStore nb_setup_iCloudStore];
-//  [NimbleStore nb_saveInBackground:^(NimbleContextType type) {
-//    [Book nb_createInContextOfType:type];
-//  }                     completion:^(NSError *error) {
-//    NSLog(@"all books %@", [Book nb_findAll]);
-//  }];
 
-
-
+#if RESET_iCLOUD
+  [NimbleStore nb_removeAllStores:nil];
+#endif
 
   return YES;
 }

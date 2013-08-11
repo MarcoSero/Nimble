@@ -229,7 +229,7 @@
   fetchRequest.predicate = predicate;
   fetchRequest.sortDescriptors = (sortTerm) ? @[[NSSortDescriptor sortDescriptorWithKey:sortTerm ascending:ascending]] : nil;
   if (fetchLimit > 0) {fetchRequest.fetchLimit = fetchLimit;}
-  NSArray *results = [NimbleStore nb_executeFetchRequest:fetchRequest inContextOfType:context];
+  NSArray *results = [NimbleStore nb_executeFetchRequest:fetchRequest inContextOfType:context error:nil ];
   return results;
 }
 

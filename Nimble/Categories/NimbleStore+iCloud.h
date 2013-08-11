@@ -11,8 +11,10 @@
 @interface NimbleStore (iCloud)
 
 + (BOOL)iCloudAvailable;
+
 + (void)nb_setup_iCloudStore;
 
 + (void)nb_setup_iCloudStoreWithContentNameKey:(NSString *)contentNameKey localStoreNamed:(NSString *)localStoreName transactionsLogsSubdirectory:(NSString *)logs;
+
 
 @end

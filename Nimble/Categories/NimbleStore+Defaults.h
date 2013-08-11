@@ -11,7 +11,16 @@
 @interface NimbleStore (Defaults)
 
 + (NSString *)nb_appName;
+
 + (NSString *)nb_defaultStoreName;
+
 + (NSString *)nb_applicationDocumentsDirectory;
+
++ (NSURL *)nb_URLToStoreWithFilename:(NSString *)filename;
+
++ (NSURL *)URLForUbiquityContainer;
+
++ (NSURL *)nb_iCloudURLToStoreWithFilename:(NSString *)filename;
+
 
 @end

@@ -7,6 +7,7 @@
 
 
 #import "Book.h"
+#import "NimbleStore.h"
 
 @interface NimbleSaversTests : XCTestCase
 @end
@@ -16,7 +17,7 @@
 - (void)setUp
 {
   [super setUp];
-  [NimbleStore nb_setupInMemoryStore];
+  [NimbleStore nb_setupInMemoryStore:NULL ];
 }
 
 - (void)tearDown
