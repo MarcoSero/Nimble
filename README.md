@@ -1,10 +1,10 @@
 # Nimble
 
-CoreData (and iCloud) made *nimble* and fast.
+Core Data (and iCloud) made *nimble* and fast.
 
 ## Why
 
-The answer is quite easy. I needed a CoreData wrapper with these features:
+The answer is quite easy. I needed a Core Data wrapper with these features:
 
 - easy setup and easy finders like MagicalRecord has
 - just 2 contexts: one for the main thread and the other for the background ones, because as someone has actually proved, this is much faster than parent+children. Read [here](http://floriankugler.com/blog/2013/4/29/concurrent-core-data-stack-performance-shootout) and [here](http://floriankugler.com/blog/2013/5/11/backstage-with-nested-managed-object-contexts)
@@ -20,35 +20,27 @@ and then import `Nimble.h` into your prefix file.
 
 ## Tests
 
-Most of the "" code has been tested with the new `XCTest`.
+Most of the code has been tested with the new `XCTest`.
 
 ## How it works
 
-First, set up the store
+First, set up the local or cloud store based on what you need
 
-    [NimbleStore nb_setupStore];
+    [NimbleStore nb_setupStore:&error];
+    // OR
+    [NimbleStore nb_setup_iCloudStore:&error]
 
-You can also choose a custom name
-
-    [NimbleStore nb_setupStoreWithFilename:@"CustomName"];
-
-or a in-memory store
-
-    [NimbleStore nb_setupInMemoryStore
+The iCloud set up, thanks to iOS 7's API is completely asynchronous and a local store is created ready to use waiting for the iCloud's one.
 
 ### Savers
 
-To save in background:
+Easily save in main or background thread, everithing is then merged into the main context
 
     [NimbleStore nb_saveInBackground:^(NimbleContextType contextType) {
-      [Book nb_createInContextOfType:contextType];
+      Book *book = [Book nb_createInContextOfType:contextType];
+      book.name = @"Best book ever";
     }];
 
-If you want to save into the context you are in, you can simply do
-
-    [NimbleStore nb_saveInProperContext:^(NimbleContextType contextType) {
-      [Book nb_createInContextOfType:contextType];
-    }];
 
 ### Creators
 
@@ -63,7 +55,7 @@ to create an object and in the same time initialize some of its property, you ca
         @"surname" : @"Sero"
     }];
 
-### Finders
+### Finders and fetchers
 
 You can find all type of finders and fetchers in `NSManagedObject+Finders.h`
 

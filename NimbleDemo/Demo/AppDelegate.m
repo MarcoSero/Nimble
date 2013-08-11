@@ -16,7 +16,7 @@
 {
     // Override point for customization after application launch.
 
-  [NimbleStore nb_setup_iCloudStore];
+  [NimbleStore nb_setup_iCloudStore:NULL ];
 
 #if RESET_iCLOUD
   [NimbleStore nb_removeAllStores:nil];

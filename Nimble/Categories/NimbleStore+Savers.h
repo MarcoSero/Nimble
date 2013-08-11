@@ -10,6 +10,10 @@
 
 @interface NimbleStore (Savers)
 
++ (void)nb_saveInMain:(NimbleSimpleBlock)changes;
+
++ (void)nb_saveInMainWaiting:(NimbleSimpleBlock)changes;
+
 
 /**
 * Perform all the changes in a background queue and then merge everything into the main context

@@ -62,7 +62,7 @@
 
   NSManagedObjectContext *backgroundContext = [NSManagedObjectContext nb_backgroundContext];
 
-  [backgroundContext performBlockAndWait:^{
+  [backgroundContext performBlock:^{
 
     changes(NimbleBackgroundContext);
 

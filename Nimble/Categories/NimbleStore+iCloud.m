@@ -16,7 +16,7 @@
 }
 
 
-+ (void)nb_setup_iCloudStore
++ (void)nb_setup_iCloudStore:(NSError **)error
 {
   if (![self iCloudAvailable]) {
     NBLog(@"iCloud not available.");
@@ -26,10 +26,10 @@
 
   NSString *contentNameKey = @"iCloudNimbleStore";
   NSString *transactionsLogsSubdirectory = @"transactions_logs";
-  [self nb_setup_iCloudStoreWithContentNameKey:contentNameKey localStoreNamed:[self.class nb_appName] transactionsLogsSubdirectory:transactionsLogsSubdirectory];
+  [self nb_setup_iCloudStoreWithContentNameKey:contentNameKey localStoreNamed:[self.class nb_appName] transactionsLogsSubdirectory:transactionsLogsSubdirectory error:error];
 }
 
-+ (void)nb_setup_iCloudStoreWithContentNameKey:(NSString *)contentNameKey localStoreNamed:(NSString *)localStoreName transactionsLogsSubdirectory:(NSString *)logs
++ (void)nb_setup_iCloudStoreWithContentNameKey:(NSString *)contentNameKey localStoreNamed:(NSString *)localStoreName transactionsLogsSubdirectory:(NSString *)logs error:(NSError **)error
 {
   BOOL iCloudAvailable = [self iCloudAvailable];
   if (!iCloudAvailable) {
@@ -43,7 +43,7 @@
     NSInferMappingModelAutomaticallyOption : @YES
 //    NSPersistentStoreRebuildFromUbiquitousContentOption : @YES
   };
-  [self nb_setupStoreWithName:localStoreName storeType:NSSQLiteStoreType iCloudEnabled:iCloudAvailable options:iCloudOptions error:NULL ];
+  [self nb_setupStoreWithName:localStoreName storeType:NSSQLiteStoreType iCloudEnabled:iCloudAvailable options:iCloudOptions error:error];
 }
 
 
