@@ -54,6 +54,7 @@ static NimbleStore *mainStore;
   NSManagedObjectModel *model = [NSManagedObjectModel mergedModelFromBundles:nil];
   mainStore.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
   NSAssert(mainStore.persistentStoreCoordinator, @"Error creating persistent store coordinator", nil);
+  [self registerToNotificationsWith_iCloudEnabled:iCloudEnabled];
 
   NSString *fileURL = [NSString localizedStringWithFormat:@"%@/%@", [self.class nb_applicationDocumentsDirectory], filename];
   NSURL *localStoreURL = [NSURL fileURLWithPath:fileURL];
@@ -61,10 +62,10 @@ static NimbleStore *mainStore;
   [mainStore.persistentStoreCoordinator lock];
   NSError *error;
   [mainStore.persistentStoreCoordinator addPersistentStoreWithType:storeType
-                                                     configuration:nil
-                                                               URL:localStoreURL
-                                                           options:options
-                                                             error:&error];
+  configuration:nil
+  URL:localStoreURL
+  options:options
+  error:&error];
   NSAssert(!error, @"Error initializing the store %@", error);
   [mainStore.persistentStoreCoordinator unlock];
 
@@ -73,7 +74,11 @@ static NimbleStore *mainStore;
   [mainStore.mainContext setPersistentStoreCoordinator:mainStore.persistentStoreCoordinator];
   [mainStore.backgroundContext setPersistentStoreCoordinator:mainStore.persistentStoreCoordinator];
 
-  // register observer to merge contexts
+
+}
+
++ (void)registerToNotificationsWith_iCloudEnabled:(BOOL)iCloudEnabled
+{
   [[NSNotificationCenter defaultCenter] addObserver:mainStore
                                            selector:@selector(storesDidChange:)
                                                name:NSManagedObjectContextDidSaveNotification
@@ -114,17 +119,29 @@ static NimbleStore *mainStore;
 
 #pragma mark - Notifications
 
+/**
+    Subscribe to NSPersistentStoreCoordinatorStoresWillChangeNotification
+*/
 - (void)storesWillChange:(NSNotification *)notification
 {
-  if ([mainStore.mainContext hasChanges]) {
-    [mainStore.mainContext save:nil];
-  }
-  [mainStore.mainContext reset];
-  [mainStore.backgroundContext reset];
-  
+  NSManagedObjectContext *moc = self.mainContext;
+
+  [moc performBlockAndWait:^{
+    NSError *error = nil;
+    if ([moc hasChanges]) {
+      [moc save:&error];
+    }
+
+    [moc reset];
+  }];
+
   //reset user interface
 }
 
+/**
+    Subscribe to NSManagedObjectContextDidSaveNotification
+    and NSPersistentStoreDidImportUbiquitousContentChangesNotification
+*/
 - (void)storesDidChange:(NSNotification *)notification
 {
   [self.mainContext performBlock:^{

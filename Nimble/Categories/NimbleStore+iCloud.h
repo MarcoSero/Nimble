@@ -12,6 +12,7 @@
 
 + (BOOL)iCloudAvailable;
 + (void)nb_setup_iCloudStore;
-+ (void)nb_setup_iCloudStoreWithContentNameKey:(NSString *)contentNameKey containerID:(NSString *)containerID localStoreNamed:(NSString *)localStoreName;
+
++ (void)nb_setup_iCloudStoreWithContentNameKey:(NSString *)contentNameKey localStoreNamed:(NSString *)localStoreName transactionsLogsSubdirectory:(NSString *)logs;
 
 @end

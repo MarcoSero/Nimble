@@ -29,13 +29,12 @@
     return;
   }
 
-  NSString *containerID = [[[NSBundle mainBundle] infoDictionary] objectForKey:(id)kCFBundleIdentifierKey];
   NSString *contentNameKey = @"iCloudNimbleStore";
-
-  [self nb_setup_iCloudStoreWithContentNameKey:contentNameKey containerID:containerID localStoreNamed:[self.class nb_appName]];
+  NSString *transactionsLogsSubdirectory = @"transactions_logs";
+  [self nb_setup_iCloudStoreWithContentNameKey:contentNameKey localStoreNamed:[self.class nb_appName] transactionsLogsSubdirectory:transactionsLogsSubdirectory];
 }
 
-+ (void)nb_setup_iCloudStoreWithContentNameKey:(NSString *)contentNameKey containerID:(NSString *)containerID localStoreNamed:(NSString *)localStoreName
++ (void)nb_setup_iCloudStoreWithContentNameKey:(NSString *)contentNameKey localStoreNamed:(NSString *)localStoreName transactionsLogsSubdirectory:(NSString *)logs
 {
   BOOL iCloudAvailable = [self iCloudAvailable];
   if (!iCloudAvailable) {
@@ -44,11 +43,10 @@
 
   NSDictionary *iCloudOptions = @{
     NSPersistentStoreUbiquitousContentNameKey : contentNameKey,
-    NSPersistentStoreUbiquitousContentURLKey : @"logs",
-    NSMigratePersistentStoresAutomaticallyOption : @(YES),
-    NSInferMappingModelAutomaticallyOption : @(YES),
-    NSPersistentStoreRebuildFromUbiquitousContentOption : @YES,
-//    NSPersistentStoreUbiquitousContainerIdentifierKey : containerID
+    NSPersistentStoreUbiquitousContentURLKey : logs,
+    NSMigratePersistentStoresAutomaticallyOption : @YES,
+    NSInferMappingModelAutomaticallyOption : @YES,
+    NSPersistentStoreRebuildFromUbiquitousContentOption : @YES
   };
   [self nb_setupStoreWithName:localStoreName storeType:NSSQLiteStoreType iCloudEnabled:iCloudAvailable options:iCloudOptions];
 }
