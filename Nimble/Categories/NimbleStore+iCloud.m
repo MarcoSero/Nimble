@@ -7,8 +7,6 @@
 
 #import "NimbleStore+iCloud.h"
 #import "NimbleStore+Defaults.h"
-#import "Logging.h"
-
 
 @implementation NimbleStore (iCloud)
 
@@ -21,7 +19,7 @@
 + (void)nb_setup_iCloudStore
 {
   if (![self iCloudAvailable]) {
-    NBLogError("iCloud not available.");
+    NBLog(@"iCloud not available.");
     [self nb_setupStore:NULL ];
     return;
   }
@@ -35,7 +33,7 @@
 {
   BOOL iCloudAvailable = [self iCloudAvailable];
   if (!iCloudAvailable) {
-    NBLogError(@"iCloud not available.");
+    NBLog(@"iCloud not available.");
   }
 
   NSDictionary *iCloudOptions = @{
@@ -47,7 +45,6 @@
   };
   [self nb_setupStoreWithName:localStoreName storeType:NSSQLiteStoreType iCloudEnabled:iCloudAvailable options:iCloudOptions error:NULL ];
 }
-
 
 
 @end

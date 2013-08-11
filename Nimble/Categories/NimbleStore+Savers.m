@@ -1,4 +1,4 @@
-  //
+//
 //  Created by marco on 11/07/13.
 //
 //
@@ -8,9 +8,8 @@
 #import "NimbleStore+Savers.h"
 #import "NSManagedObjectContext+NimbleContexts.h"
 #import "NimbleStore+Defaults.h"
-#import "Logging.h"
 
-  @implementation NimbleStore (Savers)
+@implementation NimbleStore (Savers)
 
 + (void)nb_saveInMain:(NimbleSimpleBlock)changes
 {
@@ -25,10 +24,8 @@
     NSError *error;
     [context save:&error];
 
-    NBLogDebug(@"Saved main context");
-
     if (error) {
-      NBLogError(@"Error saving main context: %@", error);
+      NBLog(@"Error saving main context: %@", error);
     }
 
   }];
@@ -47,10 +44,8 @@
     NSError *error;
     [context save:&error];
 
-    NBLogDebug("Saved main context");
-
     if (error) {
-      NBLogError("Error saving main context: %@", error);
+      NBLog(@"Error saving main context: %@", error);
     }
 
   }];
@@ -74,10 +69,8 @@
     NSError *error;
     [backgroundContext save:&error];
 
-    NBLogDebug("Saved background context");
-
     if (error) {
-      NBLogError("Error saving background context: %@", error);
+      NBLog(@"Error saving background context: %@", error);
     }
 
     if (completion) {

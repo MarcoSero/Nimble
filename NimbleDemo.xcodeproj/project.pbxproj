@@ -82,6 +82,7 @@
 		62DD2AB84626163E6F9D36D8 /* _Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Author.m; sourceTree = "<group>"; };
 		62DD2AD6A1E922073C15F826 /* NSManagedObject+Finders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Finders.m"; sourceTree = "<group>"; };
 		62DD2AEBAD286CA5060CCB0F /* NBBooksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBooksViewController.h; sourceTree = "<group>"; };
+		62DD2B3B5688CBF2F0E87130 /* NimbleDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = file.entitlements; path = NimbleDemo.entitlements; sourceTree = "<group>"; };
 		62DD2BD9387CEA23DD116E25 /* NimbleStore+iCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NimbleStore+iCloud.h"; sourceTree = "<group>"; };
 		62DD2C767395D1BFD589BE4E /* NBBooksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBooksViewController.m; sourceTree = "<group>"; };
 		62DD2C82DD1462527EB97633 /* NimbleStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimbleStore.m; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		62DD2D61205FAFA993D9477E /* NSManagedObject+Creators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Creators.h"; sourceTree = "<group>"; };
 		62DD2D83F97418BD827407C7 /* NimbleStore+Savers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NimbleStore+Savers.m"; sourceTree = "<group>"; };
 		62DD2DCF294604E4A28EAB96 /* NimbleStore+Savers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NimbleStore+Savers.h"; sourceTree = "<group>"; };
-		62DD2E3E11CAF39B0F6412F6 /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
 		62DD2EEA9618334A8AAB6DDC /* HBBooksDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBBooksDataSource.m; sourceTree = "<group>"; };
 		62DD2F092DCFE5122BD954CE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		62DD2F89D3C30BFCFA6C2FB0 /* NimbleSaversTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NimbleSaversTests.m; path = Tests/NimbleSaversTests.m; sourceTree = "<group>"; };
@@ -115,7 +115,6 @@
 		A9541F261793572A008D92FC /* NimbleDemo Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NimbleDemo Tests-Prefix.pch"; sourceTree = "<group>"; };
 		A9541F2C1793573E008D92FC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A9541F3517935B88008D92FC /* NimbleStackCreationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NimbleStackCreationTests.m; path = Tests/NimbleStackCreationTests.m; sourceTree = "<group>"; };
-		A9CDBBC717B63679003C35CD /* NimbleDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = NimbleDemo.entitlements; path = ../NimbleDemo.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,7 +217,6 @@
 		62DD2A292F8D95C312224D87 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				A9CDBBC717B63679003C35CD /* NimbleDemo.entitlements */,
 				62DD2F092DCFE5122BD954CE /* AppDelegate.h */,
 				62DD213AD61FA8E29FEDF5BB /* AppDelegate.m */,
 				62DD2FD32EC3C7CAD43F9FBB /* Model */,
@@ -236,14 +234,6 @@
 				62DD2AEBAD286CA5060CCB0F /* NBBooksViewController.h */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		62DD2D47D1C6ADB276C9E6CA /* Logs */ = {
-			isa = PBXGroup;
-			children = (
-				62DD2E3E11CAF39B0F6412F6 /* Logging.h */,
-			);
-			path = Logs;
 			sourceTree = "<group>";
 		};
 		62DD2FD32EC3C7CAD43F9FBB /* Model */ = {
@@ -307,6 +297,7 @@
 				A9040B70178E0ECC00CCE8EF /* Default.png */,
 				A9040B72178E0ECC00CCE8EF /* Default@2x.png */,
 				A9040B74178E0ECC00CCE8EF /* Default-568h@2x.png */,
+				62DD2B3B5688CBF2F0E87130 /* NimbleDemo.entitlements */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -317,7 +308,6 @@
 				A9040B82178E0EE700CCE8EF /* Nimble.h */,
 				62DD25BDCF548A56B79774A2 /* Main Store */,
 				62DD257BEF9CDBB16BE51BC9 /* Categories */,
-				62DD2D47D1C6ADB276C9E6CA /* Logs */,
 			);
 			name = Nimble;
 			path = ../Nimble;

@@ -9,7 +9,6 @@
 #import "NimbleStore.h"
 #import "NimbleStore+Defaults.h"
 #import "NSManagedObjectContext+NimbleContexts.h"
-#import "Logging.h"
 
 NSString *const NBStoreGotReplacedByCloudStore = @"NBStoreGotReplacedByCloudStore";
 
@@ -76,7 +75,8 @@ static NimbleStore *mainStore;
                                                              error:error];
 
   if (error) {
-    NBLogError(@"Error initialising the store: %@", *error);
+    NBLog(@"");
+    NBLog(@"Error initialising the store: %@", *error);
     return;
   }
 
@@ -127,7 +127,7 @@ static NimbleStore *mainStore;
   NSArray *results = [[NSManagedObjectContext nb_contextForType:contextType] executeFetchRequest:request error:error];
 
   if (error) {
-    NBLogError(@"Error in fetch request: %@\nError: @%", request, error);
+    NBLog(@"Error in fetch request: %@\nError: %@", request, *error);
   }
 
   return results;
@@ -152,22 +152,19 @@ static NimbleStore *mainStore;
 */
 - (void)storesWillChange:(NSNotification *)notification
 {
-  NBLogDebug(@"Received %@", notification.name);
   NSManagedObjectContext *moc = self.mainContext;
 
   [moc performBlockAndWait:^{
     if ([moc hasChanges]) {
       NSError *error = nil;
-      NBLogDebug(@"Saving main context before reset");
       [moc save:&error];
 
       if (error) {
-        NBLogError(@"Error saving main context: %@", error);
+        NBLog(@"Error saving main context: %@", error);
       }
     }
 
     [moc reset];
-    NBLogDebug(@"Main context has been reset");
   }];
 
   //reset user interface
@@ -179,11 +176,8 @@ static NimbleStore *mainStore;
 */
 - (void)storesDidChange:(NSNotification *)notification
 {
-  NBLogDebug(@"Received %@", notification.name);
-
   [self.mainContext performBlock:^{
     [self.mainContext mergeChangesFromContextDidSaveNotification:notification];
-    NBLogDebug(@"Merged changes into main context from notification %@");
   }];
 }
 

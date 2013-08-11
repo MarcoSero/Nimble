@@ -11,7 +11,6 @@
 @interface NimbleStore (Savers)
 
 
-
 /**
 * Perform all the changes in a background queue and then merge everything into the main context
 *

@@ -9,10 +9,7 @@
   #import <Foundation/Foundation.h>
 #import <XCTest/XCTest.h>
 #import <CoreData/CoreData.h>
-#import "Logging.h"
 
-#define NB_LOGGING_ENABLED 1
-#define NB_LOGGING_LEVEL_DEBUG 1
 #import "Nimble.h"
 
 

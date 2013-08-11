@@ -203,14 +203,14 @@
 
   NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[NSManagedObjectContext nb_contextForType:contextType] sectionNameKeyPath:group cacheName:nil];
   fetchedResultsController.delegate = delegate;
-  
+
   NSError *error;
   [fetchedResultsController performFetch:&error];
-  
+
   if (error) {
     return nil;
   }
-  
+
   return fetchedResultsController;
 }
 

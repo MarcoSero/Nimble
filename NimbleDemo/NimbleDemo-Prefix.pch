@@ -12,4 +12,7 @@
   #import <UIKit/UIKit.h>
   #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+
+#	define NB_LOGGING_LEVEL_DEBUG    1
+
 #endif

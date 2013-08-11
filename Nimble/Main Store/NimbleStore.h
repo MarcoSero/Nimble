@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define NBLog(...) NSLog(@"Nimble >> %s\n\t%@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
+
 typedef NS_ENUM(NSUInteger, NimbleContextType) {
   NimbleMainContext = 0,
   NimbleBackgroundContext = 1
@@ -16,6 +18,7 @@ extern NSString *const NBStoreGotReplacedByCloudStore;
 
 // let's try not to get crazy
 typedef void (^NimbleSimpleBlock)(NimbleContextType contextType);
+
 typedef void (^NimbleErrorBlock)(NSError *error);
 
 @interface NimbleStore : NSObject
@@ -39,6 +42,7 @@ typedef void (^NimbleErrorBlock)(NSError *error);
 + (NSArray *)nb_executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NimbleContextType)contextType error:(NSError **)error;
 
 + (NSManagedObjectContext *)nb_mainContext;
+
 + (NSManagedObjectContext *)nb_backgroundContext;
 
 @end

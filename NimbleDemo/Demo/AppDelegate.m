@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Marco Sero. All rights reserved.
 //
 
-#define RESET_iCLOUD 0
-
 #import "AppDelegate.h"
 #import "Nimble.h"
 #import "Book.h"

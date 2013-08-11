@@ -51,7 +51,7 @@
                   symbolName = "-[NimbleStore storesDidChange:]"
                   moduleName = "NimbleDemo"
                   urlString = "file:///Users/marco/Dropbox/Dev/iOS/Nimble/Nimble/Main%20Store/NimbleStore.m"
-                  timestampString = "397922481.287698"
+                  timestampString = "397923753.286052"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "184"
@@ -65,7 +65,7 @@
                   symbolName = "__31-[NimbleStore storesDidChange:]_block_invoke"
                   moduleName = "NimbleDemo"
                   urlString = "file:///Users/marco/Dropbox/Dev/iOS/Nimble/Nimble/Main%20Store/NimbleStore.m"
-                  timestampString = "397922481.287958"
+                  timestampString = "397923753.286319"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "184"
@@ -114,28 +114,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nimble/Categories/NimbleStore+Savers.m"
-            timestampString = "397922375.367588"
+            timestampString = "397923543.126854"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "+nb_saveInBackground:completion:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Nimble/Main Store/NimbleStore.m"
-            timestampString = "397922478.50507"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "+nb_setupStoreWithName:storeType:iCloudEnabled:options:error:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
