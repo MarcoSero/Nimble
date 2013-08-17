@@ -12,6 +12,6 @@
 
 + (instancetype)nb_createInContextOfType:(NimbleContextType)contextType;
 
-+ (instancetype)nb_createInContextOfType:(NimbleContextType)contextType initializingPropertiesWithDictionary:(NSDictionary *)dictionary;
++ (instancetype)nb_createInContextOfType:(NimbleContextType)contextType initializingValuesWithDictionary:(NSDictionary *)dictionary;
 
 @end

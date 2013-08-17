@@ -9,13 +9,22 @@
 #import "NimbleStore+Defaults.h"
 #import "NSManagedObjectContext+NimbleContexts.h"
 
-NSString *const NBStoreAboutToBeReplacedByCloudStore = @"NBStoreAboutToBeReplacedByCloudStore";
-NSString *const NBStoreReplacedByCloudStore = @"NBStoreReplacedByCloudStore";
+NSString *const NBCloudStoreWillReplaceLocalStore = @"NBCloudStoreWillReplaceLocalStore";
+NSString *const NBCloudStoreDidReplaceLocalStore = @"NBCloudStoreDidReplaceLocalStore";
+
+NSString *const NBPersistentStoreException = @"NBPersistentStoreException";
+NSString *const NBFetchRequestException = @"NBFetchRequestException";
+
+NSString *const NBNimbleErrorDomain = @"com.marcosero.Nimble";
+
+NSUInteger const NBNimbleErrorCode = 1;
 
 @interface NimbleStore ()
+
 @property(strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property(strong, nonatomic) NSManagedObjectContext *mainContext;
 @property(strong, nonatomic) NSManagedObjectContext *backgroundContext;
+
 @end
 
 static NimbleStore *mainStore;
@@ -46,10 +55,10 @@ static NimbleStore *mainStore;
   NSParameterAssert(filename);
   NSParameterAssert(storeType);
 
-  [self nb_setupStoreWithName:filename storeType:storeType iCloudEnabled:NO options:nil error:error];
+  [self nb_setupStoreWithName:filename storeType:storeType options:nil error:error];
 }
 
-+ (void)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType iCloudEnabled:(BOOL)iCloudEnabled options:(NSDictionary *)options error:(NSError **)error
++ (void)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType options:(NSDictionary *)options error:(NSError **)error
 {
   NSAssert(!mainStore, @"Store already was already set up", nil);
 
@@ -58,61 +67,66 @@ static NimbleStore *mainStore;
   NSManagedObjectModel *model = [NSManagedObjectModel mergedModelFromBundles:nil];
 
   if (!model) {
-    *error = [NSError errorWithDomain:@"com.marcosero.Nimble" code:1 userInfo:@{@"error" : @"No managed object model found."}];
+    NSString *errorMessage = @"No managed object model found.";
+    NBLog(errorMessage, nil);
+    *error = [NSError errorWithDomain:NBNimbleErrorDomain code:1 userInfo:@{@"error" : errorMessage}];
+#ifdef DEBUG
+    @throw ([NSException exceptionWithName:NBPersistentStoreException reason:errorMessage userInfo:nil]);
+#endif
+    return;
   }
 
   mainStore.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
 
-  [self registerToNotificationsWith_iCloudEnabled:iCloudEnabled];
-
   NSURL *localStoreURL = [self nb_URLToStoreWithFilename:filename];
 
   [mainStore.persistentStoreCoordinator lock];
-  [mainStore.persistentStoreCoordinator addPersistentStoreWithType:storeType
+  NSPersistentStore *persistentStore = [mainStore.persistentStoreCoordinator addPersistentStoreWithType:storeType
                                                      configuration:nil
                                                                URL:localStoreURL
                                                            options:options
                                                              error:error];
+  [mainStore.persistentStoreCoordinator unlock];
 
-  if (error) {
-    NBLog(@"");
-    NBLog(@"Error initialising the store: %@", *error);
+  if (error || !persistentStore) {
+    NSString *errorMessage = @"No managed object model found.";
+    NBLog(errorMessage, nil);
+    *error = [NSError errorWithDomain:NBNimbleErrorDomain code:NBNimbleErrorCode userInfo:@{@"error" : errorMessage}];
+#ifdef DEBUG
+    @throw ([NSException exceptionWithName:NBPersistentStoreException reason:errorMessage userInfo:nil]);
+#endif
     return;
   }
-
-  [mainStore.persistentStoreCoordinator unlock];
 
   mainStore.mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
   mainStore.backgroundContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
   [mainStore.mainContext setPersistentStoreCoordinator:mainStore.persistentStoreCoordinator];
   [mainStore.backgroundContext setPersistentStoreCoordinator:mainStore.persistentStoreCoordinator];
 
-
+  [mainStore registerToNotifications];
 }
 
-+ (void)registerToNotificationsWith_iCloudEnabled:(BOOL)iCloudEnabled
+- (void)registerToNotifications
 {
-  [[NSNotificationCenter defaultCenter] addObserver:mainStore
+  [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(storesDidSaveHandler:)
                                                name:NSManagedObjectContextDidSaveNotification
-                                             object:mainStore.backgroundContext];
+                                             object:self.backgroundContext];
 
-  if (!iCloudEnabled) {
-    return;
-  }
-
-  [[NSNotificationCenter defaultCenter] addObserver:mainStore
+  [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(storesDidChangeHandler:)
                                                name:NSPersistentStoreCoordinatorStoresDidChangeNotification
-                                             object:mainStore.persistentStoreCoordinator];
-  [[NSNotificationCenter defaultCenter] addObserver:mainStore
+                                             object:self.persistentStoreCoordinator];
+
+  [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(storesWillChangeHandler:)
                                                name:NSPersistentStoreCoordinatorStoresWillChangeNotification
-                                             object:mainStore.persistentStoreCoordinator];
-  [[NSNotificationCenter defaultCenter] addObserver:mainStore
+                                             object:self.persistentStoreCoordinator];
+
+  [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(storesDidImportHandler:)
                                                name:NSPersistentStoreDidImportUbiquitousContentChangesNotification
-                                             object:mainStore.persistentStoreCoordinator];
+                                             object:self.persistentStoreCoordinator];
 }
 
 + (BOOL)nb_removeAllStores:(NSError **)error
@@ -123,7 +137,6 @@ static NimbleStore *mainStore;
   return success;
 }
 
-
 #pragma mark - Fetch request
 
 + (NSArray *)nb_executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NimbleContextType)contextType error:(NSError **)error
@@ -133,7 +146,12 @@ static NimbleStore *mainStore;
   NSArray *results = [[NSManagedObjectContext nb_contextForType:contextType] executeFetchRequest:request error:error];
 
   if (error) {
-    NBLog(@"Error in fetch request: %@\nError: %@", request, *error);
+    NSString *errorMessage = [NSString stringWithFormat:@"Error in fetch request: %@\nError: %@", request, *error];
+    NBLog(errorMessage, nil);
+    *error = [NSError errorWithDomain:NBNimbleErrorDomain code:NBNimbleErrorCode userInfo:@{@"error" : errorMessage}];
+#ifdef DEBUG
+    @throw ([NSException exceptionWithName:NBPersistentStoreException reason:errorMessage userInfo:nil]);
+#endif
   }
 
   return results;
@@ -183,7 +201,7 @@ static NimbleStore *mainStore;
     [moc reset];
   }];
 
-  [[NSNotificationCenter defaultCenter] postNotificationName:NBStoreAboutToBeReplacedByCloudStore object:nil];
+  [[NSNotificationCenter defaultCenter] postNotificationName:NBCloudStoreWillReplaceLocalStore object:nil];
 }
 
 /**
@@ -196,10 +214,10 @@ static NimbleStore *mainStore;
     // TODO: HACKY! remove this!
     return;
   }
-  
+
   [self.mainContext performBlock:^{
     [self.mainContext mergeChangesFromContextDidSaveNotification:notification];
-    [[NSNotificationCenter defaultCenter] postNotificationName:NBStoreReplacedByCloudStore object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NBCloudStoreDidReplaceLocalStore object:nil];
     NBLog(@"Using iCloud store");
   }];
 }

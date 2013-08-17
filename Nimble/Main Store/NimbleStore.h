@@ -9,17 +9,32 @@
 
 #define NBLog(...) NSLog(@"Nimble >> %s\n\t%@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
 
+/**
+* Context types
+*
+* */
 typedef NS_ENUM(NSUInteger, NimbleContextType) {
   NimbleMainContext = 0,
   NimbleBackgroundContext = 1
 };
 
-extern NSString *const NBStoreAboutToBeReplacedByCloudStore;
-extern NSString *const NBStoreReplacedByCloudStore;
+
+/**
+* Notifications
+*
+* */
+extern NSString *const NBCloudStoreWillReplaceLocalStore;
+extern NSString *const NBCloudStoreDidReplaceLocalStore;
+
+/**
+* Errors and exceptions
+*
+* */
+extern NSString *const NBPersistentStoreException;
+extern NSString *const NBNimbleErrorDomain;
 
 // let's try not to get crazy
 typedef void (^NimbleSimpleBlock)(NimbleContextType contextType);
-
 typedef void (^NimbleErrorBlock)(NSError *error);
 
 @interface NimbleStore : NSObject
@@ -32,7 +47,7 @@ typedef void (^NimbleErrorBlock)(NSError *error);
 
 + (void)setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType error:(NSError **)error;
 
-+ (void)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType iCloudEnabled:(BOOL)iCloudEnabled options:(NSDictionary *)options error:(NSError **)error;
++ (void)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType options:(NSDictionary *)options error:(NSError **)error;
 
 + (BOOL)nb_removeAllStores:(NSError **)error;
 

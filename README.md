@@ -6,9 +6,11 @@ Core Data (and iCloud) made *nimble* and fast.
 
 The answer is quite easy. I needed a Core Data wrapper with these features:
 
-- easy setup and easy finders like MagicalRecord has
-- just 2 contexts: one for the main thread and the other for the background ones, because as someone has actually proved, this is much faster than parent+children. Read [here](http://floriankugler.com/blog/2013/4/29/concurrent-core-data-stack-performance-shootout) and [here](http://floriankugler.com/blog/2013/5/11/backstage-with-nested-managed-object-contexts)
-- iOS 7's new iCloud API
+- Easy setup and finders (someone saud MagicalRecord?)
+- Simple architecture: main and background context
+- iOS 7 + iCloud ready
+
+A lot has been written about how much faster are 2 context rather than parent+children. Read [here](http://floriankugler.com/blog/2013/4/29/concurrent-core-data-stack-performance-shootout) and [here](http://floriankugler.com/blog/2013/5/11/backstage-with-nested-managed-object-contexts)
 
 ## Install
 

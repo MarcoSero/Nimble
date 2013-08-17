@@ -25,6 +25,7 @@
 		62DD287E45A8149989447123 /* NimbleStore+Savers.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2D83F97418BD827407C7 /* NimbleStore+Savers.m */; };
 		62DD28BC1B0827C5BEE816F2 /* Model.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 62DD21A5B2AC3F231528AA18 /* Model.xcdatamodel */; };
 		62DD293205EF7ABB0662F4E3 /* NSManagedObject+Creators.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2C83A62C1D12F54F7346 /* NSManagedObject+Creators.m */; };
+		62DD2AE898877040348F0417 /* UIDevice+Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD231CE53D3D5255F97FEC /* UIDevice+Version.m */; };
 		62DD2B81CB910C3B895F6C37 /* NimbleStore+Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD274A54F5D5F2A543FA5C /* NimbleStore+Defaults.m */; };
 		62DD2C1883314F84B6355A41 /* NimbleStore+iCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2FF93F5D12086DF59A9C /* NimbleStore+iCloud.m */; };
 		62DD2EBBF1D9C5CEBEB7F330 /* Reader.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD22A01D136EE316092FA5 /* Reader.m */; };
@@ -62,11 +63,13 @@
 /* Begin PBXFileReference section */
 		62DD204504080067BE4CD7E5 /* _Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Book.m; sourceTree = "<group>"; };
 		62DD2076625512D282157419 /* NimbleStore+Defaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NimbleStore+Defaults.h"; sourceTree = "<group>"; };
+		62DD20BBFB010CAC53E5D5FF /* UIDevice+Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Version.h"; sourceTree = "<group>"; };
 		62DD20EAC6243989A1D4A419 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
 		62DD213AD61FA8E29FEDF5BB /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		62DD2191E6747EF66EFA5B52 /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
 		62DD21A5B2AC3F231528AA18 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		62DD22A01D136EE316092FA5 /* Reader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reader.m; sourceTree = "<group>"; };
+		62DD231CE53D3D5255F97FEC /* UIDevice+Version.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Version.m"; sourceTree = "<group>"; };
 		62DD2497A8CBB2759A7A29D9 /* _Reader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Reader.m; sourceTree = "<group>"; };
 		62DD24A0532B09667826A247 /* _Reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Reader.h; sourceTree = "<group>"; };
 		62DD256B7DCB6CEB1EDDE8CB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = NimbleDemo/en.lproj/MainStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
@@ -236,6 +239,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		62DD2EB478A5BB42E4B871FD /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				62DD231CE53D3D5255F97FEC /* UIDevice+Version.m */,
+				62DD20BBFB010CAC53E5D5FF /* UIDevice+Version.h */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		62DD2FD32EC3C7CAD43F9FBB /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +320,7 @@
 				A9040B82178E0EE700CCE8EF /* Nimble.h */,
 				62DD25BDCF548A56B79774A2 /* Main Store */,
 				62DD257BEF9CDBB16BE51BC9 /* Categories */,
+				62DD2EB478A5BB42E4B871FD /* Support */,
 			);
 			name = Nimble;
 			path = ../Nimble;
@@ -474,6 +487,7 @@
 				62DD2354A88509B035CEA5A3 /* NimbleStore+Savers.m in Sources */,
 				62DD2F08E72F0DC09C575526 /* HBBooksDataSource.m in Sources */,
 				62DD2C1883314F84B6355A41 /* NimbleStore+iCloud.m in Sources */,
+				62DD2AE898877040348F0417 /* UIDevice+Version.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

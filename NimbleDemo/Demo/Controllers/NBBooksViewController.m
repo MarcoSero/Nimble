@@ -32,23 +32,20 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
   if (textField.text.length == 0) {
-    [self dismissKeyboardAndResetTextfied:textField];
+    [self dismissKeyboardAndResetTextFied:textField];
     return YES;
   }
 
   [NimbleStore nb_saveInBackground:^(NimbleContextType contextType) {
-    [Book nb_createInContextOfType:contextType initializingPropertiesWithDictionary:@{@"name" : textField.text}];
-  }                     completion:^(NSError *error) {
-    if (error) {
-      NSLog(@"saved with error");
-    }
-    [self dismissKeyboardAndResetTextfied:textField];
+    [Book nb_createInContextOfType:contextType initializingValuesWithDictionary:@{@"name" : textField.text}];
+  } completion:^(NSError *error) {
+    [self dismissKeyboardAndResetTextFied:textField];
   }];
 
   return YES;
 }
 
-- (void)dismissKeyboardAndResetTextfied:(UITextField *)textField
+- (void)dismissKeyboardAndResetTextFied:(UITextField *)textField
 {
   [textField resignFirstResponder];
   textField.text = @"";

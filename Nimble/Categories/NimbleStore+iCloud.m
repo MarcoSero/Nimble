@@ -43,7 +43,7 @@
     NSInferMappingModelAutomaticallyOption : @YES
 //    NSPersistentStoreRebuildFromUbiquitousContentOption : @YES
   };
-  [self nb_setupStoreWithName:localStoreName storeType:NSSQLiteStoreType iCloudEnabled:iCloudAvailable options:iCloudOptions error:error];
+  [self nb_setupStoreWithName:localStoreName storeType:NSSQLiteStoreType options:iCloudOptions error:error];
 }
 
 
