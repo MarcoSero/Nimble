@@ -41,8 +41,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "182"
             endingLineNumber = "182"
-            landmarkName = "-storesDidChange:"
-            landmarkType = "5">
+            landmarkName = "@implementation NimbleStore"
+            landmarkType = "3">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -87,7 +87,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "156"
             endingLineNumber = "156"
-            landmarkName = "-storesWillChange:"
+            landmarkName = "+nb_executeFetchRequest:inContextOfType:error:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -103,7 +103,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "116"
             endingLineNumber = "116"
-            landmarkName = "+nb_removeAllStores:"
+            landmarkName = "-registerToNotifications"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

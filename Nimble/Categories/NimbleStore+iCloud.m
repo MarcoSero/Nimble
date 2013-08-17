@@ -7,6 +7,7 @@
 
 #import "NimbleStore+iCloud.h"
 #import "NimbleStore+Defaults.h"
+#import "UIDevice+Version.h"
 
 @implementation NimbleStore (iCloud)
 
@@ -20,7 +21,7 @@
 {
   if (![self iCloudAvailable]) {
     NBLog(@"iCloud not available.");
-    [self nb_setupStore:NULL ];
+    [self nb_setupStore:error];
     return;
   }
 
@@ -31,9 +32,13 @@
 
 + (void)nb_setup_iCloudStoreWithContentNameKey:(NSString *)contentNameKey localStoreNamed:(NSString *)localStoreName transactionsLogsSubdirectory:(NSString *)logs error:(NSError **)error
 {
-  BOOL iCloudAvailable = [self iCloudAvailable];
-  if (!iCloudAvailable) {
-    NBLog(@"iCloud not available.");
+  if([[UIDevice currentDevice] systemMajorVersion] < 7) {
+    NBLog(@"No iCloud support on iOS 6! Local store will be used");
+    return [NimbleStore nb_setupStoreWithFilename:localStoreName error:error];
+  }
+
+  if (![self iCloudAvailable]) {
+    NBLog(@"iCloud not available. Local store will be used instead");
   }
 
   NSDictionary *iCloudOptions = @{
@@ -41,7 +46,6 @@
     NSPersistentStoreUbiquitousContentURLKey : logs,
     NSMigratePersistentStoresAutomaticallyOption : @YES,
     NSInferMappingModelAutomaticallyOption : @YES
-//    NSPersistentStoreRebuildFromUbiquitousContentOption : @YES
   };
   [self nb_setupStoreWithName:localStoreName storeType:NSSQLiteStoreType options:iCloudOptions error:error];
 }

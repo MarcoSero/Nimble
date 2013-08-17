@@ -8,6 +8,7 @@
 #import "NimbleStore.h"
 #import "NimbleStore+Defaults.h"
 #import "NSManagedObjectContext+NimbleContexts.h"
+#import "UIDevice+Version.h"
 
 NSString *const NBCloudStoreWillReplaceLocalStore = @"NBCloudStoreWillReplaceLocalStore";
 NSString *const NBCloudStoreDidReplaceLocalStore = @"NBCloudStoreDidReplaceLocalStore";
@@ -113,6 +114,11 @@ static NimbleStore *mainStore;
                                                name:NSManagedObjectContextDidSaveNotification
                                              object:self.backgroundContext];
 
+  // no iCloud support on iOS 6
+  if([[UIDevice currentDevice] systemMajorVersion] < 7) {
+    return;
+  }
+
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(storesDidChangeHandler:)
                                                name:NSPersistentStoreCoordinatorStoresDidChangeNotification
@@ -133,7 +139,11 @@ static NimbleStore *mainStore;
 {
   NSPersistentStore *store = [mainStore.persistentStoreCoordinator.persistentStores lastObject];
   NSURL *storeURL = [mainStore.persistentStoreCoordinator URLForPersistentStore:store];
-  BOOL success = [NSPersistentStoreCoordinator removeUbiquitousContentAndPersistentStoreAtURL:storeURL options:nil error:error];
+  BOOL success = NO;
+  if ([NSPersistentStoreCoordinator.class instancesRespondToSelector:@selector(removeUbiquitousContentAndPersistentStoreAtURL:options:error:)]) {
+    success = [NSPersistentStoreCoordinator removeUbiquitousContentAndPersistentStoreAtURL:storeURL options:nil error:error];
+
+  }
   return success;
 }
 
