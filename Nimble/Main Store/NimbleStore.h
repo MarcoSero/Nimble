@@ -39,15 +39,15 @@ typedef void (^NimbleErrorBlock)(NSError *error);
 
 @interface NimbleStore : NSObject
 
-+ (void)nb_setupInMemoryStore:(NSError **)error;
++ (BOOL)nb_setupInMemoryStore:(NSError **)error;
 
-+ (void)nb_setupStore:(NSError **)error;
++ (BOOL)nb_setupStore:(NSError **)error;
 
-+ (void)nb_setupStoreWithFilename:(NSString *)filename error:(NSError **)error;
++ (BOOL)nb_setupStoreWithFilename:(NSString *)filename error:(NSError **)error;
 
-+ (void)setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType error:(NSError **)error;
++ (BOOL)setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType error:(NSError **)error;
 
-+ (void)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType options:(NSDictionary *)options error:(NSError **)error;
++ (BOOL)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType options:(NSDictionary *)options error:(NSError **)error;
 
 + (BOOL)nb_removeAllStores:(NSError **)error;
 

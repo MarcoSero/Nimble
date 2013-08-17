@@ -34,32 +34,32 @@ static NimbleStore *mainStore;
 
 #pragma mark - Setup store
 
-+ (void)nb_setupStore:(NSError **)error
++ (BOOL)nb_setupStore:(NSError **)error
 {
-  [self nb_setupStoreWithFilename:[self.class nb_defaultStoreName] error:error];
+  return [self nb_setupStoreWithFilename:[self.class nb_defaultStoreName] error:error];
 }
 
-+ (void)nb_setupStoreWithFilename:(NSString *)filename error:(NSError **)error
++ (BOOL)nb_setupStoreWithFilename:(NSString *)filename error:(NSError **)error
 {
   NSParameterAssert(filename);
 
-  [self setupStoreWithName:filename storeType:NSSQLiteStoreType error:error];
+  return [self setupStoreWithName:filename storeType:NSSQLiteStoreType error:error];
 }
 
-+ (void)nb_setupInMemoryStore:(NSError **)error
++ (BOOL)nb_setupInMemoryStore:(NSError **)error
 {
-  [self setupStoreWithName:nil storeType:NSInMemoryStoreType error:error];
+  return [self setupStoreWithName:nil storeType:NSInMemoryStoreType error:error];
 }
 
-+ (void)setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType error:(NSError **)error
++ (BOOL)setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType error:(NSError **)error
 {
   NSParameterAssert(filename);
   NSParameterAssert(storeType);
 
-  [self nb_setupStoreWithName:filename storeType:storeType options:nil error:error];
+  return [self nb_setupStoreWithName:filename storeType:storeType options:nil error:error];
 }
 
-+ (void)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType options:(NSDictionary *)options error:(NSError **)error
++ (BOOL)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType options:(NSDictionary *)options error:(NSError **)error
 {
   NSAssert(!mainStore, @"Store already was already set up", nil);
 
@@ -70,11 +70,13 @@ static NimbleStore *mainStore;
   if (!model) {
     NSString *errorMessage = @"No managed object model found.";
     NBLog(errorMessage, nil);
-    *error = [NSError errorWithDomain:NBNimbleErrorDomain code:1 userInfo:@{@"error" : errorMessage}];
+    if (error != NULL) {
+      *error = [NSError errorWithDomain:NBNimbleErrorDomain code:1 userInfo:@{@"error" : errorMessage}];
+    }
 #ifdef DEBUG
     @throw ([NSException exceptionWithName:NBPersistentStoreException reason:errorMessage userInfo:nil]);
 #endif
-    return;
+    return NO;
   }
 
   mainStore.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
@@ -83,20 +85,22 @@ static NimbleStore *mainStore;
 
   [mainStore.persistentStoreCoordinator lock];
   NSPersistentStore *persistentStore = [mainStore.persistentStoreCoordinator addPersistentStoreWithType:storeType
-                                                     configuration:nil
-                                                               URL:localStoreURL
-                                                           options:options
-                                                             error:error];
+                                                                                          configuration:nil
+                                                                                                    URL:localStoreURL
+                                                                                                options:options
+                                                                                                  error:error];
   [mainStore.persistentStoreCoordinator unlock];
 
   if (error || !persistentStore) {
     NSString *errorMessage = @"No managed object model found.";
     NBLog(errorMessage, nil);
-    *error = [NSError errorWithDomain:NBNimbleErrorDomain code:NBNimbleErrorCode userInfo:@{@"error" : errorMessage}];
+    if (error != NULL) {
+      *error = [NSError errorWithDomain:NBNimbleErrorDomain code:NBNimbleErrorCode userInfo:@{@"error" : errorMessage}];
+    }
 #ifdef DEBUG
     @throw ([NSException exceptionWithName:NBPersistentStoreException reason:errorMessage userInfo:nil]);
 #endif
-    return;
+    return NO;
   }
 
   mainStore.mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
@@ -105,6 +109,8 @@ static NimbleStore *mainStore;
   [mainStore.backgroundContext setPersistentStoreCoordinator:mainStore.persistentStoreCoordinator];
 
   [mainStore registerToNotifications];
+
+  return YES;
 }
 
 - (void)registerToNotifications
@@ -115,7 +121,7 @@ static NimbleStore *mainStore;
                                              object:self.backgroundContext];
 
   // no iCloud support on iOS 6
-  if([[UIDevice currentDevice] systemMajorVersion] < 7) {
+  if ([[UIDevice currentDevice] systemMajorVersion] < 7) {
     return;
   }
 

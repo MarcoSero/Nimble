@@ -8,7 +8,7 @@ extern const struct ReaderAttributes {
 } ReaderAttributes;
 
 extern const struct ReaderRelationships {
-	__unsafe_unretained NSString *books;
+  __unsafe_unretained NSString *books;
 } ReaderRelationships;
 
 extern const struct ReaderFetchedProperties {
@@ -17,44 +17,46 @@ extern const struct ReaderFetchedProperties {
 @class Book;
 
 
-@interface ReaderID : NSManagedObjectID {}
+@interface ReaderID : NSManagedObjectID {
+}
 @end
 
-@interface _Reader : NSManagedObject {}
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
-+ (NSString*)entityName;
-+ (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-- (ReaderID*)objectID;
+@interface _Reader : NSManagedObject {
+}
++ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
+
++ (NSString *)entityName;
+
++ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
+
+- (ReaderID *)objectID;
 
 
+@property(nonatomic, strong) NSSet *books;
 
-
-
-@property (nonatomic, strong) NSSet *books;
-
-- (NSMutableSet*)booksSet;
-
-
-
+- (NSMutableSet *)booksSet;
 
 
 @end
 
 @interface _Reader (CoreDataGeneratedAccessors)
 
-- (void)addBooks:(NSSet*)value_;
-- (void)removeBooks:(NSSet*)value_;
-- (void)addBooksObject:(Book*)value_;
-- (void)removeBooksObject:(Book*)value_;
+- (void)addBooks:(NSSet *)value_;
+
+- (void)removeBooks:(NSSet *)value_;
+
+- (void)addBooksObject:(Book *)value_;
+
+- (void)removeBooksObject:(Book *)value_;
 
 @end
 
 @interface _Reader (CoreDataGeneratedPrimitiveAccessors)
 
 
+- (NSMutableSet *)primitiveBooks;
 
-- (NSMutableSet*)primitiveBooks;
-- (void)setPrimitiveBooks:(NSMutableSet*)value;
+- (void)setPrimitiveBooks:(NSMutableSet *)value;
 
 
 @end

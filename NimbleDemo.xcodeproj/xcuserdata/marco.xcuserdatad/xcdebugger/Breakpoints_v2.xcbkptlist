@@ -87,8 +87,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "156"
             endingLineNumber = "156"
-            landmarkName = "+nb_executeFetchRequest:inContextOfType:error:"
-            landmarkType = "5">
+            landmarkName = "@implementation NimbleStore"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

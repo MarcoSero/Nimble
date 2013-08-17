@@ -7,7 +7,7 @@ const struct ReaderAttributes ReaderAttributes = {
 };
 
 const struct ReaderRelationships ReaderRelationships = {
-	.books = @"books",
+  .books = @"books",
 };
 
 const struct ReaderFetchedProperties ReaderFetchedProperties = {
@@ -18,50 +18,49 @@ const struct ReaderFetchedProperties ReaderFetchedProperties = {
 
 @implementation _Reader
 
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_ {
-	NSParameterAssert(moc_);
-	return [NSEntityDescription insertNewObjectForEntityForName:@"Reader" inManagedObjectContext:moc_];
++ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
+{
+  NSParameterAssert(moc_);
+  return [NSEntityDescription insertNewObjectForEntityForName:@"Reader" inManagedObjectContext:moc_];
 }
 
-+ (NSString*)entityName {
-	return @"Reader";
++ (NSString *)entityName
+{
+  return @"Reader";
 }
 
-+ (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_ {
-	NSParameterAssert(moc_);
-	return [NSEntityDescription entityForName:@"Reader" inManagedObjectContext:moc_];
++ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_
+{
+  NSParameterAssert(moc_);
+  return [NSEntityDescription entityForName:@"Reader" inManagedObjectContext:moc_];
 }
 
-- (ReaderID*)objectID {
-	return (ReaderID*)[super objectID];
+- (ReaderID *)objectID
+{
+  return (ReaderID *)[super objectID];
 }
 
-+ (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
-	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
+{
+  NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 
-	return keyPaths;
+
+  return keyPaths;
 }
-
-
 
 
 @dynamic books;
 
-	
-- (NSMutableSet*)booksSet {
-	[self willAccessValueForKey:@"books"];
-  
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"books"];
-  
-	[self didAccessValueForKey:@"books"];
-	return result;
+
+- (NSMutableSet *)booksSet
+{
+  [self willAccessValueForKey:@"books"];
+
+  NSMutableSet *result = (NSMutableSet *)[self mutableSetValueForKey:@"books"];
+
+  [self didAccessValueForKey:@"books"];
+  return result;
 }
-	
-
-
-
-
 
 
 @end

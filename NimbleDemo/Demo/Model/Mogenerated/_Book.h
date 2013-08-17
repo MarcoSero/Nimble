@@ -5,12 +5,12 @@
 
 
 extern const struct BookAttributes {
-	__unsafe_unretained NSString *name;
+  __unsafe_unretained NSString *name;
 } BookAttributes;
 
 extern const struct BookRelationships {
-	__unsafe_unretained NSString *author;
-	__unsafe_unretained NSString *readers;
+  __unsafe_unretained NSString *author;
+  __unsafe_unretained NSString *readers;
 } BookRelationships;
 
 extern const struct BookFetchedProperties {
@@ -20,21 +20,22 @@ extern const struct BookFetchedProperties {
 @class Reader;
 
 
-
-@interface BookID : NSManagedObjectID {}
+@interface BookID : NSManagedObjectID {
+}
 @end
 
-@interface _Book : NSManagedObject {}
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
-+ (NSString*)entityName;
-+ (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-- (BookID*)objectID;
+@interface _Book : NSManagedObject {
+}
++ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
+
++ (NSString *)entityName;
+
++ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
+
+- (BookID *)objectID;
 
 
-
-
-
-@property (nonatomic, strong) NSString* name;
+@property(nonatomic, strong) NSString *name;
 
 
 
@@ -44,49 +45,48 @@ extern const struct BookFetchedProperties {
 
 
 
-@property (nonatomic, strong) Author *author;
+@property(nonatomic, strong) Author *author;
 
 //- (BOOL)validateAuthor:(id*)value_ error:(NSError**)error_;
 
 
 
 
-@property (nonatomic, strong) NSSet *readers;
+@property(nonatomic, strong) NSSet *readers;
 
-- (NSMutableSet*)readersSet;
-
-
-
+- (NSMutableSet *)readersSet;
 
 
 @end
 
 @interface _Book (CoreDataGeneratedAccessors)
 
-- (void)addReaders:(NSSet*)value_;
-- (void)removeReaders:(NSSet*)value_;
-- (void)addReadersObject:(Reader*)value_;
-- (void)removeReadersObject:(Reader*)value_;
+- (void)addReaders:(NSSet *)value_;
+
+- (void)removeReaders:(NSSet *)value_;
+
+- (void)addReadersObject:(Reader *)value_;
+
+- (void)removeReadersObject:(Reader *)value_;
 
 @end
 
 @interface _Book (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveName;
-- (void)setPrimitiveName:(NSString*)value;
+- (NSString *)primitiveName;
+
+- (void)setPrimitiveName:(NSString *)value;
 
 
+- (Author *)primitiveAuthor;
+
+- (void)setPrimitiveAuthor:(Author *)value;
 
 
+- (NSMutableSet *)primitiveReaders;
 
-- (Author*)primitiveAuthor;
-- (void)setPrimitiveAuthor:(Author*)value;
-
-
-
-- (NSMutableSet*)primitiveReaders;
-- (void)setPrimitiveReaders:(NSMutableSet*)value;
+- (void)setPrimitiveReaders:(NSMutableSet *)value;
 
 
 @end

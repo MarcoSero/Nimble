@@ -12,9 +12,9 @@
 
 + (BOOL)iCloudAvailable;
 
-+ (void)nb_setup_iCloudStore:(NSError **)error;
++ (BOOL)nb_setup_iCloudStore:(NSError **)error;
 
-+ (void)nb_setup_iCloudStoreWithContentNameKey:(NSString *)contentNameKey localStoreNamed:(NSString *)localStoreName transactionsLogsSubdirectory:(NSString *)logs error:(NSError **)error;
++ (BOOL)nb_setup_iCloudStoreWithContentNameKey:(NSString *)contentNameKey localStoreNamed:(NSString *)localStoreName transactionsLogsSubdirectory:(NSString *)logs error:(NSError **)error;
 
 
 @end

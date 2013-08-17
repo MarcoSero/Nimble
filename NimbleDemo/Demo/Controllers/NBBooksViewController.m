@@ -38,7 +38,7 @@
 
   [NimbleStore nb_saveInBackground:^(NimbleContextType contextType) {
     [Book nb_createInContextOfType:contextType initializingValuesWithDictionary:@{@"name" : textField.text}];
-  } completion:^(NSError *error) {
+  }                     completion:^(NSError *error) {
     [self dismissKeyboardAndResetTextFied:textField];
   }];
 
