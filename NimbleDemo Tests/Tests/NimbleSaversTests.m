@@ -17,7 +17,7 @@
 - (void)setUp
 {
   [super setUp];
-  [NimbleStore nb_setupInMemoryStore:NULL ];
+  [NimbleStore nb_setupInMemoryStore:nil];
 }
 
 - (void)tearDown
@@ -25,29 +25,21 @@
   [super tearDown];
 }
 
+- (void)testSaveInMainThread
+{
+  [NimbleStore nb_saveInMain:^(NimbleContextType contextType) {
+    XCTAssertTrue(([NSThread mainThread]), @"Is main thread");
+  }];
+}
+
 - (void)testSaveInBackground
 {
   [NimbleStore nb_saveInBackground:^(NimbleContextType contextType) {
-    XCTAssertFalse(([NSThread mainThread]), @"Is not main thread");
+    XCTAssertFalse(([NSThread mainThread]), @"Not main thread");
   }                     completion:^(NSError *error) {
-    XCTAssertTrue(([NSThread mainThread]), @"Is main thread");
+    XCTAssertTrue(([NSThread mainThread]), @"Main thread");
   }];
 }
 
-- (void)testSaveInProperContextUsingMainThread
-{
-  [NimbleStore nb_saveInProperContext:^(NimbleContextType contextType) {
-    XCTAssertTrue(([NSThread mainThread]), @"Is main thread");
-  }];
-}
-
-- (void)testSaveInProperContextUsingBackgroundThread
-{
-  dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    [NimbleStore nb_saveInProperContext:^(NimbleContextType contextType) {
-      XCTAssertTrue(([NSThread mainThread]), @"Is not main thread");
-    }];
-  });
-}
 
 @end

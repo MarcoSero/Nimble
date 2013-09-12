@@ -645,7 +645,7 @@
 		A9541F2A1793572A008D92FC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Nimble.app/Nimble";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NimbleDemo.app/NimbleDemo";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -656,7 +656,7 @@
 					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Nimble Tests/NimbleDemo Tests-Prefix.pch";
+				GCC_PREFIX_HEADER = "NimbleDemo Tests/NimbleDemo Tests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -664,7 +664,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = "Nimble Tests/NimbleDemo Tests-Info.plist";
+				INFOPLIST_FILE = "NimbleDemo Tests/NimbleDemo Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "NimbleDemo Tests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -675,7 +675,7 @@
 		A9541F2B1793572A008D92FC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Nimble.app/Nimble";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NimbleDemo.app/NimbleDemo";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -687,11 +687,11 @@
 					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Nimble Tests/NimbleDemo Tests-Prefix.pch";
+				GCC_PREFIX_HEADER = "NimbleDemo Tests/NimbleDemo Tests-Prefix.pch";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = "Nimble Tests/NimbleDemo Tests-Info.plist";
+				INFOPLIST_FILE = "NimbleDemo Tests/NimbleDemo Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "NimbleDemo Tests";
 				TEST_HOST = "$(BUNDLE_LOADER)";

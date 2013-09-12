@@ -33,13 +33,13 @@
 
 - (void)testFirstSetup
 {
-  [NimbleStore nb_setupStore:NULL ];
+  [NimbleStore nb_setupStore:nil];
   XCTAssertTrue([[NSFileManager defaultManager] fileExistsAtPath:_defaultPath]);
 }
 
 - (void)testSecondSetup
 {
-  XCTAssertThrows(([NimbleStore nb_setupStoreWithFilename:_customStoreName error:NULL ]), @"");
+  XCTAssertThrows(([NimbleStore nb_setupStoreWithFilename:_customStoreName error:nil]), @"");
 }
 
 @end

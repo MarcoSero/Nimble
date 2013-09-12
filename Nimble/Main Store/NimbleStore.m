@@ -14,8 +14,6 @@ NSString *const NBCloudStoreWillReplaceLocalStore = @"NBCloudStoreWillReplaceLoc
 NSString *const NBCloudStoreDidReplaceLocalStore = @"NBCloudStoreDidReplaceLocalStore";
 
 NSString *const NBPersistentStoreException = @"NBPersistentStoreException";
-NSString *const NBFetchRequestException = @"NBFetchRequestException";
-
 NSString *const NBNimbleErrorDomain = @"com.marcosero.Nimble";
 
 NSUInteger const NBNimbleErrorCode = 1;
