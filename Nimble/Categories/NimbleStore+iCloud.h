@@ -10,7 +10,7 @@
 
 @interface NimbleStore (iCloud)
 
-+ (BOOL)iCloudAvailable;
++ (BOOL)nb_iCloudAvailable;
 
 + (BOOL)nb_setup_iCloudStore:(NSError **)error;
 

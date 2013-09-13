@@ -19,7 +19,7 @@
 
   [context performBlock:^{
 
-    changes(NimbleMainContext);
+    changes(NBMainContext);
 
     NSError *error;
     [context save:&error];
@@ -39,7 +39,7 @@
 
   [context performBlockAndWait:^{
 
-    changes(NimbleMainContext);
+    changes(NBMainContext);
 
     NSError *error;
     [context save:&error];
@@ -64,7 +64,7 @@
 
   [backgroundContext performBlock:^{
 
-    changes(NimbleBackgroundContext);
+    changes(NBBackgroundContext);
 
     NSError *error;
     [backgroundContext save:&error];

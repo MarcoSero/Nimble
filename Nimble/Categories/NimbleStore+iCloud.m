@@ -11,15 +11,15 @@
 
 @implementation NimbleStore (iCloud)
 
-+ (BOOL)iCloudAvailable
++ (BOOL)nb_iCloudAvailable
 {
-  return [self URLForUbiquityContainer] != nil;
+  return [self nb_URLForUbiquityContainer] != nil;
 }
 
 
 + (BOOL)nb_setup_iCloudStore:(NSError **)error
 {
-  if (![self iCloudAvailable]) {
+  if (![self nb_iCloudAvailable]) {
     NBLog(@"iCloud not available.");
     return [self nb_setupStore:error];
   }
@@ -36,7 +36,7 @@
     return [NimbleStore nb_setupStoreWithFilename:localStoreName error:error];
   }
 
-  if (![self iCloudAvailable]) {
+  if (![self nb_iCloudAvailable]) {
     NBLog(@"iCloud not available. Local store will be used instead");
   }
 

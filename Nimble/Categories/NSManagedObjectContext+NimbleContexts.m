@@ -23,7 +23,7 @@
 
 + (NSManagedObjectContext *)nb_contextForType:(NimbleContextType)contextType
 {
-  if (contextType == NimbleMainContext) {
+  if (contextType == NBMainContext) {
     return [self nb_mainContext];
   }
   return [self nb_backgroundContext];
@@ -33,8 +33,8 @@
 + (NimbleContextType)nb_contextTypeForCurrentThread
 {
   if ([NSThread isMainThread]) {
-    return NimbleMainContext;
+    return NBMainContext;
   }
-  return NimbleBackgroundContext;
+  return NBBackgroundContext;
 }
 @end

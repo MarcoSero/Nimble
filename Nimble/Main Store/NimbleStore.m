@@ -41,15 +41,15 @@ static NimbleStore *mainStore;
 {
   NSParameterAssert(filename);
 
-  return [self setupStoreWithName:filename storeType:NSSQLiteStoreType error:error];
+  return [self nb_setupStoreWithName:filename storeType:NSSQLiteStoreType error:error];
 }
 
 + (BOOL)nb_setupInMemoryStore:(NSError **)error
 {
-  return [self setupStoreWithName:nil storeType:NSInMemoryStoreType error:error];
+  return [self nb_setupStoreWithName:nil storeType:NSInMemoryStoreType error:error];
 }
 
-+ (BOOL)setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType error:(NSError **)error
++ (BOOL)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType error:(NSError **)error
 {
   NSParameterAssert(filename);
   NSParameterAssert(storeType);
@@ -137,18 +137,6 @@ static NimbleStore *mainStore;
                                            selector:@selector(storesDidImportHandler:)
                                                name:NSPersistentStoreDidImportUbiquitousContentChangesNotification
                                              object:self.persistentStoreCoordinator];
-}
-
-+ (BOOL)nb_removeAllStores:(NSError **)error
-{
-  NSPersistentStore *store = [mainStore.persistentStoreCoordinator.persistentStores lastObject];
-  NSURL *storeURL = [mainStore.persistentStoreCoordinator URLForPersistentStore:store];
-  BOOL success = NO;
-  if ([NSPersistentStoreCoordinator.class instancesRespondToSelector:@selector(removeUbiquitousContentAndPersistentStoreAtURL:options:error:)]) {
-    success = [NSPersistentStoreCoordinator removeUbiquitousContentAndPersistentStoreAtURL:storeURL options:nil error:error];
-
-  }
-  return success;
 }
 
 #pragma mark - Fetch request

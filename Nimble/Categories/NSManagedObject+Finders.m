@@ -18,7 +18,7 @@
 
 + (NSArray *)nb_findAll
 {
-  return [self nb_findAllInContextType:NimbleMainContext];
+  return [self nb_findAllInContextType:NBMainContext];
 }
 
 + (NSArray *)nb_findAllInContextType:(NimbleContextType)context
@@ -28,7 +28,7 @@
 
 + (NSArray *)nb_findAllWithPredicate:(NSPredicate *)predicate
 {
-  return [self nb_findAllWithPredicate:predicate inContextType:NimbleMainContext];
+  return [self nb_findAllWithPredicate:predicate inContextType:NBMainContext];
 }
 
 + (NSArray *)nb_findAllWithPredicate:(NSPredicate *)predicate inContextType:(NimbleContextType)context
@@ -38,7 +38,7 @@
 
 + (NSArray *)nb_findAllSortedBy:(NSString *)sortTerm ascending:(BOOL)ascending
 {
-  return [self nb_findAllSortedBy:sortTerm ascending:ascending inContextType:NimbleMainContext];
+  return [self nb_findAllSortedBy:sortTerm ascending:ascending inContextType:NBMainContext];
 }
 
 + (NSArray *)nb_findAllSortedBy:(NSString *)sortTerm ascending:(BOOL)ascending inContextType:(NimbleContextType)context
@@ -48,7 +48,7 @@
 
 + (NSArray *)nb_findAllSortedBy:(NSString *)sortTerm ascending:(BOOL)ascending withPredicate:(NSPredicate *)predicate
 {
-  return [self nb_findAllSortedBy:sortTerm ascending:ascending withPredicate:predicate inContextType:NimbleMainContext];
+  return [self nb_findAllSortedBy:sortTerm ascending:ascending withPredicate:predicate inContextType:NBMainContext];
 }
 
 + (NSArray *)nb_findAllSortedBy:(NSString *)sortTerm ascending:(BOOL)ascending withPredicate:(NSPredicate *)predicate inContextType:(NimbleContextType)context
@@ -68,7 +68,7 @@
 
 + (instancetype)nb_findFirst
 {
-  return [self nb_findFirstInContextType:NimbleMainContext];
+  return [self nb_findFirstInContextType:NBMainContext];
 }
 
 + (instancetype)nb_findFirstInContextType:(NimbleContextType)context
@@ -78,7 +78,7 @@
 
 + (instancetype)nb_findFirstWithPredicate:(NSPredicate *)predicate
 {
-  return [self nb_findFirstWithPredicate:predicate inContextType:NimbleMainContext];
+  return [self nb_findFirstWithPredicate:predicate inContextType:NBMainContext];
 }
 
 + (instancetype)nb_findFirstWithPredicate:(NSPredicate *)predicate inContextType:(NimbleContextType)context
@@ -88,7 +88,7 @@
 
 + (instancetype)nb_findFirstWithPredicate:(NSPredicate *)predicate sortedBy:(NSString *)sortTerm ascending:(BOOL)ascending
 {
-  return [self nb_findFirstWithPredicate:predicate sortedBy:sortTerm ascending:ascending inContextType:NimbleMainContext];
+  return [self nb_findFirstWithPredicate:predicate sortedBy:sortTerm ascending:ascending inContextType:NBMainContext];
 }
 
 + (instancetype)nb_findFirstWithPredicate:(NSPredicate *)predicate sortedBy:(NSString *)sortTerm ascending:(BOOL)ascending inContextType:(NimbleContextType)context
@@ -111,17 +111,17 @@
 
 + (NSArray *)nb_findAllByAttribute:(NSString *)attribute withValue:(id)searchValue
 {
-  return [self nb_findAllByAttribute:attribute withValue:searchValue inContextType:NimbleMainContext];
+  return [self nb_findAllByAttribute:attribute withValue:searchValue inContextType:NBMainContext];
 }
 
 + (NSArray *)nb_findAllByAttribute:(NSString *)attribute withValue:(id)searchValue inContextType:(NimbleContextType)context
 {
-  return [self nb_findAllByAttribute:attribute withValue:searchValue andOrderBy:nil ascending:NO inContextType:NimbleMainContext];
+  return [self nb_findAllByAttribute:attribute withValue:searchValue andOrderBy:nil ascending:NO inContextType:NBMainContext];
 }
 
 + (NSArray *)nb_findAllByAttribute:(NSString *)attribute withValue:(id)searchValue andOrderBy:(NSString *)sortTerm ascending:(BOOL)ascending
 {
-  return [self nb_findAllByAttribute:attribute withValue:searchValue andOrderBy:sortTerm ascending:ascending inContextType:NimbleMainContext];
+  return [self nb_findAllByAttribute:attribute withValue:searchValue andOrderBy:sortTerm ascending:ascending inContextType:NBMainContext];
 }
 
 + (NSArray *)nb_findAllByAttribute:(NSString *)attribute withValue:(id)searchValue andOrderBy:(NSString *)sortTerm ascending:(BOOL)ascending inContextType:(NimbleContextType)context
@@ -132,7 +132,7 @@
 
 + (instancetype)nb_findFirstByAttribute:(NSString *)attribute withValue:(id)searchValue
 {
-  return [self nb_findFirstByAttribute:attribute withValue:searchValue inContextType:NimbleMainContext];
+  return [self nb_findFirstByAttribute:attribute withValue:searchValue inContextType:NBMainContext];
 }
 
 + (instancetype)nb_findFirstByAttribute:(NSString *)attribute withValue:(id)searchValue inContextType:(NimbleContextType)context
@@ -143,7 +143,7 @@
 
 + (instancetype)nb_findFirstOrderedByAttribute:(NSString *)attribute ascending:(BOOL)ascending
 {
-  return [self nb_findFirstOrderedByAttribute:attribute ascending:ascending inContextType:NimbleMainContext];
+  return [self nb_findFirstOrderedByAttribute:attribute ascending:ascending inContextType:NBMainContext];
 }
 
 + (instancetype)nb_findFirstOrderedByAttribute:(NSString *)attribute ascending:(BOOL)ascending inContextType:(NimbleContextType)context
@@ -162,7 +162,7 @@
 
 + (NSFetchedResultsController *)nb_fetchAllWithDelegate:(id <NSFetchedResultsControllerDelegate>)delegate
 {
-  return [self nb_fetchAllGroupedBy:nil withPredicate:nil sortedBy:nil ascending:NO delegate:delegate inContextType:NimbleMainContext];
+  return [self nb_fetchAllGroupedBy:nil withPredicate:nil sortedBy:nil ascending:NO delegate:delegate inContextType:NBMainContext];
 }
 
 + (NSFetchedResultsController *)nb_fetchAllWithDelegate:(id <NSFetchedResultsControllerDelegate>)delegate inContextType:(NimbleContextType)context
@@ -172,7 +172,7 @@
 
 + (NSFetchedResultsController *)nb_fetchAllSortedBy:(NSString *)sortTerm ascending:(BOOL)ascending withPredicate:(NSPredicate *)predicate groupBy:(NSString *)groupingKeyPath delegate:(id <NSFetchedResultsControllerDelegate>)delegate
 {
-  return [self nb_fetchAllGroupedBy:nil withPredicate:predicate sortedBy:sortTerm ascending:ascending delegate:delegate inContextType:NimbleMainContext];
+  return [self nb_fetchAllGroupedBy:nil withPredicate:predicate sortedBy:sortTerm ascending:ascending delegate:delegate inContextType:NBMainContext];
 }
 
 + (NSFetchedResultsController *)nb_fetchAllSortedBy:(NSString *)sortTerm ascending:(BOOL)ascending withPredicate:(NSPredicate *)predicate groupBy:(NSString *)groupingKeyPath delegate:(id <NSFetchedResultsControllerDelegate>)delegate inContextType:(NimbleContextType)context
@@ -182,7 +182,7 @@
 
 + (NSFetchedResultsController *)nb_fetchAllGroupedBy:(NSString *)group withPredicate:(NSPredicate *)predicate sortedBy:(NSString *)sortTerm ascending:(BOOL)ascending
 {
-  return [self nb_fetchAllGroupedBy:group withPredicate:predicate sortedBy:sortTerm ascending:ascending delegate:nil inContextType:NimbleMainContext];
+  return [self nb_fetchAllGroupedBy:group withPredicate:predicate sortedBy:sortTerm ascending:ascending delegate:nil inContextType:NBMainContext];
 }
 
 + (NSFetchedResultsController *)nb_fetchAllGroupedBy:(NSString *)group withPredicate:(NSPredicate *)predicate sortedBy:(NSString *)sortTerm ascending:(BOOL)ascending inContextType:(NimbleContextType)context
@@ -192,7 +192,7 @@
 
 + (NSFetchedResultsController *)nb_fetchAllGroupedBy:(NSString *)group withPredicate:(NSPredicate *)predicate sortedBy:(NSString *)sortTerm ascending:(BOOL)ascending delegate:(id <NSFetchedResultsControllerDelegate>)delegate
 {
-  return [self nb_fetchAllGroupedBy:group withPredicate:predicate sortedBy:sortTerm ascending:ascending delegate:delegate inContextType:NimbleMainContext];
+  return [self nb_fetchAllGroupedBy:group withPredicate:predicate sortedBy:sortTerm ascending:ascending delegate:delegate inContextType:NBMainContext];
 }
 
 + (NSFetchedResultsController *)nb_fetchAllGroupedBy:(NSString *)group withPredicate:(NSPredicate *)predicate sortedBy:(NSString *)sortTerm ascending:(BOOL)ascending delegate:(id <NSFetchedResultsControllerDelegate>)delegate inContextType:(NimbleContextType)contextType

@@ -14,8 +14,8 @@
 *
 * */
 typedef NS_ENUM(NSUInteger, NimbleContextType) {
-  NimbleMainContext = 0,
-  NimbleBackgroundContext = 1
+  NBMainContext = 0,
+  NBBackgroundContext = 1
 };
 
 
@@ -35,6 +35,8 @@ extern NSString *const NBNimbleErrorDomain;
 
 // let's try not to get crazy
 typedef void (^NimbleSimpleBlock)(NimbleContextType contextType);
+typedef void (^NimbleArrayWithErrorBlock)(NSArray *array, NSError *error);
+typedef void (^NimbleObjectWithErrorBlock)(NSManagedObject *object, NSError *error);
 typedef void (^NimbleErrorBlock)(NSError *error);
 
 @interface NimbleStore : NSObject
@@ -45,20 +47,27 @@ typedef void (^NimbleErrorBlock)(NSError *error);
 
 + (BOOL)nb_setupStoreWithFilename:(NSString *)filename error:(NSError **)error;
 
-+ (BOOL)setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType error:(NSError **)error;
-
-+ (BOOL)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType options:(NSDictionary *)options error:(NSError **)error;
-
-+ (BOOL)nb_removeAllStores:(NSError **)error;
++ (BOOL)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType error:(NSError **)error;
 
 /**
-* Execute a fetch request in one of the contexts
-*
+  Shortcut to access main context
+*/
++ (BOOL)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType options:(NSDictionary *)options error:(NSError **)error;
+
+/**
+  Execute a fetch request in one of the contexts.
+  It will use the same thread of the context your fetching from.
 */
 + (NSArray *)nb_executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NimbleContextType)contextType error:(NSError **)error;
 
+/**
+  Shortcut to access main context
+*/
 + (NSManagedObjectContext *)nb_mainContext;
 
+/**
+  Shortcut to access background context
+*/
 + (NSManagedObjectContext *)nb_backgroundContext;
 
 @end

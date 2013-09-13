@@ -18,7 +18,7 @@
 
 + (NSURL *)nb_URLToStoreWithFilename:(NSString *)filename;
 
-+ (NSURL *)URLForUbiquityContainer;
++ (NSURL *)nb_URLForUbiquityContainer;
 
 + (NSURL *)nb_iCloudURLToStoreWithFilename:(NSString *)filename;
 

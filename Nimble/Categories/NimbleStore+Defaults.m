@@ -33,14 +33,14 @@
   return localStoreURL;
 }
 
-+ (NSURL *)URLForUbiquityContainer
++ (NSURL *)nb_URLForUbiquityContainer
 {
   return [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
 }
 
 + (NSURL *)nb_iCloudURLToStoreWithFilename:(NSString *)filename
 {
-  NSString *fileURL = [NSString localizedStringWithFormat:@"%@/%@", [self.class URLForUbiquityContainer], filename];
+  NSString *fileURL = [NSString localizedStringWithFormat:@"%@/%@", [self.class nb_URLForUbiquityContainer], filename];
   NSURL *localStoreURL = [NSURL fileURLWithPath:fileURL];
   return localStoreURL;
 }
