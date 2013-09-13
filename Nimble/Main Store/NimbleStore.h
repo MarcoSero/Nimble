@@ -57,16 +57,28 @@ typedef void (^NimbleErrorBlock)(NSError *error);
 
 @interface NimbleStore : NSObject
 
+/**
+  Setup a in-memory store
+*/
 + (BOOL)nb_setupInMemoryStore:(NSError **)error;
 
+/**
+  Setup a store with the default filename
+*/
 + (BOOL)nb_setupStore:(NSError **)error;
 
+/**
+  Setup a store with a custom filename
+*/
 + (BOOL)nb_setupStoreWithFilename:(NSString *)filename error:(NSError **)error;
 
+/**
+  Setup a custom store with a custom file name
+*/
 + (BOOL)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType error:(NSError **)error;
 
 /**
-  Shortcut to access main context
+  Setup a custom store with a custom name, also passing specific options
 */
 + (BOOL)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType options:(NSDictionary *)options error:(NSError **)error;
 

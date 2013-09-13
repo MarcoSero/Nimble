@@ -122,15 +122,15 @@ static NimbleStore *mainStore;
   [mainStore.mainContext setPersistentStoreCoordinator:mainStore.persistentStoreCoordinator];
   [mainStore.backgroundContext setPersistentStoreCoordinator:mainStore.persistentStoreCoordinator];
 
-  [mainStore registerToNotifications];
+  [mainStore pr_registerToNotifications];
 
   return YES;
 }
 
-- (void)registerToNotifications
+- (void)pr_registerToNotifications
 {
   [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(storesDidSaveHandler:)
+                                           selector:@selector(pr_storesDidSaveHandler:)
                                                name:NSManagedObjectContextDidSaveNotification
                                              object:self.backgroundContext];
 
@@ -140,17 +140,17 @@ static NimbleStore *mainStore;
   }
 
   [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(storesDidChangeHandler:)
+                                           selector:@selector(pr_storesDidChangeHandler:)
                                                name:NSPersistentStoreCoordinatorStoresDidChangeNotification
                                              object:self.persistentStoreCoordinator];
 
   [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(storesWillChangeHandler:)
+                                           selector:@selector(pr_storesWillChangeHandler:)
                                                name:NSPersistentStoreCoordinatorStoresWillChangeNotification
                                              object:self.persistentStoreCoordinator];
 
   [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(storesDidImportHandler:)
+                                           selector:@selector(pr_storesDidImportHandler:)
                                                name:NSPersistentStoreDidImportUbiquitousContentChangesNotification
                                              object:self.persistentStoreCoordinator];
 }
@@ -192,7 +192,7 @@ static NimbleStore *mainStore;
 /**
     Subscribe to NSManagedObjectContextDidSaveNotification
 */
-- (void)storesDidSaveHandler:(NSNotification *)notification
+- (void)pr_storesDidSaveHandler:(NSNotification *)notification
 {
   [self.mainContext performBlock:^{
     [self.mainContext mergeChangesFromContextDidSaveNotification:notification];
@@ -202,7 +202,7 @@ static NimbleStore *mainStore;
 /**
     Subscribe to NSPersistentStoreCoordinatorStoresWillChangeNotification
 */
-- (void)storesWillChangeHandler:(NSNotification *)notification
+- (void)pr_storesWillChangeHandler:(NSNotification *)notification
 {
   NSManagedObjectContext *moc = self.mainContext;
 
@@ -225,7 +225,7 @@ static NimbleStore *mainStore;
 /**
     Subscribe to NSPersistentStoreCoordinatorStoresDidChangeNotification
 */
-- (void)storesDidChangeHandler:(NSNotification *)notification
+- (void)pr_storesDidChangeHandler:(NSNotification *)notification
 {
   if ([notification.userInfo objectForKey:@"removed"] == nil) {
     // just added local persistent store
@@ -244,7 +244,7 @@ static NimbleStore *mainStore;
 /**
     Subscribe to NSPersistentStoreDidImportUbiquitousContentChangesNotification
 */
-- (void)storesDidImportHandler:(NSNotification *)notification
+- (void)pr_storesDidImportHandler:(NSNotification *)notification
 {
   [self.mainContext performBlock:^{
     [self.mainContext mergeChangesFromContextDidSaveNotification:notification];

@@ -29,7 +29,7 @@
 + (instancetype)nb_createInContextOfType:(NBContextType)contextType
 {
   NSManagedObjectContext *context = [NSManagedObjectContext nb_contextForType:contextType];
-  return [self createInContext:context];
+  return [self pr_createInContext:context];
 }
 
 + (instancetype)nb_createInContextOfType:(NBContextType)contextType initializingValuesWithDictionary:(NSDictionary *)dictionary
@@ -43,7 +43,7 @@
   return objectCreated;
 }
 
-+ (NSManagedObject *)createInContext:(NSManagedObjectContext *)managedObjectContext
++ (NSManagedObject *)pr_createInContext:(NSManagedObjectContext *)managedObjectContext
 {
   return [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass(self) inManagedObjectContext:managedObjectContext];
 }

@@ -69,7 +69,7 @@
 
 + (NSArray *)nb_findAllSortedBy:(NSString *)sortTerm ascending:(BOOL)ascending withPredicate:(NSPredicate *)predicate inContextType:(NBContextType)context
 {
-  return [self nb_find:sortTerm ascending:ascending predicate:predicate context:context fetchLimit:0];
+  return [self pr_find:sortTerm ascending:ascending predicate:predicate context:context fetchLimit:0];
 }
 
 
@@ -109,7 +109,7 @@
 
 + (instancetype)nb_findFirstWithPredicate:(NSPredicate *)predicate sortedBy:(NSString *)sortTerm ascending:(BOOL)ascending inContextType:(NBContextType)context
 {
-  NSArray *results = [self nb_find:sortTerm ascending:ascending predicate:predicate context:context fetchLimit:1];
+  NSArray *results = [self pr_find:sortTerm ascending:ascending predicate:predicate context:context fetchLimit:1];
   if (results.count == 0) {
     return nil;
   }
@@ -142,7 +142,7 @@
 
 + (NSArray *)nb_findAllByAttribute:(NSString *)attribute withValue:(id)searchValue andOrderBy:(NSString *)sortTerm ascending:(BOOL)ascending inContextType:(NBContextType)context
 {
-  NSPredicate *predicate = [self getPredicateForAttribute:attribute searchValue:searchValue];
+  NSPredicate *predicate = [self pr_getPredicateForAttribute:attribute searchValue:searchValue];
   return [self nb_findAllSortedBy:sortTerm ascending:ascending withPredicate:predicate inContextType:context];
 }
 
@@ -153,7 +153,7 @@
 
 + (instancetype)nb_findFirstByAttribute:(NSString *)attribute withValue:(id)searchValue inContextType:(NBContextType)context
 {
-  NSPredicate *predicate = [self getPredicateForAttribute:attribute searchValue:searchValue];
+  NSPredicate *predicate = [self pr_getPredicateForAttribute:attribute searchValue:searchValue];
   return [self nb_findFirstWithPredicate:predicate inContextType:context];
 }
 
@@ -239,7 +239,7 @@
 *
 */
 
-+ (NSArray *)nb_find:(NSString *)sortTerm ascending:(BOOL)ascending predicate:(NSPredicate *)predicate context:(NBContextType)context fetchLimit:(NSUInteger)fetchLimit
++ (NSArray *)pr_find:(NSString *)sortTerm ascending:(BOOL)ascending predicate:(NSPredicate *)predicate context:(NBContextType)context fetchLimit:(NSUInteger)fetchLimit
 {
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass(self)];
   fetchRequest.predicate = predicate;
@@ -249,7 +249,7 @@
   return results;
 }
 
-+ (NSPredicate *)getPredicateForAttribute:(NSString *)attribute searchValue:(id)searchValue
++ (NSPredicate *)pr_getPredicateForAttribute:(NSString *)attribute searchValue:(id)searchValue
 {
   NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ = %@", attribute, searchValue];
   return predicate;

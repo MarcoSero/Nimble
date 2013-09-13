@@ -32,7 +32,6 @@
   return [self nb_URLForUbiquityContainer] != nil;
 }
 
-
 + (BOOL)nb_setup_iCloudStore:(NSError **)error
 {
   if (![self nb_iCloudAvailable]) {
