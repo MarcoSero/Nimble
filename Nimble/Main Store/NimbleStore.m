@@ -157,7 +157,7 @@ static NimbleStore *mainStore;
 
 #pragma mark - Fetch request
 
-+ (NSArray *)nb_executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NimbleContextType)contextType error:(NSError **)error
++ (NSArray *)nb_executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NBContextType)contextType error:(NSError **)error
 {
   NSParameterAssert(request);
 

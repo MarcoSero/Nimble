@@ -27,14 +27,14 @@
 
 - (void)testSaveInMainThread
 {
-  [NimbleStore nb_saveInMain:^(NimbleContextType contextType) {
+  [NimbleStore nb_saveInMain:^(NBContextType contextType) {
     XCTAssertTrue(([NSThread mainThread]), @"Is main thread");
   }];
 }
 
 - (void)testSaveInBackground
 {
-  [NimbleStore nb_saveInBackground:^(NimbleContextType contextType) {
+  [NimbleStore nb_saveInBackground:^(NBContextType contextType) {
     XCTAssertFalse(([NSThread mainThread]), @"Not main thread");
   }                     completion:^(NSError *error) {
     XCTAssertTrue(([NSThread mainThread]), @"Main thread");

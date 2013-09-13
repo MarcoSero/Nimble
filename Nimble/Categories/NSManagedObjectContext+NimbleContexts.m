@@ -37,7 +37,7 @@
   return [NimbleStore nb_backgroundContext];
 }
 
-+ (NSManagedObjectContext *)nb_contextForType:(NimbleContextType)contextType
++ (NSManagedObjectContext *)nb_contextForType:(NBContextType)contextType
 {
   if (contextType == NBMainContext) {
     return [self nb_mainContext];
@@ -46,7 +46,7 @@
 }
 
 
-+ (NimbleContextType)nb_contextTypeForCurrentThread
++ (NBContextType)nb_contextTypeForCurrentThread
 {
   if ([NSThread isMainThread]) {
     return NBMainContext;

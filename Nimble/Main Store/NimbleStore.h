@@ -29,7 +29,7 @@
 * Context types
 *
 * */
-typedef NS_ENUM(NSUInteger, NimbleContextType) {
+typedef NS_ENUM(NSUInteger, NBContextType) {
   NBMainContext = 0,
   NBBackgroundContext = 1
 };
@@ -50,7 +50,7 @@ extern NSString *const NBPersistentStoreException;
 extern NSString *const NBNimbleErrorDomain;
 
 // let's try not to get crazy
-typedef void (^NimbleSimpleBlock)(NimbleContextType contextType);
+typedef void (^NimbleSimpleBlock)(NBContextType contextType);
 typedef void (^NimbleArrayWithErrorBlock)(NSArray *array, NSError *error);
 typedef void (^NimbleObjectWithErrorBlock)(NSManagedObject *object, NSError *error);
 typedef void (^NimbleErrorBlock)(NSError *error);
@@ -74,7 +74,7 @@ typedef void (^NimbleErrorBlock)(NSError *error);
   Execute a fetch request in one of the contexts.
   It will use the same thread of the context your fetching from.
 */
-+ (NSArray *)nb_executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NimbleContextType)contextType error:(NSError **)error;
++ (NSArray *)nb_executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NBContextType)contextType error:(NSError **)error;
 
 /**
   Shortcut to access main context

@@ -26,13 +26,13 @@
 
 @implementation NSManagedObject (Creation)
 
-+ (instancetype)nb_createInContextOfType:(NimbleContextType)contextType
++ (instancetype)nb_createInContextOfType:(NBContextType)contextType
 {
   NSManagedObjectContext *context = [NSManagedObjectContext nb_contextForType:contextType];
   return [self createInContext:context];
 }
 
-+ (instancetype)nb_createInContextOfType:(NimbleContextType)contextType initializingValuesWithDictionary:(NSDictionary *)dictionary
++ (instancetype)nb_createInContextOfType:(NBContextType)contextType initializingValuesWithDictionary:(NSDictionary *)dictionary
 {
   NSParameterAssert(dictionary);
 

@@ -30,8 +30,8 @@
 
 + (NSManagedObjectContext *)nb_backgroundContext;
 
-+ (NSManagedObjectContext *)nb_contextForType:(NimbleContextType)contextType;
++ (NSManagedObjectContext *)nb_contextForType:(NBContextType)contextType;
 
-+ (NimbleContextType)nb_contextTypeForCurrentThread;
++ (NBContextType)nb_contextTypeForCurrentThread;
 
 @end
