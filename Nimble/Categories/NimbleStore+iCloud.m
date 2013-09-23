@@ -32,7 +32,7 @@
   return [self nb_URLForUbiquityContainer] != nil;
 }
 
-+ (BOOL)nb_setup_iCloudStore:(NSError **)error
++ (BOOL)nb_setupCloudStore:(NSError **)error
 {
   if (![self nb_iCloudAvailable]) {
     NBLog(@"iCloud not available.");
@@ -41,10 +41,10 @@
 
   NSString *contentNameKey = @"iCloudNimbleStore";
   NSString *transactionsLogsSubdirectory = @"transactions_logs";
-  return [self nb_setup_iCloudStoreWithContentNameKey:contentNameKey localStoreNamed:[self.class nb_appName] transactionsLogsSubdirectory:transactionsLogsSubdirectory error:error];
+  return [self nb_setupCloudStoreWithContentNameKey:contentNameKey localStoreNamed:[self.class nb_appName] transactionsLogsSubdirectory:transactionsLogsSubdirectory error:error];
 }
 
-+ (BOOL)nb_setup_iCloudStoreWithContentNameKey:(NSString *)contentNameKey localStoreNamed:(NSString *)localStoreName transactionsLogsSubdirectory:(NSString *)logs error:(NSError **)error
++ (BOOL)nb_setupCloudStoreWithContentNameKey:(NSString *)contentNameKey localStoreNamed:(NSString *)localStoreName transactionsLogsSubdirectory:(NSString *)logs error:(NSError **)error
 {
   if([[UIDevice currentDevice] systemMajorVersion] < 7) {
     NBLog(@"No iCloud support on iOS 6! Local store will be used");
