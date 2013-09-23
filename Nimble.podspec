@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "Nimble"
   s.version      = "0.0.1"
-  s.summary      = "Core Data (and iCloud) made *nimble* and fast."
+  s.summary      = "Core Data and iCloud made nimble and fast."
   s.homepage     = "http://github.com/marcosero/Nimble"
   s.license      = 'MIT'
   s.author       = { "Marco Sero" => "marco@marcosero.com" }
