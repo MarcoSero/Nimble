@@ -127,6 +127,19 @@ static NimbleStore *mainStore;
   return YES;
 }
 
++ (void)teardown {
+    NSAssert(mainStore, @"Calling teardown when store was not set up", nil);
+
+    mainStore.mainContext = nil;
+    mainStore.backgroundContext = nil;
+    mainStore.persistentStoreCoordinator = nil;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:mainStore];
+    
+    mainStore = nil;
+    
+}
+
 - (void)pr_registerToNotifications
 {
   [[NSNotificationCenter defaultCenter] addObserver:self
