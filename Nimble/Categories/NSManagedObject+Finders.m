@@ -251,7 +251,7 @@
 
 + (NSPredicate *)pr_getPredicateForAttribute:(NSString *)attribute searchValue:(id)searchValue
 {
-  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ = %@", attribute, searchValue];
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %@", attribute, searchValue];
   return predicate;
 }
 
