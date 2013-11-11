@@ -83,6 +83,11 @@ typedef void (^NimbleErrorBlock)(NSError *error);
 + (BOOL)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType options:(NSDictionary *)options error:(NSError **)error;
 
 /**
+ Teardown existing Core Data setup
+*/
++ (void)teardown;
+
+/**
   Execute a fetch request in one of the contexts.
   It will use the same thread of the context your fetching from.
 */
