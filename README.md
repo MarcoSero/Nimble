@@ -16,7 +16,7 @@ The answer is quite easy. I needed a Core Data wrapper with these features:
 
 CocoaPods makes our lifes easy :)
 
-    pod "Nimble"
+    pod "Nimble-CoreData"
 
 and then import `Nimble.h` into your prefix file.
 
