@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author       = { "Marco Sero" => "marco@marcosero.com" }
   s.source       = { :git => "https://github.com/MarcoSero/Nimble.git", :tag => "0.0.5" }
   s.platform     = :ios, '6.0'
-  s.source_files = 'Nimble/*.{h,m}', 'Nimble/**/.{h,m}'
+  s.source_files = 'Nimble/*.{h,m}', 'Nimble/**/*.{h,m}'
   s.framework = 'CoreData'
   s.requires_arc = true
 end
