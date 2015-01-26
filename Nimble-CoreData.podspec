@@ -9,5 +9,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '6.0'
   s.source_files = 'Nimble/*.{h,m}', 'Nimble/**/*.{h,m}'
   s.framework = 'CoreData'
+  s.prefix_header_contents = '#import <CoreData/CoreData.h>'
   s.requires_arc = true
 end
