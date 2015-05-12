@@ -36,9 +36,9 @@
 - (void)testSaveInBackground
 {
   [NimbleStore nb_saveInBackground:^(NBContextType contextType) {
-    XCTAssertFalse((![NSThread mainThread]), @"Not main thread");
+    XCTAssertFalse(([NSThread isMainThread]), @"Not main thread");
   }                     completion:^(NSError *error) {
-    XCTAssertTrue(([NSThread mainThread]), @"Main thread");
+    XCTAssertTrue(([NSThread isMainThread]), @"Main thread");
   }];
 }
 
