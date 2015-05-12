@@ -10,8 +10,15 @@
 
 #import "AppDelegate.h"
 
+@interface TestAppDelegate : UIResponder <UIApplicationDelegate>
+@end
+@implementation TestAppDelegate
+@end
+
 int main(int argc, char *argv[]) {
   @autoreleasepool {
-    return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+    BOOL isRunningTests = NSClassFromString(@"XCTest") != nil;
+    Class appDelegateClass = isRunningTests ? TestAppDelegate.class : AppDelegate.class;
+    return UIApplicationMain(argc, argv, nil, NSStringFromClass(appDelegateClass));
   }
 }

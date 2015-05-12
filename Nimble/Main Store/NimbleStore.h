@@ -60,27 +60,27 @@ typedef void (^NimbleErrorBlock)(NSError *error);
 /**
   Setup a in-memory store
 */
-+ (BOOL)nb_setupInMemoryStore:(NSError **)error;
++ (BOOL)nb_setupInMemoryStore:(NSError * __autoreleasing*)error;
 
 /**
   Setup a store with the default filename
 */
-+ (BOOL)nb_setupStore:(NSError **)error;
++ (BOOL)nb_setupStore:(NSError * __autoreleasing*)error;
 
 /**
   Setup a store with a custom filename
 */
-+ (BOOL)nb_setupStoreWithFilename:(NSString *)filename error:(NSError **)error;
++ (BOOL)nb_setupStoreWithFilename:(NSString *)filename error:(NSError * __autoreleasing*)error;
 
 /**
   Setup a custom store with a custom file name
 */
-+ (BOOL)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType error:(NSError **)error;
++ (BOOL)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType error:(NSError * __autoreleasing*)error;
 
 /**
   Setup a custom store with a custom name, also passing specific options
 */
-+ (BOOL)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType options:(NSDictionary *)options error:(NSError **)error;
++ (BOOL)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType options:(NSDictionary *)options error:(NSError * __autoreleasing*)error;
 
 /**
  Teardown existing Core Data setup
@@ -91,7 +91,7 @@ typedef void (^NimbleErrorBlock)(NSError *error);
   Execute a fetch request in one of the contexts.
   It will use the same thread of the context your fetching from.
 */
-+ (NSArray *)nb_executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NBContextType)contextType error:(NSError **)error;
++ (NSArray *)nb_executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NBContextType)contextType error:(NSError *__autoreleasing*)error;
 
 /**
   Shortcut to access main context

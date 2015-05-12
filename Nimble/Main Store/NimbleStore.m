@@ -48,24 +48,24 @@ static NimbleStore *mainStore;
 
 #pragma mark - Setup store
 
-+ (BOOL)nb_setupStore:(NSError **)error
++ (BOOL)nb_setupStore:(NSError * __autoreleasing*)error
 {
   return [self nb_setupStoreWithFilename:[self.class nb_defaultStoreName] error:error];
 }
 
-+ (BOOL)nb_setupStoreWithFilename:(NSString *)filename error:(NSError **)error
++ (BOOL)nb_setupStoreWithFilename:(NSString *)filename error:(NSError * __autoreleasing*)error
 {
   NSParameterAssert(filename);
 
   return [self nb_setupStoreWithName:filename storeType:NSSQLiteStoreType error:error];
 }
 
-+ (BOOL)nb_setupInMemoryStore:(NSError **)error
++ (BOOL)nb_setupInMemoryStore:(NSError * __autoreleasing*)error
 {
-  return [self nb_setupStoreWithName:nil storeType:NSInMemoryStoreType error:error];
+  return [self nb_setupStoreWithName:@"in_memory" storeType:NSInMemoryStoreType error:error];
 }
 
-+ (BOOL)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType error:(NSError **)error
++ (BOOL)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType error:(NSError * __autoreleasing*)error
 {
   NSParameterAssert(filename);
   NSParameterAssert(storeType);
@@ -73,7 +73,7 @@ static NimbleStore *mainStore;
   return [self nb_setupStoreWithName:filename storeType:storeType options:nil error:error];
 }
 
-+ (BOOL)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType options:(NSDictionary *)options error:(NSError **)error
++ (BOOL)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType options:(NSDictionary *)options error:(NSError * __autoreleasing*)error
 {
   NSAssert(!mainStore, @"Store already was already set up", nil);
 
@@ -98,14 +98,15 @@ static NimbleStore *mainStore;
   NSURL *localStoreURL = [self nb_URLToStoreWithFilename:filename];
 
   [mainStore.persistentStoreCoordinator lock];
+  NSError *localError;
   NSPersistentStore *persistentStore = [mainStore.persistentStoreCoordinator addPersistentStoreWithType:storeType
                                                                                           configuration:nil
                                                                                                     URL:localStoreURL
                                                                                                 options:options
-                                                                                                  error:error];
+                                                                                                  error:&localError];
   [mainStore.persistentStoreCoordinator unlock];
 
-  if (error || !persistentStore) {
+  if (localError || !persistentStore) {
     NSString *errorMessage = @"No managed object model found.";
     NBLog(errorMessage, nil);
     if (error != NULL) {
@@ -171,16 +172,19 @@ static NimbleStore *mainStore;
 
 #pragma mark - Fetch request
 
-+ (NSArray *)nb_executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NBContextType)contextType error:(NSError **)error
++ (NSArray *)nb_executeFetchRequest:(NSFetchRequest *)request inContextOfType:(NBContextType)contextType error:(NSError *__autoreleasing*)error
 {
   NSParameterAssert(request);
 
-  NSArray *results = [[NSManagedObjectContext nb_contextForType:contextType] executeFetchRequest:request error:error];
+  NSError *localError;
+  NSArray *results = [[NSManagedObjectContext nb_contextForType:contextType] executeFetchRequest:request error:&localError];
 
-  if (error) {
+  if (localError) {
     NSString *errorMessage = [NSString stringWithFormat:@"Error in fetch request: %@\nError: %@", request, *error];
     NBLog(errorMessage, nil);
-    *error = [NSError errorWithDomain:NBNimbleErrorDomain code:NBNimbleErrorCode userInfo:@{@"error" : errorMessage}];
+    if (error) {
+      *error = [NSError errorWithDomain:NBNimbleErrorDomain code:NBNimbleErrorCode userInfo:@{@"error" : errorMessage}];
+    }
 #ifdef DEBUG
     @throw ([NSException exceptionWithName:NBPersistentStoreException reason:errorMessage userInfo:nil]);
 #endif
