@@ -460,7 +460,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mogenerator -m NimbleDemo/Demo/Model/Model.xcdatamodel -H NimbleDemo/Demo/Model/Classes -M NimbleDemo/Demo/Model/Mogenerated --template-var arc=true";
+			shellScript = "/usr/local/bin/mogenerator -m NimbleDemo/Demo/Model/Model.xcdatamodel -H NimbleDemo/Demo/Model/Classes -M NimbleDemo/Demo/Model/Mogenerated --template-var arc=true";
 		};
 /* End PBXShellScriptBuildPhase section */
 
