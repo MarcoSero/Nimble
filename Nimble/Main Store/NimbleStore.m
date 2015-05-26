@@ -70,7 +70,8 @@ static NimbleStore *mainStore;
   NSParameterAssert(filename);
   NSParameterAssert(storeType);
 
-  return [self nb_setupStoreWithName:filename storeType:storeType options:nil error:error];
+  return [self nb_setupStoreWithName:filename storeType:storeType options:@{NSMigratePersistentStoresAutomaticallyOption : @YES,
+              NSInferMappingModelAutomaticallyOption : @YES} error:error];
 }
 
 + (BOOL)nb_setupStoreWithName:(NSString *)filename storeType:(NSString * const)storeType options:(NSDictionary *)options error:(NSError * __autoreleasing*)error
