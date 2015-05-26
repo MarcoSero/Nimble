@@ -4,6 +4,10 @@
 
 Core Data (and iCloud) made *nimble* and fast.
 
+## :warning: Warning :warning:
+
+Unfortunately I don't have the time to actively maintain this framework anymore. If you have a problem or would like to add a new feature, please open a pull request and I'll consider merging it.
+
 ## Why
 
 The answer is quite easy. I needed a Core Data wrapper with these features:
